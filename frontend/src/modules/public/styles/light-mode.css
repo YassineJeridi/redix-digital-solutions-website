@@ -1,0 +1,310 @@
+/* ============================================
+   Light Mode Overrides for Public Website
+   Applied via [data-public-theme="light"]
+   Centralized approach — overrides common patterns
+   ============================================ */
+
+/* ── Body & App ── */
+[data-public-theme="light"] .app {
+  color: var(--text-body, #4a4a6a);
+}
+
+/* ── Section backgrounds — ALL transparent for global bg ── */
+[data-public-theme="light"] section,
+[data-public-theme="light"] [class*="section"],
+[data-public-theme="light"] [class*="Section"] {
+  background: transparent !important;
+}
+
+[data-public-theme="light"] section::before,
+[data-public-theme="light"] [class*="section"]::before {
+  opacity: 0.15;
+}
+
+/* ── Headings — Redix Purple / Dark Gray for visibility ── */
+[data-public-theme="light"] h1,
+[data-public-theme="light"] h2,
+[data-public-theme="light"] h3,
+[data-public-theme="light"] h4,
+[data-public-theme="light"] h5,
+[data-public-theme="light"] h6 {
+  color: var(--text-heading, #1a1a2e) !important;
+  -webkit-text-fill-color: var(--text-heading, #1a1a2e) !important;
+}
+
+/* Override white gradient text → dark gradient for titles */
+[data-public-theme="light"] [class*="title"],
+[data-public-theme="light"] [class*="Title"] {
+  background: linear-gradient(135deg, #1a1a2e 0%, #7817b6 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+/* ── Body / secondary text — WCAG AA contrast ── */
+[data-public-theme="light"] p {
+  color: #4a4a6a !important;
+}
+
+[data-public-theme="light"] span {
+  color: inherit;
+}
+
+[data-public-theme="light"] li {
+  color: #4a4a6a !important;
+}
+
+[data-public-theme="light"] [class*="subtitle"],
+[data-public-theme="light"] [class*="Subtitle"],
+[data-public-theme="light"] [class*="description"],
+[data-public-theme="light"] [class*="Description"] {
+  color: #4a4a6a !important;
+}
+
+[data-public-theme="light"] [class*="text"],
+[data-public-theme="light"] [class*="Text"] {
+  color: #4a4a6a;
+}
+
+/* ── Cards — solid white bg with soft shadow ── */
+[data-public-theme="light"] [class*="card"],
+[data-public-theme="light"] [class*="Card"] {
+  background: var(--bg-card, #ffffff) !important;
+  border: var(--card-border) !important;
+  border-radius: var(--card-radius, 1rem) !important;
+  box-shadow: var(--card-shadow, 0 4px 20px rgba(0, 0, 0, 0.05)) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+[data-public-theme="light"] [class*="card"]:hover,
+[data-public-theme="light"] [class*="Card"]:hover {
+  background: var(--bg-card-hover, #ffffff) !important;
+  border-color: var(--border-color-hover, rgba(120, 23, 182, 0.2)) !important;
+  box-shadow: var(--card-shadow-hover, 0 8px 32px rgba(0, 0, 0, 0.08)) !important;
+}
+
+/* Card text inside cards stays readable */
+[data-public-theme="light"] [class*="card"] h1,
+[data-public-theme="light"] [class*="card"] h2,
+[data-public-theme="light"] [class*="card"] h3,
+[data-public-theme="light"] [class*="card"] h4,
+[data-public-theme="light"] [class*="Card"] h1,
+[data-public-theme="light"] [class*="Card"] h2,
+[data-public-theme="light"] [class*="Card"] h3,
+[data-public-theme="light"] [class*="Card"] h4 {
+  color: #1a1a2e !important;
+  -webkit-text-fill-color: #1a1a2e !important;
+  background: none !important;
+}
+
+[data-public-theme="light"] [class*="card"] p,
+[data-public-theme="light"] [class*="Card"] p {
+  color: #4a4a6a !important;
+}
+
+/* ── Footer ── */
+[data-public-theme="light"] footer,
+[data-public-theme="light"] [class*="footer"],
+[data-public-theme="light"] [class*="Footer"] {
+  background: rgba(255, 255, 255, 0.85) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.04) !important;
+}
+
+[data-public-theme="light"] [class*="footer"] a,
+[data-public-theme="light"] [class*="Footer"] a {
+  color: #4a4a6a;
+}
+
+[data-public-theme="light"] [class*="footer"] a:hover,
+[data-public-theme="light"] [class*="Footer"] a:hover {
+  color: #7817b6;
+}
+
+[data-public-theme="light"] [class*="footer"] h1,
+[data-public-theme="light"] [class*="footer"] h2,
+[data-public-theme="light"] [class*="footer"] h3,
+[data-public-theme="light"] [class*="footer"] h4,
+[data-public-theme="light"] [class*="footer"] h5,
+[data-public-theme="light"] [class*="Footer"] h1,
+[data-public-theme="light"] [class*="Footer"] h2,
+[data-public-theme="light"] [class*="Footer"] h3,
+[data-public-theme="light"] [class*="Footer"] h4,
+[data-public-theme="light"] [class*="Footer"] h5 {
+  color: #1a1a2e !important;
+  -webkit-text-fill-color: #1a1a2e !important;
+  background: none !important;
+}
+
+[data-public-theme="light"] [class*="footerBottom"],
+[data-public-theme="light"] [class*="FooterBottom"] {
+  border-top-color: rgba(0, 0, 0, 0.06) !important;
+}
+
+/* ── Modal & Overlay ── */
+[data-public-theme="light"] [class*="modal"],
+[data-public-theme="light"] [class*="Modal"] {
+  background: var(--bg-modal, rgba(255, 255, 255, 0.98)) !important;
+  border-color: var(--border-color) !important;
+  border-radius: var(--card-radius, 1rem) !important;
+}
+
+[data-public-theme="light"] [class*="overlay"],
+[data-public-theme="light"] [class*="Overlay"],
+[data-public-theme="light"] [class*="backdrop"],
+[data-public-theme="light"] [class*="Backdrop"] {
+  background: rgba(0, 0, 0, 0.3) !important;
+}
+
+/* ── Buttons — keep primary buttons white text ── */
+[data-public-theme="light"] [class*="primary"],
+[data-public-theme="light"] [class*="Primary"],
+[data-public-theme="light"] [class*="cta"],
+[data-public-theme="light"] [class*="Cta"] {
+  color: white !important;
+  -webkit-text-fill-color: white !important;
+}
+
+/* ── Stat numbers / counters ── */
+[data-public-theme="light"] [class*="stat"] [class*="number"],
+[data-public-theme="light"] [class*="stat"] [class*="value"],
+[data-public-theme="light"] [class*="counter"],
+[data-public-theme="light"] [class*="count"],
+[data-public-theme="light"] [class*="number"],
+[data-public-theme="light"] [class*="price"],
+[data-public-theme="light"] [class*="Price"] {
+  color: #1a1a2e !important;
+  -webkit-text-fill-color: #1a1a2e !important;
+  background: none !important;
+}
+
+/* ── Decorative overlays — reduce opacity in light mode ── */
+[data-public-theme="light"] [class*="grid"],
+[data-public-theme="light"] [class*="Grid"],
+[data-public-theme="light"] [class*="animatedGrid"] {
+  opacity: 0.15;
+}
+
+[data-public-theme="light"] [class*="particle"],
+[data-public-theme="light"] [class*="Particle"],
+[data-public-theme="light"] [class*="floatingIcon"],
+[data-public-theme="light"] [class*="glow"],
+[data-public-theme="light"] [class*="Glow"],
+[data-public-theme="light"] [class*="backgroundGlow"] {
+  opacity: 0.15 !important;
+}
+
+/* ── Dividers / borders ── */
+[data-public-theme="light"] [class*="divider"],
+[data-public-theme="light"] [class*="Divider"],
+[data-public-theme="light"] hr {
+  border-color: rgba(0, 0, 0, 0.06) !important;
+  background: rgba(0, 0, 0, 0.06) !important;
+}
+
+/* ── Inputs / form fields ── */
+[data-public-theme="light"] input,
+[data-public-theme="light"] textarea,
+[data-public-theme="light"] select {
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  color: #1a1a2e !important;
+  border-radius: var(--card-radius, 1rem) !important;
+}
+
+[data-public-theme="light"] input::placeholder,
+[data-public-theme="light"] textarea::placeholder {
+  color: #9ca3af !important;
+}
+
+[data-public-theme="light"] input:focus,
+[data-public-theme="light"] textarea:focus,
+[data-public-theme="light"] select:focus {
+  border-color: #7817b6 !important;
+  box-shadow: 0 0 0 3px rgba(120, 23, 182, 0.08) !important;
+}
+
+/* ── Badge / tag / chip ── */
+[data-public-theme="light"] [class*="badge"],
+[data-public-theme="light"] [class*="Badge"],
+[data-public-theme="light"] [class*="tag"],
+[data-public-theme="light"] [class*="Tag"],
+[data-public-theme="light"] [class*="chip"],
+[data-public-theme="light"] [class*="Chip"],
+[data-public-theme="light"] [class*="sectionTag"] {
+  background: rgba(120, 23, 182, 0.06) !important;
+  color: #7817b6 !important;
+  border-color: rgba(120, 23, 182, 0.12) !important;
+}
+
+/* ── Icon containers ── */
+[data-public-theme="light"] [class*="iconWrapper"],
+[data-public-theme="light"] [class*="iconContainer"],
+[data-public-theme="light"] [class*="IconWrapper"] {
+  background: rgba(120, 23, 182, 0.06) !important;
+}
+
+/* ── Chat popup/widget ── */
+[data-public-theme="light"] [class*="chatPopup"],
+[data-public-theme="light"] [class*="ChatPopup"],
+[data-public-theme="light"] [class*="chatWidget"] {
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.06) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* ── Testimonials ── */
+[data-public-theme="light"] [class*="testimonialText"],
+[data-public-theme="light"] [class*="quoteText"] {
+  color: #4a4a6a !important;
+}
+
+/* ── Video / showcase sections stay transparent ── */
+[data-public-theme="light"] [class*="showcase"],
+[data-public-theme="light"] [class*="Showcase"] {
+  background: transparent !important;
+}
+
+/* ── SVG / icon color adjustments ── */
+[data-public-theme="light"] [class*="card"] svg,
+[data-public-theme="light"] [class*="Card"] svg {
+  color: #7817b6;
+}
+
+[data-public-theme="light"] [class*="icon"] {
+  color: #7817b6;
+}
+
+/* ── Logo filter for footer ── */
+[data-public-theme="light"] [class*="footer"] [class*="logo"] img,
+[data-public-theme="light"] [class*="Footer"] [class*="logo"] img {
+  filter: brightness(0.2) contrast(1.2);
+}
+
+/* ── Loading screen ── */
+[data-public-theme="light"] [class*="loadingScreen"] {
+  background: #f8f9fa !important;
+}
+
+/* ── Gradient text overrides for section tags ── */
+[data-public-theme="light"] [class*="gradientText"],
+[data-public-theme="light"] [class*="GradientText"] {
+  background: linear-gradient(135deg, #7817b6, #c12de0) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+/* ── White top-line decorators on cards ── */
+[data-public-theme="light"] [class*="card"]::before,
+[data-public-theme="light"] [class*="Card"]::before {
+  background: linear-gradient(90deg, transparent, rgba(120, 23, 182, 0.12), transparent) !important;
+}
+
+/* ── Smooth transitions for theme switch ── */
+.app,
+.app *:not(canvas) {
+  transition: background-color 0.4s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}

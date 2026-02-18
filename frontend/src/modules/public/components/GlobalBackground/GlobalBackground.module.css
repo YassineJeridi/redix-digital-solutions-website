@@ -1,0 +1,566 @@
+/* src/components/GlobalBackground/GlobalBackground.module.css */
+.globalBackground {
+    position: relative;
+    width: 100%;
+    overflow-x: hidden;
+    background: linear-gradient(180deg,
+            #0a0a0a 0%,
+            #1a0a1a 25%,
+            #0a0a0a 50%,
+            #1a0a1a 75%,
+            #0a0a0a 100%);
+}
+
+.backgroundLayers {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.content {
+    position: relative;
+    z-index: 10;
+}
+
+/* Layer 1: Floating Orbs */
+.orbsLayer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.floatingOrb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    pointer-events: none;
+    will-change: transform;
+}
+
+/* Individual Orb Styles with better distribution */
+.orb1 {
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(193, 45, 224, 0.4), transparent);
+    top: 5%;
+    left: 5%;
+}
+
+.orb2 {
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(232, 86, 255, 0.3), transparent);
+    top: 15%;
+    right: 10%;
+}
+
+.orb3 {
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.35), transparent);
+    top: 25%;
+    left: 15%;
+}
+
+.orb4 {
+    width: 220px;
+    height: 220px;
+    background: radial-gradient(circle, rgba(6, 255, 165, 0.25), transparent);
+    top: 35%;
+    right: 20%;
+}
+
+.orb5 {
+    width: 160px;
+    height: 160px;
+    background: radial-gradient(circle, rgba(255, 107, 157, 0.3), transparent);
+    top: 45%;
+    left: 70%;
+}
+
+.orb6 {
+    width: 140px;
+    height: 140px;
+    background: radial-gradient(circle, rgba(79, 172, 254, 0.3), transparent);
+    top: 55%;
+    right: 30%;
+}
+
+.orb7 {
+    width: 190px;
+    height: 190px;
+    background: radial-gradient(circle, rgba(247, 112, 154, 0.25), transparent);
+    top: 65%;
+    left: 40%;
+}
+
+.orb8 {
+    width: 170px;
+    height: 170px;
+    background: radial-gradient(circle, rgba(102, 126, 234, 0.3), transparent);
+    top: 75%;
+    right: 45%;
+}
+
+.orb9 {
+    width: 130px;
+    height: 130px;
+    background: radial-gradient(circle, rgba(240, 147, 251, 0.35), transparent);
+    top: 85%;
+    left: 25%;
+}
+
+.orb10 {
+    width: 210px;
+    height: 210px;
+    background: radial-gradient(circle, rgba(79, 172, 254, 0.25), transparent);
+    top: 95%;
+    left: 60%;
+}
+
+.orb11 {
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, rgba(193, 45, 224, 0.4), transparent);
+    top: 105%;
+    right: 60%;
+}
+
+.orb12 {
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle, rgba(232, 86, 255, 0.3), transparent);
+    top: 115%;
+    right: 70%;
+}
+
+.orb13 {
+    width: 160px;
+    height: 160px;
+    background: radial-gradient(circle, rgba(168, 237, 234, 0.25), transparent);
+    top: 125%;
+    left: 10%;
+}
+
+.orb14 {
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(254, 202, 87, 0.2), transparent);
+    top: 135%;
+    right: 10%;
+}
+
+.orb15 {
+    width: 140px;
+    height: 140px;
+    background: radial-gradient(circle, rgba(72, 219, 251, 0.3), transparent);
+    top: 145%;
+    right: 50%;
+}
+
+/* Layer 2: Geometric Shapes */
+.shapesLayer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    will-change: transform;
+}
+
+.geometricShape {
+    position: absolute;
+    border: 2px solid rgba(193, 45, 224, 0.15);
+    pointer-events: none;
+    will-change: transform;
+}
+
+.shape1 {
+    width: 80px;
+    height: 80px;
+    top: 10%;
+    left: 20%;
+    border-radius: 10px;
+}
+
+.shape2 {
+    width: 60px;
+    height: 60px;
+    top: 30%;
+    right: 25%;
+    border-radius: 50%;
+}
+
+.shape3 {
+    width: 100px;
+    height: 100px;
+    top: 50%;
+    left: 40%;
+    transform: rotate(45deg);
+}
+
+.shape4 {
+    width: 70px;
+    height: 70px;
+    top: 70%;
+    right: 40%;
+    border-radius: 50%;
+    border-color: rgba(232, 86, 255, 0.2);
+}
+
+.shape5 {
+    width: 90px;
+    height: 90px;
+    top: 90%;
+    left: 70%;
+    border-radius: 15px;
+    border-color: rgba(139, 92, 246, 0.15);
+}
+
+.shape6 {
+    width: 50px;
+    height: 50px;
+    top: 110%;
+    right: 60%;
+    border-radius: 50%;
+}
+
+.shape7 {
+    width: 110px;
+    height: 110px;
+    top: 130%;
+    left: 10%;
+    transform: rotate(45deg);
+    border-color: rgba(79, 172, 254, 0.1);
+}
+
+.shape8 {
+    width: 65px;
+    height: 65px;
+    top: 150%;
+    right: 80%;
+    border-radius: 10px;
+}
+
+/* Layer 3: Particles */
+.particlesLayer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    will-change: transform;
+}
+
+.particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: linear-gradient(45deg, rgba(193, 45, 224, 0.8), rgba(232, 86, 255, 0.8));
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(193, 45, 224, 0.6);
+    pointer-events: none;
+    will-change: transform;
+}
+
+/* Layer 4: Mouse Follower */
+.mouseFollower {
+    position: fixed;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(193, 45, 224, 0.1), transparent);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    filter: blur(40px);
+    z-index: 5;
+    will-change: transform;
+}
+
+/* Layer 5: Animated Grid */
+.gridLayer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+}
+
+.animatedGrid {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.gridDot {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: rgba(193, 45, 224, 0.4);
+    border-radius: 50%;
+    will-change: transform;
+}
+
+/* Layer 6: Flowing Waves */
+.wavesLayer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    will-change: transform;
+}
+
+.wave {
+    position: absolute;
+    height: 100px;
+    border-radius: 50px;
+    filter: blur(30px);
+    pointer-events: none;
+    will-change: transform;
+}
+
+.wave1 {
+    width: 400px;
+    background: linear-gradient(90deg, transparent, rgba(193, 45, 224, 0.2), transparent);
+}
+
+.wave2 {
+    width: 500px;
+    background: linear-gradient(90deg, transparent, rgba(232, 86, 255, 0.15), transparent);
+}
+
+.wave3 {
+    width: 300px;
+    background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.2), transparent);
+}
+
+.wave4 {
+    width: 600px;
+    background: linear-gradient(90deg, transparent, rgba(79, 172, 254, 0.1), transparent);
+}
+
+/* Layer 7: Rotating Rings */
+.ringsLayer {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    will-change: transform;
+}
+
+.rotatingRing {
+    position: absolute;
+    border: 1px solid rgba(193, 45, 224, 0.1);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    will-change: transform;
+}
+
+.ring1 {
+    width: 400px;
+    height: 400px;
+    border-top-color: rgba(193, 45, 224, 0.3);
+    border-right-color: transparent;
+}
+
+.ring2 {
+    width: 600px;
+    height: 600px;
+    border-left-color: rgba(232, 86, 255, 0.2);
+    border-bottom-color: transparent;
+}
+
+.ring3 {
+    width: 800px;
+    height: 800px;
+    border-right-color: rgba(139, 92, 246, 0.15);
+    border-top-color: transparent;
+}
+
+.ring4 {
+    width: 1000px;
+    height: 1000px;
+    border-bottom-color: rgba(79, 172, 254, 0.1);
+    border-left-color: transparent;
+}
+
+.ring5 {
+    width: 1200px;
+    height: 1200px;
+    border-top-color: rgba(255, 107, 157, 0.1);
+    border-right-color: transparent;
+}
+
+.ring6 {
+    width: 1400px;
+    height: 1400px;
+    border-left-color: rgba(168, 237, 234, 0.08);
+    border-bottom-color: transparent;
+}
+
+/* Layer 8: Constellation */
+.constellationLayer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    pointer-events: none;
+    will-change: transform;
+}
+
+/* Layer 9: Scroll-based Elements */
+.scrollElements {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.scrollElement {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(45deg, rgba(193, 45, 224, 0.2), rgba(232, 86, 255, 0.2));
+    border-radius: 50%;
+    filter: blur(20px);
+    will-change: transform;
+}
+
+.scrollElement:nth-child(1) {
+    top: 10%;
+    left: 80%;
+}
+
+.scrollElement:nth-child(2) {
+    top: 20%;
+    left: 10%;
+}
+
+.scrollElement:nth-child(3) {
+    top: 30%;
+    left: 90%;
+}
+
+.scrollElement:nth-child(4) {
+    top: 40%;
+    left: 20%;
+}
+
+.scrollElement:nth-child(5) {
+    top: 50%;
+    left: 85%;
+}
+
+.scrollElement:nth-child(6) {
+    top: 60%;
+    left: 15%;
+}
+
+.scrollElement:nth-child(7) {
+    top: 70%;
+    left: 75%;
+}
+
+.scrollElement:nth-child(8) {
+    top: 80%;
+    left: 25%;
+}
+
+.scrollElement:nth-child(9) {
+    top: 90%;
+    left: 80%;
+}
+
+.scrollElement:nth-child(10) {
+    top: 100%;
+    left: 30%;
+}
+
+/* Performance Optimizations */
+.backgroundLayers * {
+    will-change: transform;
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .floatingOrb {
+        filter: blur(40px);
+    }
+
+    .rotatingRing {
+        width: 300px !important;
+        height: 300px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .floatingOrb {
+        filter: blur(30px);
+        opacity: 0.6;
+    }
+
+    .geometricShape {
+        opacity: 0.5;
+    }
+
+    .mouseFollower {
+        display: none;
+    }
+
+    .particle {
+        width: 2px;
+        height: 2px;
+    }
+}
+
+@media (max-width: 480px) {
+    .orbsLayer {
+        opacity: 0.7;
+    }
+
+    .particlesLayer {
+        opacity: 0.8;
+    }
+
+    .wavesLayer {
+        opacity: 0.6;
+    }
+
+    .ringsLayer {
+        opacity: 0.5;
+    }
+}
+
+/* Smooth scrolling performance */
+@media (prefers-reduced-motion: reduce) {
+
+    .floatingOrb,
+    .geometricShape,
+    .particle,
+    .wave,
+    .rotatingRing,
+    .gridDot,
+    .star,
+    .scrollElement {
+        animation: none;
+        transform: none !important;
+    }
+
+    .mouseFollower {
+        display: none;
+    }
+}

@@ -1,0 +1,93 @@
+├───backend
+│   │   .env
+│   │   package-lock.json
+│   │   package.json
+│   │   server.js
+│   │
+│   ├───config
+│   │       db.js
+│   │
+│   ├───controllers
+│   │       clientController.js
+│   │       dashboardController.js
+│   │       marketingController.js
+│   │       settingsController.js
+│   │       toolsController.js
+│   │
+│   ├───middleware
+│   │       auth.js
+│   │       errorHandler.js
+│   │
+│   ├───models
+│   │       Client.js
+│   │       MarketingProject.js
+│   │       Project.js
+│   │       TeamMember.js
+│   │       Tool.js
+│   │
+│   └───routes
+│           clients.js
+│           dashboard.js
+│           marketing.js
+│           projects.js
+│           settings.js
+│           tools.js
+│
+└───frontend
+    │   index.html
+    │   package-lock.json
+    │   package.json
+    │   vite.config.js
+    │
+    ├───public
+    └───src
+        │   App.jsx
+        │   index.css
+        │   main.jsx
+        │
+        ├───components
+        │   ├───Clients
+        │   │       ClientCard.jsx
+        │   │       ClientForm.jsx
+        │   │       ClientsList.jsx
+        │   │
+        │   ├───Dashboard
+        │   │       FinancialCard.jsx
+        │   │       MetricCard.jsx
+        │   │       RecentRevenue.jsx
+        │   │       RevenueChart.jsx
+        │   │
+        │   ├───Layout
+        │   │       Layout.jsx
+        │   │       Navbar.jsx
+        │   │       Sidebar.jsx
+        │   │
+        │   ├───Marketing
+        │   │       MarketingProjectForm.jsx
+        │   │       MarketingProjectsList.jsx
+        │   │
+        │   ├───Settings
+        │   │       TeamMemberForm.jsx
+        │   │       TeamMembersList.jsx
+        │   │
+        │   └───Tools
+        │           ToolForm.jsx
+        │           ToolsList.jsx
+        │
+        ├───context
+        │       AppContext.jsx
+        │
+        ├───pages
+        │       Clients.jsx
+        │       Dashboard.jsx
+        │       Marketing.jsx
+        │       Settings.jsx
+        │       Tools.jsx
+        │
+        └───services
+                ClientsServices.js
+                DashboardServices.js
+                MarketingServices.js
+                ProjectsServices.js
+                SettingsServices.js
+                ToolsServices.js
