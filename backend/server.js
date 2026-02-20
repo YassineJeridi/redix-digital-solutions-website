@@ -1,8 +1,9 @@
 import express from 'express';
-import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import cron from 'node-cron';
+import connectDB from './config/db.js';
+import errorHandler from './middleware/errorHandler.js';
 
 // Import routes
 import authRoutes from './routes/auth.js';
@@ -38,7 +39,7 @@ app.use(express.urlencoded({ limit: '50mb', extended: true }));
 app.use('/api/auth', authRoutes);
 app.use('/api/clients', clientRoutes);
 app.use('/api/projects', projectRoutes);
-app.use('/api/services', projectRoutes);
+app.use('/api/services', projectRoutes); // Alias — frontend uses /api/services
 app.use('/api/tools', toolRoutes);
 app.use('/api/settings', settingsRoutes);
 app.use('/api/dashboard', dashboardRoutes);
@@ -64,10 +65,8 @@ cron.schedule('0 0 * * *', async () => {
     }
 });
 
-// MongoDB Connection
-mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/redix-agency')
-    .then(() => console.log('✅ MongoDB connected successfully'))
-    .catch((err) => console.error('❌ MongoDB connection error:', err));
+// Database connection
+connectDB();
 
 // Root route
 app.get('/', (req, res) => {
@@ -75,13 +74,7 @@ app.get('/', (req, res) => {
 });
 
 // Error handling middleware
-app.use((err, req, res, next) => {
-    console.error(err.stack);
-    res.status(500).json({
-        message: 'Something went wrong!',
-        error: process.env.NODE_ENV === 'development' ? err.message : undefined
-    });
-});
+app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 

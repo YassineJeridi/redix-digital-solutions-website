@@ -110,7 +110,7 @@
     height: 26px;
     border-radius: 50%;
     background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-    color: var(--text-primary);
+    color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;

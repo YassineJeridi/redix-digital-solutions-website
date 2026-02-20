@@ -153,27 +153,27 @@ const Investing = () => {
                     </div>
                 </div>
                 <div className={styles.summaryCard}>
-                    <MdShowChart className={styles.sumIcon} style={{ color: '#7817b6' }} />
+                    <MdShowChart className={styles.sumIcon} style={{ color: 'var(--accent-dark)' }} />
                     <div>
                         <span className={styles.sumLabel}>Current Value</span>
                         <span className={styles.sumValue}>{totalCurrent.toLocaleString()} TND</span>
                     </div>
                 </div>
                 <div className={styles.summaryCard}>
-                    {totalPnL >= 0 ? <MdTrendingUp className={styles.sumIcon} style={{ color: '#10b981' }} /> :
-                        <MdTrendingDown className={styles.sumIcon} style={{ color: '#ef4444' }} />}
+                    {totalPnL >= 0 ? <MdTrendingUp className={styles.sumIcon} style={{ color: 'var(--success)' }} /> :
+                        <MdTrendingDown className={styles.sumIcon} style={{ color: 'var(--danger)' }} />}
                     <div>
                         <span className={styles.sumLabel}>Total P&L</span>
-                        <span className={styles.sumValue} style={{ color: totalPnL >= 0 ? '#10b981' : '#ef4444' }}>
+                        <span className={styles.sumValue} style={{ color: totalPnL >= 0 ? 'var(--success)' : 'var(--danger)' }}>
                             {totalPnL >= 0 ? '+' : ''}{totalPnL.toLocaleString()} TND
                         </span>
                     </div>
                 </div>
                 <div className={styles.summaryCard}>
-                    <MdTrendingUp className={styles.sumIcon} style={{ color: totalReturn >= 0 ? '#10b981' : '#ef4444' }} />
+                    <MdTrendingUp className={styles.sumIcon} style={{ color: totalReturn >= 0 ? 'var(--success)' : 'var(--danger)' }} />
                     <div>
                         <span className={styles.sumLabel}>Return</span>
-                        <span className={styles.sumValue} style={{ color: totalReturn >= 0 ? '#10b981' : '#ef4444' }}>
+                        <span className={styles.sumValue} style={{ color: totalReturn >= 0 ? 'var(--success)' : 'var(--danger)' }}>
                             {totalReturn >= 0 ? '+' : ''}{totalReturn.toFixed(2)}%
                         </span>
                     </div>
@@ -228,7 +228,7 @@ const Investing = () => {
                                                     <td>{item.shares}</td>
                                                     <td>{item.purchasePrice.toLocaleString()} TND</td>
                                                     <td>{item.currentPrice.toLocaleString()} TND</td>
-                                                    <td style={{ color: pnl >= 0 ? '#10b981' : '#ef4444', fontWeight: 700 }}>
+                                                    <td style={{ color: pnl >= 0 ? 'var(--success)' : 'var(--danger)', fontWeight: 700 }}>
                                                         {pnl >= 0 ? '+' : ''}{pnl.toLocaleString()} TND ({pnlPercent.toFixed(1)}%)
                                                     </td>
                                                     <td className={styles.valueCol}>{(item.currentPrice * item.shares).toLocaleString()} TND</td>
@@ -296,7 +296,7 @@ const Investing = () => {
                                             <span className={styles.watchName}>{item.name}</span>
                                         </div>
                                         <button className={styles.starBtn} onClick={() => toggleWatchlistStar(item.id)}>
-                                            {item.starred ? <MdStar style={{ color: '#f59e0b' }} /> : <MdStarBorder />}
+                                            {item.starred ? <MdStar style={{ color: 'var(--warning)' }} /> : <MdStarBorder />}
                                         </button>
                                     </div>
                                     <div className={styles.watchBody}>
@@ -425,21 +425,21 @@ const Investing = () => {
                             </div>
                             <div className={styles.metricWidget}>
                                 <h4>Max Drawdown</h4>
-                                <span className={styles.metricBig} style={{ color: '#ef4444' }}>
+                                <span className={styles.metricBig} style={{ color: 'var(--danger)' }}>
                                     {portfolio.length > 0 ? '-8.3%' : '--'}
                                 </span>
                                 <span className={styles.metricHint}>Largest peak-to-trough</span>
                             </div>
                             <div className={styles.metricWidget}>
                                 <h4>VaR (95%)</h4>
-                                <span className={styles.metricBig} style={{ color: '#f59e0b' }}>
+                                <span className={styles.metricBig} style={{ color: 'var(--warning)' }}>
                                     {portfolio.length > 0 ? `${Math.round(totalInvested * 0.032).toLocaleString()} TND` : '--'}
                                 </span>
                                 <span className={styles.metricHint}>Daily Value at Risk</span>
                             </div>
                             <div className={styles.metricWidget}>
                                 <h4>Win Rate</h4>
-                                <span className={styles.metricBig} style={{ color: '#10b981' }}>
+                                <span className={styles.metricBig} style={{ color: 'var(--success)' }}>
                                     {portfolio.length > 0 ? `${Math.round(portfolio.filter(p => p.currentPrice >= p.purchasePrice).length / portfolio.length * 100)}%` : '--'}
                                 </span>
                                 <span className={styles.metricHint}>Profitable positions</span>

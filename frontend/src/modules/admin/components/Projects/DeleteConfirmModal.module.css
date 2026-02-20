@@ -195,7 +195,7 @@
 
 .deleteBtn {
     background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
-    color: var(--text-primary);
+    color: #fff;
 }
 
 .deleteBtn:hover:not(:disabled) {

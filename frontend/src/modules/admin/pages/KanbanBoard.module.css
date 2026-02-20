@@ -75,7 +75,7 @@
     font-size: 14px;
     font-weight: 700;
     background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-    color: var(--text-primary);
+    color: #fff;
     border: none;
     cursor: pointer;
     transition: all 0.2s;
@@ -440,7 +440,7 @@
     font-size: 13px;
     font-weight: 700;
     background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-    color: var(--text-primary);
+    color: #fff;
     cursor: pointer;
     transition: opacity 0.2s;
 }

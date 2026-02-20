@@ -203,7 +203,7 @@ const TeamMembersList = () => {
 
                                     <div className={styles.financialItem}>
                                         <span className={styles.financialLabel}>Pending</span>
-                                        <span className={styles.financialValue} style={{ color: '#f59e0b' }}>
+                                        <span className={styles.financialValue} style={{ color: 'var(--warning)' }}>
                                             {member.pendingEarnings?.toFixed(2) || '0.00'} TND
                                         </span>
                                     </div>

@@ -414,13 +414,13 @@
 }
 
 .submitBtn {
-    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-    color: var(--text-primary);
+    background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+    color: #fff;
 }
 
 .submitBtn:hover:not(:disabled) {
     transform: translateY(-2px);
-    box-shadow: 0 8px 16px rgba(37, 99, 235, 0.3);
+    box-shadow: 0 8px 16px var(--shadow-accent);
 }
 
 .submitBtn:disabled {

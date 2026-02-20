@@ -69,7 +69,7 @@
 .saveBtn {
     padding: 12px 24px;
     background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-    color: var(--text-primary);
+    color: #fff;
     border: none;
     border-radius: 10px;
     font-size: 14px;

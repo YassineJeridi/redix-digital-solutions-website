@@ -58,8 +58,8 @@ const Dashboard = () => {
             {/* Key Metrics */}
             <div className={styles.metricsGrid}>
                 <div className={styles.metricCard}>
-                    <div className={styles.metricIcon} style={{ background: 'rgba(193, 45, 224, 0.1)' }}>
-                        <MdTrendingUp style={{ color: '#c12de0' }} />
+                    <div className={styles.metricIcon} style={{ background: 'var(--accent-subtle)' }}>
+                        <MdTrendingUp style={{ color: 'var(--accent)' }} />
                     </div>
                     <div className={styles.metricContent}>
                         <span className={styles.metricLabel}>Total Revenue</span>
@@ -67,8 +67,8 @@ const Dashboard = () => {
                     </div>
                 </div>
                 <div className={styles.metricCard}>
-                    <div className={styles.metricIcon} style={{ background: 'rgba(239, 68, 68, 0.1)' }}>
-                        <MdReceipt style={{ color: '#ef4444' }} />
+                    <div className={styles.metricIcon} style={{ background: 'var(--danger-subtle)' }}>
+                        <MdReceipt style={{ color: 'var(--danger)' }} />
                     </div>
                     <div className={styles.metricContent}>
                         <span className={styles.metricLabel}>Total Expenses</span>
@@ -76,8 +76,8 @@ const Dashboard = () => {
                     </div>
                 </div>
                 <div className={styles.metricCard}>
-                    <div className={styles.metricIcon} style={{ background: 'rgba(16, 185, 129, 0.1)' }}>
-                        <MdAccountBalance style={{ color: '#10b981' }} />
+                    <div className={styles.metricIcon} style={{ background: 'var(--success-subtle)' }}>
+                        <MdAccountBalance style={{ color: 'var(--success)' }} />
                     </div>
                     <div className={styles.metricContent}>
                         <span className={styles.metricLabel}>Net Profit</span>
@@ -85,8 +85,8 @@ const Dashboard = () => {
                     </div>
                 </div>
                 <div className={styles.metricCard}>
-                    <div className={styles.metricIcon} style={{ background: 'rgba(120, 23, 182, 0.1)' }}>
-                        <MdSavings style={{ color: '#7817b6' }} />
+                    <div className={styles.metricIcon} style={{ background: 'var(--accent-subtle)' }}>
+                        <MdSavings style={{ color: 'var(--accent-dark)' }} />
                     </div>
                     <div className={styles.metricContent}>
                         <span className={styles.metricLabel}>Redix Caisse</span>
@@ -101,16 +101,16 @@ const Dashboard = () => {
                     <MdWork /> <strong>{metrics.totalProjects || 0}</strong> Services
                 </div>
                 <div className={styles.statChip}>
-                    <MdCheckCircle style={{ color: '#10b981' }} /> <strong>{metrics.completedProjects || 0}</strong> Completed
+                    <MdCheckCircle style={{ color: 'var(--success)' }} /> <strong>{metrics.completedProjects || 0}</strong> Completed
                 </div>
                 <div className={styles.statChip}>
-                    <MdPending style={{ color: '#f59e0b' }} /> <strong>{metrics.activeProjects || 0}</strong> Active
+                    <MdPending style={{ color: 'var(--warning)' }} /> <strong>{metrics.activeProjects || 0}</strong> Active
                 </div>
                 <div className={styles.statChip}>
-                    <MdReceipt style={{ color: '#ef4444' }} /> <strong>{metrics.pendingPayments || 0}</strong> Pending Payments
+                    <MdReceipt style={{ color: 'var(--danger)' }} /> <strong>{metrics.pendingPayments || 0}</strong> Pending Payments
                 </div>
                 <div className={styles.statChip}>
-                    <MdCheckCircle style={{ color: '#10b981' }} /> <strong>{metrics.donePayments || 0}</strong> Paid
+                    <MdCheckCircle style={{ color: 'var(--success)' }} /> <strong>{metrics.donePayments || 0}</strong> Paid
                 </div>
             </div>
 
@@ -154,13 +154,7 @@ const Dashboard = () => {
                                 ))}
                             </Pie>
                             <Tooltip formatter={(value) => `${value.toLocaleString()} TND`}
-                                contentStyle={{ background: 'var(--card-bg, white)', border: '1px solid var(--border-color, #e5e7eb)', borderRadius: '10px' }} />
-                            <Legend
-                                formatter={(value, entry) => {
-                                    const item = (metrics.departmentTotals || []).find(d => d.name === value);
-                                    return `${value}: ${item ? item.value.toLocaleString() : 0} TND`;
-                                }}
-                            />
+                                contentStyle={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: '10px' }} />
                         </PieChart>
                     </ResponsiveContainer>
                 </div>
@@ -174,8 +168,7 @@ const Dashboard = () => {
                             <XAxis dataKey="week" tick={{ fontSize: 12, fill: 'var(--text-secondary, #6b7280)' }} />
                             <YAxis tick={{ fontSize: 12, fill: 'var(--text-secondary, #6b7280)' }} />
                             <Tooltip formatter={(value) => `${value.toLocaleString()} TND`}
-                                contentStyle={{ background: 'var(--card-bg, white)', border: '1px solid var(--border-color, #e5e7eb)', borderRadius: '10px' }} />
-                            <Legend />
+                                contentStyle={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: '10px' }} />
                             <Line type="monotone" dataKey="Marketing" stroke="#8b5cf6" strokeWidth={2.5} dot={{ r: 4 }} activeDot={{ r: 6 }} />
                             <Line type="monotone" dataKey="Production" stroke="#06b6d4" strokeWidth={2.5} dot={{ r: 4 }} activeDot={{ r: 6 }} />
                             <Line type="monotone" dataKey="Development" stroke="#f97316" strokeWidth={2.5} dot={{ r: 4 }} activeDot={{ r: 6 }} />

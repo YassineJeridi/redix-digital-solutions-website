@@ -182,7 +182,7 @@
 
 .submitBtn {
     background: var(--accent);
-    color: var(--text-primary);
+    color: #fff;
 }
 
 .submitBtn:hover {

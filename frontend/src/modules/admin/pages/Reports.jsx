@@ -275,19 +275,19 @@ const Reports = () => {
                         </div>
                         <div className={styles.profitCard}>
                             <h4>Total Costs</h4>
-                            <span className={styles.profitValue} style={{ color: '#ef4444' }}>
+                            <span className={styles.profitValue} style={{ color: 'var(--danger)' }}>
                                 {(profitability.totalCosts || 0).toLocaleString()} TND
                             </span>
                         </div>
                         <div className={styles.profitCard}>
                             <h4>Net Profit</h4>
-                            <span className={styles.profitValue} style={{ color: '#10b981' }}>
+                            <span className={styles.profitValue} style={{ color: 'var(--success)' }}>
                                 {(profitability.netProfit || 0).toLocaleString()} TND
                             </span>
                         </div>
                         <div className={styles.profitCard}>
                             <h4>Profit Margin</h4>
-                            <span className={styles.profitValue} style={{ color: '#7817b6' }}>
+                            <span className={styles.profitValue} style={{ color: 'var(--accent-dark)' }}>
                                 {(profitability.profitMargin || 0).toFixed(1)}%
                             </span>
                         </div>
@@ -303,19 +303,19 @@ const Reports = () => {
                             </div>
                             <div className={styles.agingCard}>
                                 <h4>31-60 Days</h4>
-                                <span className={styles.agingValue} style={{ color: '#f59e0b' }}>
+                                <span className={styles.agingValue} style={{ color: 'var(--warning)' }}>
                                     {(payments.aging31_60 || 0).toLocaleString()} TND
                                 </span>
                             </div>
                             <div className={styles.agingCard}>
                                 <h4>61-90 Days</h4>
-                                <span className={styles.agingValue} style={{ color: '#ef4444' }}>
+                                <span className={styles.agingValue} style={{ color: 'var(--danger)' }}>
                                     {(payments.aging61_90 || 0).toLocaleString()} TND
                                 </span>
                             </div>
                             <div className={styles.agingCard}>
                                 <h4>90+ Days</h4>
-                                <span className={styles.agingValue} style={{ color: '#dc2626' }}>
+                                <span className={styles.agingValue} style={{ color: 'var(--danger)' }}>
                                     {(payments.aging90Plus || 0).toLocaleString()} TND
                                 </span>
                             </div>

@@ -139,21 +139,21 @@ const TeamMembers = () => {
                     </div>
                 </div>
                 <div className={styles.summaryCard}>
-                    <MdAccountBalanceWallet className={styles.summaryIcon} style={{ color: '#10b981' }} />
+                    <MdAccountBalanceWallet className={styles.summaryIcon} style={{ color: 'var(--success)' }} />
                     <div>
                         <span className={styles.summaryLabel}>Total Received</span>
                         <span className={styles.summaryValue}>{totalReceived.toLocaleString()} TND</span>
                     </div>
                 </div>
                 <div className={styles.summaryCard}>
-                    <MdPayment className={styles.summaryIcon} style={{ color: '#f59e0b' }} />
+                    <MdPayment className={styles.summaryIcon} style={{ color: 'var(--warning)' }} />
                     <div>
                         <span className={styles.summaryLabel}>Total Withdrawn</span>
                         <span className={styles.summaryValue}>{totalWithdrawn.toLocaleString()} TND</span>
                     </div>
                 </div>
                 <div className={styles.summaryCard}>
-                    <MdAccountBalanceWallet className={styles.summaryIcon} style={{ color: '#3b82f6' }} />
+                    <MdAccountBalanceWallet className={styles.summaryIcon} style={{ color: 'var(--info)' }} />
                     <div>
                         <span className={styles.summaryLabel}>Current Balance</span>
                         <span className={styles.summaryValue}>{totalCurrentBalance.toLocaleString()} TND</span>
@@ -161,7 +161,7 @@ const TeamMembers = () => {
                 </div>
                 {totalPending > 0 && (
                     <div className={styles.summaryCard}>
-                        <MdAccountBalanceWallet className={styles.summaryIcon} style={{ color: '#a855f7' }} />
+                        <MdAccountBalanceWallet className={styles.summaryIcon} style={{ color: 'var(--accent)' }} />
                         <div>
                             <span className={styles.summaryLabel}>Total Pending</span>
                             <span className={styles.summaryValue}>{totalPending.toLocaleString()} TND</span>
@@ -223,26 +223,26 @@ const TeamMembers = () => {
                             <div className={styles.financials}>
                                 <div className={styles.finItem}>
                                     <span className={styles.finLabel}>Received</span>
-                                    <span className={styles.finValue} style={{ color: '#10b981' }}>
+                                    <span className={styles.finValue} style={{ color: 'var(--success)' }}>
                                         {(member.totalReceived || 0).toLocaleString()} TND
                                     </span>
                                 </div>
                                 <div className={styles.finItem}>
                                     <span className={styles.finLabel}>Withdrawn</span>
-                                    <span className={styles.finValue} style={{ color: '#f59e0b' }}>
+                                    <span className={styles.finValue} style={{ color: 'var(--warning)' }}>
                                         {(member.totalWithdrawn || 0).toLocaleString()} TND
                                     </span>
                                 </div>
                                 <div className={styles.finItem}>
                                     <span className={styles.finLabel}>Balance</span>
-                                    <span className={styles.finValue} style={{ color: ((member.totalReceived || 0) - (member.totalWithdrawn || 0)) > 0 ? '#3b82f6' : '#ef4444' }}>
+                                    <span className={styles.finValue} style={{ color: ((member.totalReceived || 0) - (member.totalWithdrawn || 0)) > 0 ? 'var(--info)' : 'var(--danger)' }}>
                                         {((member.totalReceived || 0) - (member.totalWithdrawn || 0)).toLocaleString()} TND
                                     </span>
                                 </div>
                                 {(member.pendingEarnings || 0) > 0 && (
                                     <div className={styles.finItem}>
                                         <span className={styles.finLabel}>Pending</span>
-                                        <span className={styles.finValue} style={{ color: '#a855f7' }}>
+                                        <span className={styles.finValue} style={{ color: 'var(--accent)' }}>
                                             {(member.pendingEarnings || 0).toLocaleString()} TND
                                         </span>
                                     </div>

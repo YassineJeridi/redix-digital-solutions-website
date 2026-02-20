@@ -402,7 +402,7 @@
 
 .submitBtn {
     background: linear-gradient(135deg, #c12de0 0%, #a020c0 100%);
-    color: var(--text-primary);
+    color: #fff;
 }
 
 .submitBtn:hover:not(:disabled) {

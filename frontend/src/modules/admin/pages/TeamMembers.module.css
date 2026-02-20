@@ -22,7 +22,7 @@
     gap: 8px;
     padding: 10px 22px;
     background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-    color: var(--text-primary);
+    color: #fff;
     border: none;
     border-radius: 10px;
     font-size: 14px;
@@ -69,6 +69,7 @@
     padding: 20px;
     background: var(--bg-card);
     border-radius: 14px;
+    border: 1px solid var(--border-subtle);
     box-shadow: var(--shadow);
     transition: transform 0.2s;
 }
@@ -80,13 +81,21 @@
 .summaryIcon {
     font-size: 28px;
     color: var(--accent);
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: var(--accent-subtle);
+    flex-shrink: 0;
 }
 
 .summaryLabel {
     display: block;
     font-size: 12px;
     color: var(--text-secondary);
-    font-weight: 600;
+    font-weight: 700;
     text-transform: uppercase;
 }
 
@@ -154,13 +163,14 @@
     background: var(--bg-card);
     border-radius: 14px;
     padding: 24px;
+    border: 1px solid var(--border-subtle);
     box-shadow: var(--shadow);
     transition: all 0.3s ease;
     animation: slideIn 0.4s ease-out;
 }
 
 .memberCard:hover {
-    box-shadow: 0 8px 24px rgba(193, 45, 224, 0.1);
+    box-shadow: var(--shadow-lg);
 }
 
 .memberHeader {
@@ -178,7 +188,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--text-primary);
+    color: #fff;
     font-size: 20px;
     font-weight: 700;
     flex-shrink: 0;
@@ -224,18 +234,18 @@
 }
 
 .status_active {
-    background: rgba(16, 185, 129, 0.1);
-    color: #10b981;
+    background: rgba(16, 185, 129, 0.18);
+    color: #059669;
 }
 
 .status_inactive {
-    background: rgba(107, 114, 128, 0.1);
-    color: #6b7280;
+    background: rgba(107, 114, 128, 0.18);
+    color: #4b5563;
 }
 
 .status_suspended {
-    background: rgba(239, 68, 68, 0.1);
-    color: #ef4444;
+    background: rgba(239, 68, 68, 0.18);
+    color: #dc2626;
 }
 
 /* Financials */
@@ -244,7 +254,8 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 12px;
     padding: 14px;
-    background: var(--bg-primary);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-subtle);
     border-radius: 10px;
     margin-bottom: 14px;
 }
@@ -257,7 +268,7 @@
     display: block;
     font-size: 11px;
     color: var(--text-secondary);
-    font-weight: 600;
+    font-weight: 700;
     text-transform: uppercase;
     margin-bottom: 4px;
 }
@@ -303,7 +314,7 @@
     gap: 4px;
     padding: 6px 14px;
     background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-    color: var(--text-primary);
+    color: #fff;
     border: none;
     border-radius: 8px;
     font-size: 12px;
@@ -370,10 +381,10 @@
     text-transform: uppercase;
 }
 
-.tx_earning { background: rgba(16, 185, 129, 0.1); color: #10b981; }
-.tx_payment { background: rgba(245, 158, 11, 0.1); color: #f59e0b; }
-.tx_advance { background: rgba(193, 45, 224, 0.1); color: #c12de0; }
-.tx_deduction { background: rgba(239, 68, 68, 0.1); color: #ef4444; }
+.tx_earning { background: rgba(16, 185, 129, 0.18); color: #059669; }
+.tx_payment { background: rgba(245, 158, 11, 0.18); color: #d97706; }
+.tx_advance { background: rgba(193, 45, 224, 0.18); color: #a020c0; }
+.tx_deduction { background: rgba(239, 68, 68, 0.18); color: #dc2626; }
 
 .txDesc {
     flex: 1;
@@ -510,7 +521,7 @@
 .submitBtn {
     padding: 10px 22px;
     background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-    color: var(--text-primary);
+    color: #fff;
     border: none;
     border-radius: 8px;
     font-size: 14px;

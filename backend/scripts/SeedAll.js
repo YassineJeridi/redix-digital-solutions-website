@@ -26,11 +26,14 @@ const seedAll = async () => {
         console.log('🌱 Starting complete database seeding...\n');
 
         // Seed in order (dependencies first)
+        await runScript('SeedGlobalConfig.js');
+        await runScript('SeedCoreTeam.js');
         await runScript('SeedFinancialMetrics.js');
         await runScript('SeedClient.js');
         await runScript('SeedTeamMember.js');
         await runScript('SeedTool.js');
         await runScript('SeedCharge.js');
+        await runScript('SeedProject.js');
         await runScript('SeedMarketingProject.js');
 
         console.log('\n✅ All seeding completed successfully!');

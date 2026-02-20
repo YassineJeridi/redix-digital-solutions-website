@@ -23,8 +23,8 @@
     align-items: center;
     gap: 8px;
     padding: 12px 24px;
-    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-    color: var(--text-primary);
+    background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+    color: #fff;
     border: none;
     border-radius: 12px;
     font-size: 16px;
@@ -35,7 +35,7 @@
 
 .addBtn:hover:not(:disabled) {
     transform: translateY(-2px);
-    box-shadow: 0 8px 16px rgba(37, 99, 235, 0.3);
+    box-shadow: 0 8px 16px var(--shadow-accent);
 }
 
 .addBtn:disabled {
@@ -64,13 +64,16 @@
     align-items: center;
     gap: 20px;
     border-left: 4px solid;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border-top: 1px solid var(--border-subtle);
+    border-right: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
+    box-shadow: var(--shadow);
     transition: all 0.3s ease;
 }
 
 .summaryCard:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-lg);
 }
 
 .cardIcon {
@@ -95,7 +98,7 @@
 .cardLabel {
     font-size: 14px;
     font-weight: 600;
-    color: var(--text-muted);
+    color: var(--text-secondary);
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
@@ -123,7 +126,8 @@
     border-radius: 16px;
     padding: 32px;
     margin-bottom: 32px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-subtle);
 }
 
 .chartCard h3 {
@@ -260,13 +264,13 @@
 }
 
 .submitBtn {
-    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-    color: var(--text-primary);
+    background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+    color: #fff;
 }
 
 .submitBtn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 16px rgba(37, 99, 235, 0.3);
+    box-shadow: 0 8px 16px var(--shadow-accent);
 }
 
 /* Table Card */

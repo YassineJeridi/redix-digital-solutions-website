@@ -117,7 +117,7 @@
     gap: 8px;
     padding: 10px 20px;
     background: var(--accent);
-    color: var(--text-primary);
+    color: #fff;
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -136,7 +136,7 @@
 .removeImageBtn {
     padding: 8px 16px;
     background: var(--danger);
-    color: var(--text-primary);
+    color: #fff;
     border-radius: 6px;
     font-size: 13px;
     font-weight: 500;
@@ -213,7 +213,7 @@
 
 .submitBtn {
     background: var(--accent);
-    color: var(--text-primary);
+    color: #fff;
 }
 
 .submitBtn:hover {

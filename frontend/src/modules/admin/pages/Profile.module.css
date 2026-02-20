@@ -31,7 +31,7 @@
     padding: 32px;
     background: linear-gradient(135deg, var(--accent), var(--accent-dark));
     border-radius: 16px;
-    color: var(--text-primary);
+    color: #fff;
     margin-bottom: 24px;
 }
 
@@ -86,7 +86,7 @@
     right: 24px;
     padding: 14px 24px;
     background: var(--success);
-    color: var(--text-primary);
+    color: #fff;
     border-radius: 10px;
     font-weight: 600;
     font-size: 14px;
@@ -104,7 +104,7 @@
 .editProfileBtn {
     margin-top: 8px;
     background: rgba(255, 255, 255, 0.2);
-    color: var(--text-primary);
+    color: #fff;
     padding: 8px 16px;
     border-radius: 8px;
     font-size: 13px;
@@ -125,7 +125,7 @@
     margin-top: 8px;
     margin-left: 8px;
     background: rgba(255, 255, 255, 0.1);
-    color: var(--text-primary);
+    color: #fff;
     padding: 8px 16px;
     border-radius: 8px;
     font-size: 13px;
@@ -174,7 +174,7 @@
 .editRow input {
     background: transparent;
     border: none;
-    color: var(--text-primary);
+    color: #fff;
     font-size: 14px;
     padding: 8px 4px;
     width: 100%;
@@ -198,7 +198,7 @@
 
 .saveBtn {
     background: rgba(255, 255, 255, 0.25);
-    color: var(--text-primary);
+    color: #fff;
     padding: 8px 16px;
     border-radius: 8px;
     font-size: 13px;
@@ -362,7 +362,7 @@
     gap: 8px;
     padding: 12px 20px;
     background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-    color: var(--text-primary);
+    color: #fff;
     border: none;
     border-radius: 10px;
     font-size: 14px;
@@ -472,7 +472,7 @@
     height: 44px;
     border-radius: 12px;
     background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-    color: var(--text-primary);
+    color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;

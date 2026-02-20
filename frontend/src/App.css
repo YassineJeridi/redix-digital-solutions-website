@@ -11,6 +11,22 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ─── Focus Management ─────────────────────────────────────────────── */
+/* Remove outline on mouse/touch — keep for keyboard (accessible) */
+*:focus {
+  outline: none;
+}
+
+*:focus-visible {
+  outline: 2px solid #c12de0;
+  outline-offset: 2px;
+}
+
+button::-moz-focus-inner {
+  border: 0;
 }
 
 /* ─── Base ─────────────────────────────────────────────────────────── */
@@ -52,7 +68,6 @@ a:hover { color: var(--accent-hover); }
 button {
   cursor: pointer;
   border: none;
-  outline: none;
   font-family: inherit;
   font-size: 14px;
   transition: all var(--duration-fast) var(--ease);

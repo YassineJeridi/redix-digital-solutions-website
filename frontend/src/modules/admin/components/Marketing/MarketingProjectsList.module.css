@@ -40,7 +40,7 @@
     gap: 8px;
     padding: 12px 24px;
     background: var(--accent);
-    color: var(--text-primary);
+    color: #fff;
     border-radius: 8px;
     font-weight: 500;
 }
@@ -171,7 +171,7 @@
 
 .expandBtn:hover {
     background: var(--accent);
-    color: var(--text-primary);
+    color: #fff;
 }
 
 .cardDetails {

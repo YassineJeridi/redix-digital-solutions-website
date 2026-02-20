@@ -284,7 +284,7 @@
     height: 28px;
     border-radius: 50%;
     background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-    color: var(--text-primary);
+    color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -359,7 +359,7 @@
     height: 30px;
     border-radius: 50%;
     background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-    color: var(--text-primary);
+    color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -427,7 +427,7 @@
     align-items: center;
     justify-content: center;
     background: var(--accent);
-    color: var(--text-primary);
+    color: #fff;
     border: none;
     cursor: pointer;
     transition: all 0.2s;
@@ -486,7 +486,7 @@
     font-size: 13px;
     font-weight: 700;
     background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-    color: var(--text-primary);
+    color: #fff;
     border: none;
     cursor: pointer;
     transition: all 0.2s;

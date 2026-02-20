@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { verifyMasterKey } from '../../../services/configService';
+import { verifyMasterKey } from '../../../shared/configService';
 import { useScrollLock } from '../../../hooks/useScrollLock';
 import styles from './NotFound.module.css';
 

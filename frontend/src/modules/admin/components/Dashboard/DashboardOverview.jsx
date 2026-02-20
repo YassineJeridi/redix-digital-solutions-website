@@ -47,7 +47,7 @@ const DashboardOverview = () => {
             {/* Financial Metrics Cards */}
             <div className={styles.metricsGrid}>
                 <div className={styles.metricCard}>
-                    <div className={styles.metricIcon} style={{ background: 'rgba(16, 185, 129, 0.1)' }}>
+                    <div className={styles.metricIcon} style={{ background: 'var(--success-subtle)' }}>
                         <MdTrendingUp style={{ color: 'var(--success-color)' }} />
                     </div>
                     <div className={styles.metricContent}>
@@ -57,7 +57,7 @@ const DashboardOverview = () => {
                 </div>
 
                 <div className={styles.metricCard}>
-                    <div className={styles.metricIcon} style={{ background: 'rgba(239, 68, 68, 0.1)' }}>
+                    <div className={styles.metricIcon} style={{ background: 'var(--danger-subtle)' }}>
                         <MdTrendingUp style={{ color: 'var(--danger-color)', transform: 'rotate(180deg)' }} />
                     </div>
                     <div className={styles.metricContent}>
@@ -67,7 +67,7 @@ const DashboardOverview = () => {
                 </div>
 
                 <div className={styles.metricCard}>
-                    <div className={styles.metricIcon} style={{ background: 'rgba(99, 102, 241, 0.1)' }}>
+                    <div className={styles.metricIcon} style={{ background: 'var(--info-subtle)' }}>
                         <MdAccountBalance style={{ color: 'var(--primary-color)' }} />
                     </div>
                     <div className={styles.metricContent}>
@@ -77,7 +77,7 @@ const DashboardOverview = () => {
                 </div>
 
                 <div className={styles.metricCard}>
-                    <div className={styles.metricIcon} style={{ background: 'rgba(245, 158, 11, 0.1)' }}>
+                    <div className={styles.metricIcon} style={{ background: 'var(--warning-subtle)' }}>
                         <MdSavings style={{ color: 'var(--warning-color)' }} />
                     </div>
                     <div className={styles.metricContent}>

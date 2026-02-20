@@ -34,7 +34,7 @@
     padding: 24px 28px;
     border-bottom: 2px solid var(--border);
     background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-    color: var(--text-primary);
+    color: #fff;
     border-radius: 16px 16px 0 0;
 }
 
@@ -51,7 +51,7 @@
 
 .closeBtn {
     background: rgba(255, 255, 255, 0.2);
-    color: var(--text-primary);
+    color: #fff;
     font-size: 24px;
     padding: 8px;
     border-radius: 8px;
@@ -149,7 +149,7 @@
 .badge {
     padding: 4px 12px;
     background: var(--accent);
-    color: var(--text-primary);
+    color: #fff;
     border-radius: 20px;
     font-size: 12px;
     font-weight: 600;
@@ -219,7 +219,7 @@
 
 .iconBtn {
     background: var(--accent);
-    color: var(--text-primary);
+    color: #fff;
     font-size: 20px;
     padding: 12px;
     border-radius: 10px;
@@ -315,7 +315,7 @@
     align-items: center;
     padding: 16px 20px;
     background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-    color: var(--text-primary);
+    color: #fff;
     border-radius: 10px;
     margin-top: 16px;
     font-weight: 600;
@@ -345,7 +345,7 @@
 
 .addRowBtn:hover {
     background: var(--accent);
-    color: var(--text-primary);
+    color: #fff;
     border-style: solid;
 }
 
@@ -472,7 +472,7 @@
 .submitBtn {
     padding: 14px;
     background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-    color: var(--text-primary);
+    color: #fff;
     border-radius: 10px;
     font-weight: 600;
     font-size: 15px;

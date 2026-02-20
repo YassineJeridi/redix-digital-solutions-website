@@ -577,13 +577,13 @@ html {
   border: 0;
 }
 
-/* Focus Styles */
-*:focus {
+/* Focus Styles — handled globally in App.css via :focus-visible */
+*:focus-visible {
   outline: 2px solid var(--primary-color);
   outline-offset: 2px;
 }
 
-button:focus {
+button:focus-visible {
   outline-offset: 4px;
 }
 

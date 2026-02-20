@@ -161,9 +161,9 @@ const Expenses = () => {
 
             {/* Financial Summary Cards */}
             <div className={styles.summaryGrid}>
-                <div className={styles.summaryCard} style={{ borderColor: '#10b981' }}>
-                    <div className={styles.cardIcon} style={{ background: 'rgba(16, 185, 129, 0.1)' }}>
-                        <MdSavings style={{ color: '#10b981' }} />
+                <div className={styles.summaryCard} style={{ borderColor: 'var(--success)' }}>
+                    <div className={styles.cardIcon} style={{ background: 'var(--success-subtle)' }}>
+                        <MdSavings style={{ color: 'var(--success)' }} />
                     </div>
                     <div className={styles.cardContent}>
                         <span className={styles.cardLabel}>Redix Caisse</span>
@@ -171,9 +171,9 @@ const Expenses = () => {
                     </div>
                 </div>
 
-                <div className={styles.summaryCard} style={{ borderColor: '#ef4444' }}>
-                    <div className={styles.cardIcon} style={{ background: 'rgba(239, 68, 68, 0.1)' }}>
-                        <MdReceipt style={{ color: '#ef4444' }} />
+                <div className={styles.summaryCard} style={{ borderColor: 'var(--danger)' }}>
+                    <div className={styles.cardIcon} style={{ background: 'var(--danger-subtle)' }}>
+                        <MdReceipt style={{ color: 'var(--danger)' }} />
                     </div>
                     <div className={styles.cardContent}>
                         <span className={styles.cardLabel}>Total Expenses</span>
@@ -181,13 +181,13 @@ const Expenses = () => {
                     </div>
                 </div>
 
-                <div className={styles.summaryCard} style={{ borderColor: summary.balance >= 0 ? '#6366f1' : '#ef4444' }}>
-                    <div className={styles.cardIcon} style={{ background: summary.balance >= 0 ? 'rgba(99, 102, 241, 0.1)' : 'rgba(239, 68, 68, 0.1)' }}>
-                        <MdAccountBalance style={{ color: summary.balance >= 0 ? '#6366f1' : '#ef4444' }} />
+                <div className={styles.summaryCard} style={{ borderColor: summary.balance >= 0 ? 'var(--info)' : 'var(--danger)' }}>
+                    <div className={styles.cardIcon} style={{ background: summary.balance >= 0 ? 'var(--info-subtle)' : 'var(--danger-subtle)' }}>
+                        <MdAccountBalance style={{ color: summary.balance >= 0 ? 'var(--info)' : 'var(--danger)' }} />
                     </div>
                     <div className={styles.cardContent}>
                         <span className={styles.cardLabel}>Balance</span>
-                        <span className={styles.cardValue} style={{ color: summary.balance >= 0 ? '#10b981' : '#ef4444' }}>
+                        <span className={styles.cardValue} style={{ color: summary.balance >= 0 ? 'var(--success)' : 'var(--danger)' }}>
                             {summary.balance.toFixed(2)} TND
                         </span>
                     </div>
@@ -211,8 +211,8 @@ const Expenses = () => {
                         <Tooltip
                             formatter={(value) => `${value.toFixed(2)} TND`}
                             contentStyle={{
-                                background: 'white',
-                                border: '1px solid #e5e7eb',
+                                background: 'var(--bg-card)',
+                                border: '1px solid var(--border)',
                                 borderRadius: '8px'
                             }}
                         />

@@ -267,8 +267,8 @@ const Profile = () => {
             {/* Financial Overview */}
             <div className={styles.statsGrid}>
                 <div className={styles.statCard}>
-                    <div className={styles.statIcon} style={{ background: 'rgba(16, 185, 129, 0.1)' }}>
-                        <MdTrendingUp style={{ color: '#10b981' }} />
+                    <div className={styles.statIcon} style={{ background: 'var(--success-subtle)' }}>
+                        <MdTrendingUp style={{ color: 'var(--success)' }} />
                     </div>
                     <div className={styles.statContent}>
                         <span className={styles.statLabel}>Total Received</span>
@@ -276,8 +276,8 @@ const Profile = () => {
                     </div>
                 </div>
                 <div className={styles.statCard}>
-                    <div className={styles.statIcon} style={{ background: 'rgba(245, 158, 11, 0.1)' }}>
-                        <MdArrowDownward style={{ color: '#f59e0b' }} />
+                    <div className={styles.statIcon} style={{ background: 'var(--warning-subtle)' }}>
+                        <MdArrowDownward style={{ color: 'var(--warning)' }} />
                     </div>
                     <div className={styles.statContent}>
                         <span className={styles.statLabel}>Total Withdrawn</span>
@@ -285,8 +285,8 @@ const Profile = () => {
                     </div>
                 </div>
                 <div className={styles.statCard}>
-                    <div className={styles.statIcon} style={{ background: 'rgba(193, 45, 224, 0.1)' }}>
-                        <MdAccountBalanceWallet style={{ color: '#c12de0' }} />
+                    <div className={styles.statIcon} style={{ background: 'var(--accent-subtle)' }}>
+                        <MdAccountBalanceWallet style={{ color: 'var(--accent)' }} />
                     </div>
                     <div className={styles.statContent}>
                         <span className={styles.statLabel}>Current Balance</span>
@@ -297,20 +297,20 @@ const Profile = () => {
                 </div>
                 {(myProfile.pendingEarnings || 0) > 0 && (
                     <div className={styles.statCard}>
-                        <div className={styles.statIcon} style={{ background: 'rgba(168, 85, 247, 0.1)' }}>
-                            <MdHourglassEmpty style={{ color: '#a855f7' }} />
+                        <div className={styles.statIcon} style={{ background: 'var(--accent-subtle)' }}>
+                            <MdHourglassEmpty style={{ color: 'var(--accent)' }} />
                         </div>
                         <div className={styles.statContent}>
                             <span className={styles.statLabel}>Pending Earnings</span>
-                            <span className={styles.statValue} style={{ color: '#a855f7' }}>
+                            <span className={styles.statValue} style={{ color: 'var(--accent)' }}>
                                 {(myProfile.pendingEarnings || 0).toLocaleString()} TND
                             </span>
                         </div>
                     </div>
                 )}
                 <div className={styles.statCard}>
-                    <div className={styles.statIcon} style={{ background: 'rgba(59, 130, 246, 0.1)' }}>
-                        <MdHistory style={{ color: '#3b82f6' }} />
+                    <div className={styles.statIcon} style={{ background: 'var(--info-subtle)' }}>
+                        <MdHistory style={{ color: 'var(--info)' }} />
                     </div>
                     <div className={styles.statContent}>
                         <span className={styles.statLabel}>Transactions</span>
