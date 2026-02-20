@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { FaArrowLeft, FaArrowRight, FaStar } from 'react-icons/fa';
 import { FiArrowLeft, FiArrowRight } from 'react-icons/fi';
+import { useTranslation } from 'react-i18next';
 import styles from './Testimonials.module.css';
 import { testimonials } from '../../data/testimonials';
 
@@ -13,6 +14,7 @@ const Testimonials = () => {
   const [isPaused, setIsPaused] = useState(false);
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (isInView) {
@@ -148,13 +150,13 @@ const Testimonials = () => {
             className={styles.sectionTag}
             whileHover={{ scale: 1.05 }}
           >
-            Client Stories
+            {t('testimonials.tag')}
           </motion.span>
           <motion.h2 className={styles.title}>
-            What Our Clients Say
+            {t('testimonials.title')}
           </motion.h2>
           <motion.p className={styles.subtitle}>
-            Real feedback from our valued clients who trust us with their digital success
+            {t('testimonials.subtitle')}
           </motion.p>
         </motion.div>
 
@@ -211,7 +213,7 @@ const Testimonials = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.4 }}
                   >
-                    {testimonials[currentIndex].text}
+                    {t(`testimonials.items.${testimonials[currentIndex].id}.text`)}
                   </motion.p>
 
                   {/* Client Info */}
@@ -251,7 +253,7 @@ const Testimonials = () => {
                         animate={{ x: 0, opacity: 1 }}
                         transition={{ duration: 0.5, delay: 0.8 }}
                       >
-                        {testimonials[currentIndex].position}
+                        {t(`testimonials.items.${testimonials[currentIndex].id}.position`)}
                       </motion.span>
                       <motion.span
                         className={styles.serviceTag}
@@ -259,7 +261,7 @@ const Testimonials = () => {
                         animate={{ scale: 1 }}
                         transition={{ duration: 0.4, delay: 0.9 }}
                       >
-                        {testimonials[currentIndex].service}
+                        {t(`testimonials.items.${testimonials[currentIndex].id}.service`)}
                       </motion.span>
                     </div>
 

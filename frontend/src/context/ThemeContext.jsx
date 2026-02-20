@@ -10,18 +10,19 @@ export const useTheme = () => {
 
 export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState(() => {
-    // Respect saved preference, default to dark
-    const saved = localStorage.getItem('publicTheme');
-    if (saved === 'light' || saved === 'dark') return saved;
-    // Check system preference
+    try {
+      const saved = localStorage.getItem('redix-theme');
+      if (saved === 'light' || saved === 'dark') return saved;
+    } catch {}
     if (window.matchMedia?.('(prefers-color-scheme: light)').matches) return 'light';
     return 'dark';
   });
 
-  // Apply theme to DOM
+  // Apply theme attributes to <html> and persist
   useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
     document.documentElement.setAttribute('data-public-theme', theme);
-    localStorage.setItem('publicTheme', theme);
+    localStorage.setItem('redix-theme', theme);
   }, [theme]);
 
   const toggleTheme = useCallback(() => {
@@ -31,7 +32,7 @@ export const ThemeProvider = ({ children }) => {
   const isDark = theme === 'dark';
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme, isDark }}>
+    <ThemeContext.Provider value={{ theme, isDark, toggleTheme }}>
       {children}
     </ThemeContext.Provider>
   );

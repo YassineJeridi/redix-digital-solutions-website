@@ -1,6 +1,7 @@
 // src/components/Portfolio/FashionGallery.jsx
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useScrollLock } from '../../../../hooks/useScrollLock';
 import { FaPlay, FaTimes, FaTshirt } from 'react-icons/fa';
 import { fashionVideos } from '../../data/portfolioData'; // ← Make sure this is fashionVideos
 import styles from './PortfolioGallery.module.css';
@@ -9,13 +10,13 @@ const FashionGallery = () => {
   const [selectedMedia, setSelectedMedia] = useState(null);
   const [selectedBrand, setSelectedBrand] = useState('All');
 
+  useScrollLock(!!selectedMedia);
+
   const brands = ['All', 'Nude Style', 'BTheLabel', 'Roar', 'Stripes'];
 
   const filteredVideos = selectedBrand === 'All' 
-    ? fashionVideos  // ← Using fashionVideos here
+    ? fashionVideos
     : fashionVideos.filter(v => v.brand === selectedBrand);
-
-  console.log('Fashion Videos:', fashionVideos); // ← Add this to debug
 
   return (
     <div className={styles.gallery}>

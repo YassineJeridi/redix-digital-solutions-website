@@ -159,14 +159,14 @@ const DashboardOverview = () => {
                 </ResponsiveContainer>
             </div>
 
-            {/* Project Stats */}
+            {/* Service Stats */}
             <div className={styles.projectStats}>
                 <div className={styles.statItem}>
-                    <span className={styles.statLabel}>Active Projects</span>
+                    <span className={styles.statLabel}>Active Services</span>
                     <span className={styles.statValue}>{stats?.activeProjects || 0}</span>
                 </div>
                 <div className={styles.statItem}>
-                    <span className={styles.statLabel}>Completed Projects</span>
+                    <span className={styles.statLabel}>Completed Services</span>
                     <span className={styles.statValue}>{stats?.completedProjects || 0}</span>
                 </div>
             </div>

@@ -1,5 +1,5 @@
 .card {
-    background: var(--card-bg, white);
+    background: var(--bg-card);
     border-radius: 12px;
     padding: 20px;
     box-shadow: var(--shadow);
@@ -18,13 +18,13 @@
     align-items: start;
     margin-bottom: 16px;
     padding-bottom: 16px;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border);
 }
 
 .businessName {
     font-size: 18px;
     font-weight: 600;
-    color: var(--text-dark);
+    color: var(--text-primary);
 }
 
 .revenue {
@@ -33,7 +33,7 @@
     gap: 4px;
     padding: 6px 12px;
     background: rgba(16, 185, 129, 0.1);
-    color: var(--success-color);
+    color: var(--success);
     border-radius: 8px;
     font-weight: 600;
     font-size: 14px;
@@ -47,7 +47,7 @@
 
 .ownerName {
     font-size: 14px;
-    color: var(--text-light);
+    color: var(--text-secondary);
     font-weight: 500;
 }
 
@@ -62,12 +62,12 @@
     align-items: center;
     gap: 8px;
     font-size: 13px;
-    color: var(--text-light);
+    color: var(--text-secondary);
 }
 
 .contactItem svg {
     font-size: 16px;
-    color: var(--primary-color);
+    color: var(--accent);
 }
 
 @keyframes slideIn {

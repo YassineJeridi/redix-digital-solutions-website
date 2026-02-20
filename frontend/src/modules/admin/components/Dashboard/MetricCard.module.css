@@ -1,18 +1,22 @@
 .card {
-    background: var(--card-bg, white);
+    background: var(--bg-card);
     border-radius: 12px;
     padding: 24px;
     display: flex;
     align-items: center;
     gap: 16px;
     box-shadow: var(--shadow);
-    transition: all 0.3s ease;
-    animation: fadeIn 0.5s ease-in;
+    transition: transform var(--duration-slow) var(--ease), box-shadow var(--duration-slow) var(--ease);
+    animation: cardReveal 320ms var(--ease);
 }
 
 .card:hover {
     box-shadow: var(--shadow-lg);
-    transform: translateY(-5px);
+    transform: translateY(-4px);
+}
+
+.card:active {
+    transform: translateY(-2px) scale(0.99);
 }
 
 .icon {
@@ -27,22 +31,22 @@
 
 .card.primary .icon {
     background: rgba(193, 45, 224, 0.1);
-    color: var(--primary-color);
+    color: var(--accent);
 }
 
 .card.success .icon {
     background: rgba(16, 185, 129, 0.1);
-    color: var(--success-color);
+    color: var(--success);
 }
 
 .card.warning .icon {
     background: rgba(245, 158, 11, 0.1);
-    color: var(--warning-color);
+    color: var(--warning);
 }
 
 .card.danger .icon {
     background: rgba(239, 68, 68, 0.1);
-    color: var(--danger-color);
+    color: var(--danger);
 }
 
 .content {
@@ -51,14 +55,14 @@
 
 .title {
     font-size: 14px;
-    color: var(--text-light);
+    color: var(--text-secondary);
     margin-bottom: 8px;
 }
 
 .value {
     font-size: 28px;
     font-weight: 700;
-    color: var(--text-dark);
+    color: var(--text-primary);
 }
 
 @keyframes fadeIn {

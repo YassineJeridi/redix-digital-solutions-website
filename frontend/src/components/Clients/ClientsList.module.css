@@ -1,5 +1,5 @@
 .container {
-    animation: fadeIn 0.5s ease-in;
+    animation: pageFadeIn var(--duration) var(--ease);
 }
 
 .header {
@@ -12,7 +12,7 @@
 .header h1 {
     font-size: 28px;
     font-weight: 700;
-    color: var(--text-dark);
+    color: var(--text-primary);
 }
 
 .addBtn {
@@ -20,10 +20,19 @@
     align-items: center;
     gap: 8px;
     padding: 12px 24px;
-    background: var(--primary-color);
-    color: white;
+    background: var(--accent);
+    color: var(--text-primary);
     border-radius: 8px;
     font-weight: 500;
+    transition: transform var(--duration) var(--ease), box-shadow var(--duration) var(--ease), background var(--duration) var(--ease);
+}
+
+.addBtn:hover {
+    transform: translateY(-1px);
+}
+
+.addBtn:active {
+    transform: scale(0.98);
 }
 
 .clientsGrid {
@@ -33,17 +42,21 @@
 }
 
 .clientCard {
-    background: var(--card-bg, white);
+    background: var(--bg-card);
     border-radius: 12px;
     box-shadow: var(--shadow);
     overflow: hidden;
-    transition: all 0.3s ease;
-    animation: slideIn 0.5s ease-out;
+    transition: transform var(--duration-slow) var(--ease), box-shadow var(--duration-slow) var(--ease);
+    animation: cardReveal 320ms var(--ease);
 }
 
 .clientCard:hover {
-    transform: translateY(-5px);
+    transform: translateY(-4px);
     box-shadow: var(--shadow-lg);
+}
+
+.clientCard:active {
+    transform: translateY(-2px) scale(0.99);
 }
 
 .cardHeader {
@@ -52,7 +65,7 @@
     align-items: start;
     padding: 24px;
     background: linear-gradient(135deg, rgba(193, 45, 224, 0.05), rgba(120, 23, 182, 0.05));
-    border-bottom: 2px solid var(--border-color);
+    border-bottom: 2px solid var(--border);
 }
 
 .profileSection {
@@ -66,8 +79,8 @@
     height: 70px;
     border-radius: 50%;
     overflow: hidden;
-    background: var(--card-bg, white);
-    border: 3px solid var(--primary-color);
+    background: var(--bg-card);
+    border: 3px solid var(--accent);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -81,18 +94,18 @@
 
 .avatar svg {
     font-size: 36px;
-    color: var(--text-light);
+    color: var(--text-secondary);
 }
 
 .nameSection h3 {
     font-size: 18px;
-    color: var(--text-dark);
+    color: var(--text-primary);
     margin-bottom: 4px;
 }
 
 .ownerName {
     font-size: 14px;
-    color: var(--text-light);
+    color: var(--text-secondary);
     margin: 0;
 }
 
@@ -103,32 +116,37 @@
 
 .editBtn,
 .deleteBtn {
-    background: var(--card-bg, white);
+    background: var(--bg-card);
     font-size: 18px;
     padding: 10px;
     border-radius: 8px;
-    transition: all 0.3s ease;
+    transition: background var(--duration) var(--ease), color var(--duration) var(--ease), transform var(--duration) var(--ease);
     box-shadow: var(--shadow);
 }
 
 .editBtn {
-    color: var(--primary-color);
+    color: var(--accent);
 }
 
 .editBtn:hover {
-    background: var(--primary-color);
-    color: white;
-    transform: scale(1.1);
+    background: var(--accent);
+    color: var(--text-primary);
+    transform: scale(1.06);
+}
+
+.editBtn:active,
+.deleteBtn:active {
+    transform: scale(0.96);
 }
 
 .deleteBtn {
-    color: var(--danger-color);
+    color: var(--danger);
 }
 
 .deleteBtn:hover {
-    background: var(--danger-color);
-    color: white;
-    transform: scale(1.1);
+    background: var(--danger);
+    color: var(--text-primary);
+    transform: scale(1.06);
 }
 
 .cardBody {
@@ -143,25 +161,25 @@
     align-items: center;
     gap: 12px;
     font-size: 14px;
-    color: var(--text-dark);
+    color: var(--text-primary);
 }
 
 .infoItem .icon {
     font-size: 20px;
-    color: var(--primary-color);
+    color: var(--accent);
 }
 
 .notes {
     margin-top: 8px;
     padding: 12px;
-    background: var(--light-bg);
+    background: var(--bg-primary);
     border-radius: 8px;
-    border-left: 3px solid var(--primary-color);
+    border-left: 3px solid var(--accent);
 }
 
 .notes p {
     font-size: 13px;
-    color: var(--text-light);
+    color: var(--text-secondary);
     line-height: 1.5;
     margin: 0;
 }

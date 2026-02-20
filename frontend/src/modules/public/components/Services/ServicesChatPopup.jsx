@@ -1,6 +1,7 @@
 // src/components/Services/ServicesChatPopup.jsx
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useScrollLock } from '../../../../hooks/useScrollLock';
 import {
   FaTimes, FaUser, FaEnvelope, FaPhone, FaCommentDots,
   FaPaperPlane, FaCheckCircle, FaSpinner, FaExclamationCircle
@@ -8,6 +9,8 @@ import {
 import styles from './ServicesChatPopup.module.css';
 
 const ServicesChatPopup = ({ service, onClose }) => {
+  useScrollLock(true);
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',

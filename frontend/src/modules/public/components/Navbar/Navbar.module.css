@@ -9,7 +9,7 @@
   z-index: 1000;
   padding: 0.5rem 0;
   background: transparent;
-  transition: all 0.3s ease;
+  transition: background var(--anim-smooth) var(--ease-smooth), padding var(--anim-smooth) var(--ease-smooth), border-color var(--anim-smooth) var(--ease-smooth), box-shadow var(--anim-smooth) var(--ease-smooth);
 }
 
 .navbar.scrolled {
@@ -41,13 +41,17 @@
 .logoImage {
   height: 90px;
   width: auto;
-  transition: all 0.3s ease;
+  transition: transform var(--anim-normal) var(--ease-smooth), filter var(--anim-normal) var(--ease-smooth);
   filter: drop-shadow(0 0 20px rgba(193, 45, 224, 0.3));
 }
 
 .logo:hover .logoImage {
   filter: drop-shadow(0 0 30px rgba(193, 45, 224, 0.5));
   transform: scale(1.02);
+}
+
+.logo:active .logoImage {
+  transform: scale(0.99);
 }
 
 /* Desktop Navigation */
@@ -74,13 +78,17 @@
   font-family: inherit;
   text-decoration: none;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background var(--anim-normal) var(--ease-smooth), color var(--anim-normal) var(--ease-smooth), border-color var(--anim-normal) var(--ease-smooth), transform var(--anim-normal) var(--ease-smooth);
   letter-spacing: 0.01em;
 }
 
 .navLink:hover {
   background: rgba(193, 45, 224, 0.12);
   color: #fff;
+}
+
+.navLink:active {
+  transform: scale(0.98);
 }
 
 .navLink.active {
@@ -92,7 +100,7 @@
 .chevron {
   font-size: 0.65rem;
   margin-left: 0.15rem;
-  transition: transform 0.3s ease;
+  transition: transform var(--anim-normal) var(--ease-smooth);
   opacity: 0.7;
 }
 
@@ -119,6 +127,7 @@
   padding: 0.625rem;
   box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(193, 45, 224, 0.12);
   z-index: 1002;
+  animation: dropdownIn var(--anim-fast) var(--ease-smooth);
 }
 
 .dropdownItem {
@@ -137,13 +146,18 @@
   text-decoration: none;
   text-align: left;
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: background var(--anim-normal) var(--ease-smooth), color var(--anim-normal) var(--ease-smooth), transform var(--anim-fast) var(--ease-smooth);
+}
+
+.dropdownItem:active {
+  transform: scale(0.98);
 }
 
 .dropdownItem svg {
   font-size: 1rem;
   color: #c12de0;
   opacity: 0.8;
+  transition: opacity var(--anim-normal) var(--ease-smooth);
 }
 
 .dropdownItem:hover {
@@ -169,7 +183,7 @@
   color: #fff;
   font-size: 1.125rem;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background var(--anim-normal) var(--ease-smooth), border-color var(--anim-normal) var(--ease-smooth), color var(--anim-normal) var(--ease-smooth), transform var(--anim-normal) var(--ease-smooth);
   z-index: 1001;
 }
 
@@ -205,6 +219,109 @@
   border-color: rgba(168, 85, 247, 0.35);
   color: #c12de0;
   transform: rotate(15deg);
+}
+
+/* ── Language Switcher ── */
+.langSwitcher {
+  position: relative;
+  margin-left: 0.4rem;
+}
+
+.langToggle {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0 0.65rem;
+  height: 40px;
+  background: rgba(168, 85, 247, 0.08);
+  border: 1px solid rgba(168, 85, 247, 0.15);
+  border-radius: 20px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.langToggle:hover {
+  background: rgba(168, 85, 247, 0.18);
+  border-color: rgba(168, 85, 247, 0.35);
+  color: #c12de0;
+}
+
+.langCode {
+  font-weight: 600;
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+}
+
+.langDropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: rgba(18, 18, 30, 0.95);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(168, 85, 247, 0.2);
+  border-radius: 12px;
+  padding: 0.4rem;
+  min-width: 150px;
+  z-index: 100;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.langOption {
+  display: block;
+  width: 100%;
+  padding: 0.55rem 0.75rem;
+  background: none;
+  border: none;
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.85rem;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.langOption:hover {
+  background: rgba(168, 85, 247, 0.15);
+  color: #fff;
+}
+
+.langActive {
+  background: rgba(193, 45, 224, 0.2);
+  color: #c12de0;
+  font-weight: 600;
+}
+
+:global([data-public-theme="light"]) .langToggle {
+  background: rgba(100, 50, 150, 0.06);
+  border-color: rgba(100, 50, 150, 0.12);
+  color: #333;
+}
+
+:global([data-public-theme="light"]) .langToggle:hover {
+  background: rgba(193, 45, 224, 0.12);
+  color: #c12de0;
+}
+
+:global([data-public-theme="light"]) .langDropdown {
+  background: rgba(255, 255, 255, 0.97);
+  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+:global([data-public-theme="light"]) .langOption {
+  color: #444;
+}
+
+:global([data-public-theme="light"]) .langOption:hover {
+  background: rgba(193, 45, 224, 0.08);
+  color: #333;
+}
+
+:global([data-public-theme="light"]) .langActive {
+  background: rgba(193, 45, 224, 0.12);
+  color: #a020c0;
 }
 
 /* ── Light mode overrides ── */

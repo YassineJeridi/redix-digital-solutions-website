@@ -111,9 +111,9 @@
     border-radius: 24px;
     overflow: hidden;
     box-shadow: 
-        0 0 0 1px rgba(255, 255, 255, 0.08),
+        0 0 0 1px var(--border-subtle),
         0 25px 80px rgba(0, 0, 0, 0.5),
-        0 0 120px rgba(193, 45, 224, 0.15);
+        0 0 120px var(--accent-subtle);
     animation: containerReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1);
     backdrop-filter: blur(10px);
 }
@@ -148,7 +148,7 @@
     position: absolute;
     inset: 0;
     background: 
-        radial-gradient(ellipse at 20% 50%, rgba(193, 45, 224, 0.12) 0%, transparent 50%),
+        radial-gradient(ellipse at 20% 50%, var(--accent-subtle) 0%, transparent 50%),
         radial-gradient(ellipse at 80% 20%, rgba(120, 23, 182, 0.1) 0%, transparent 40%);
     pointer-events: none;
 }
@@ -185,7 +185,7 @@
 .logoIcon svg {
     width: 100%;
     height: 100%;
-    filter: drop-shadow(0 4px 12px rgba(193, 45, 224, 0.4));
+    filter: drop-shadow(0 4px 12px var(--shadow-accent));
 }
 
 @keyframes logoReveal {
@@ -202,7 +202,7 @@
 .brandTitle {
     font-size: 32px;
     font-weight: 800;
-    color: white;
+    color: var(--text-primary);
     letter-spacing: -0.5px;
     margin-bottom: 4px;
     animation: textReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
@@ -295,16 +295,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(255, 255, 255, 0.06);
+    background: var(--border-subtle);
     border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--border-subtle);
 }
 
 .brandFooter {
     position: relative;
     z-index: 1;
     padding-top: 24px;
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    border-top: 1px solid var(--border-subtle);
 }
 
 .brandFooter p {
@@ -350,7 +350,7 @@
 .welcomeText {
     font-size: 28px;
     font-weight: 700;
-    color: white;
+    color: var(--text-primary);
     margin-bottom: 8px;
 }
 
@@ -424,10 +424,10 @@
 .input {
     width: 100%;
     padding: 14px 14px 14px 46px;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: var(--border-subtle);
+    border: 1px solid var(--border-subtle);
     border-radius: 12px;
-    color: white;
+    color: var(--text-primary);
     font-size: 14px;
     transition: all 0.3s ease;
 }
@@ -437,7 +437,7 @@
 }
 
 .input:focus {
-    background: rgba(255, 255, 255, 0.06);
+    background: var(--border-subtle);
     border-color: rgba(193, 45, 224, 0.5);
     box-shadow: 
         0 0 0 3px rgba(193, 45, 224, 0.1),
@@ -478,7 +478,7 @@
     background: linear-gradient(135deg, #c12de0 0%, #9020c0 50%, #7817b6 100%);
     border: none;
     border-radius: 12px;
-    color: white;
+    color: var(--text-primary);
     font-size: 15px;
     font-weight: 600;
     display: flex;
@@ -504,8 +504,8 @@
 .submitBtn:hover {
     transform: translateY(-2px);
     box-shadow: 
-        0 8px 30px rgba(193, 45, 224, 0.4),
-        0 0 60px rgba(193, 45, 224, 0.15);
+        0 8px 30px var(--shadow-accent),
+        0 0 60px var(--accent-subtle);
     opacity: 1;
 }
 
@@ -534,7 +534,7 @@
     width: 22px;
     height: 22px;
     border: 2.5px solid rgba(255, 255, 255, 0.2);
-    border-top-color: white;
+    border-top-color: var(--text-primary);
     border-radius: 50%;
     animation: spin 0.7s linear infinite;
 }

@@ -1,21 +1,23 @@
 // src/components/TrustedBy/TrustedBy.jsx
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { clients } from '../../data/clients';
 import styles from './TrustedBy.module.css';
 
 const TrustedBy = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
+  const { t } = useTranslation();
 
   // Duplicate logos for seamless infinite loop
   const logoSet = [...clients, ...clients];
 
   const stats = [
-    { number: '100+', label: 'Projects Completed' },
-    { number: '50+', label: 'Happy Clients' },
-    { number: '3+', label: 'Years Experience' },
-    { number: '24/7', label: 'Support Available' }
+    { number: '100+', label: t('trustedBy.projectsCompleted') },
+    { number: '50+', label: t('trustedBy.happyClients') },
+    { number: '3+', label: t('trustedBy.yearsExperience') },
+    { number: '24/7', label: t('trustedBy.supportAvailable') }
   ];
 
   return (
@@ -28,10 +30,10 @@ const TrustedBy = () => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <span className={styles.sectionTag}>Partners</span>
-          <h2 className={styles.title}>Trusted By</h2>
+          <span className={styles.sectionTag}>{t('trustedBy.tag')}</span>
+          <h2 className={styles.title}>{t('trustedBy.title')}</h2>
           <p className={styles.subtitle}>
-            Proud to work with amazing brands and organizations worldwide
+            {t('trustedBy.subtitle')}
           </p>
         </motion.div>
 

@@ -3,8 +3,9 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaBars, FaTimes, FaUser, FaCog, FaBriefcase, FaEnvelope, FaEye, FaCouch, FaPlane, FaTshirt, FaUtensils, FaChevronDown, FaSun, FaMoon } from 'react-icons/fa';
+import { FaBars, FaTimes, FaUser, FaCog, FaBriefcase, FaEnvelope, FaEye, FaCouch, FaPlane, FaTshirt, FaUtensils, FaChevronDown, FaSun, FaMoon, FaGlobe } from 'react-icons/fa';
 import { useTheme } from '../../../../context/ThemeContext';
+import { useTranslation } from 'react-i18next';
 import styles from './Navbar.module.css';
 
 const logoImage = '/assets/logos/Redix1.png';
@@ -14,22 +15,35 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [isWorkOpen, setIsWorkOpen] = useState(false);
+  const [isLangOpen, setIsLangOpen] = useState(false);
   const location = useLocation();
   const { isDark, toggleTheme } = useTheme();
+  const { t, i18n } = useTranslation();
+
+  const languages = [
+    { code: 'en', label: '🇬🇧 English' },
+    { code: 'fr', label: '🇫🇷 Français' },
+    { code: 'ar', label: '🇸🇦 العربية' }
+  ];
+
+  const changeLanguage = (code) => {
+    i18n.changeLanguage(code);
+    setIsLangOpen(false);
+  };
 
   const workItems = [
-    { label: 'Quick Overview', href: '/#video-showcase', icon: FaEye, isHash: true },
-    { label: 'Furniture/meuble', href: '/furniture', icon: FaCouch, isHash: false },
-    { label: 'Travel Agency', href: '/travel', icon: FaPlane, isHash: false },
-    { label: 'Fashion / clothing', href: '/fashion', icon: FaTshirt, isHash: false },
-    { label: 'Chef / restaurant', href: '/chef', icon: FaUtensils, isHash: false }
+    { label: t('nav.quickOverview'), href: '/#video-showcase', icon: FaEye, isHash: true },
+    { label: t('nav.furniture'), href: '/furniture', icon: FaCouch, isHash: false },
+    { label: t('nav.travelAgency'), href: '/travel', icon: FaPlane, isHash: false },
+    { label: t('nav.fashion'), href: '/fashion', icon: FaTshirt, isHash: false },
+    { label: t('nav.chef'), href: '/chef', icon: FaUtensils, isHash: false }
   ];
 
   const navItems = [
-    { id: 'why-choose-us', label: 'About', href: '/#why-choose-us', icon: FaUser, isHash: true },
-    { id: 'services', label: 'Services', href: '/#services', icon: FaCog, isHash: true },
-    { id: 'our-work', label: 'Our Work', icon: FaBriefcase, hasDropdown: true },
-    { id: 'book-call', label: 'Contact', href: '/#book-call', icon: FaEnvelope, isHash: true }
+    { id: 'why-choose-us', label: t('nav.about'), href: '/#why-choose-us', icon: FaUser, isHash: true },
+    { id: 'services', label: t('nav.services'), href: '/#services', icon: FaCog, isHash: true },
+    { id: 'our-work', label: t('nav.ourWork'), icon: FaBriefcase, hasDropdown: true },
+    { id: 'book-call', label: t('nav.contact'), href: '/#book-call', icon: FaEnvelope, isHash: true }
   ];
 
   // Prevent body scroll when mobile menu is open
@@ -97,6 +111,7 @@ const Navbar = () => {
       if (!e.target.closest(`.${styles.navbar}`)) {
         setIsOpen(false);
         setIsWorkOpen(false);
+        setIsLangOpen(false);
       }
     };
 
@@ -176,8 +191,8 @@ const Navbar = () => {
         <button
           className={styles.themeToggle}
           onClick={toggleTheme}
-          aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-          title={isDark ? 'Light mode' : 'Dark mode'}
+          aria-label={isDark ? t('nav.switchToLight') : t('nav.switchToDark')}
+          title={isDark ? t('nav.lightMode') : t('nav.darkMode')}
         >
           <motion.span
             key={isDark ? 'moon' : 'sun'}
@@ -191,11 +206,36 @@ const Navbar = () => {
           </motion.span>
         </button>
 
+        {/* Language Switcher */}
+        <div className={styles.langSwitcher}>
+          <button
+            className={styles.langToggle}
+            onClick={(e) => { e.stopPropagation(); setIsLangOpen(!isLangOpen); }}
+            aria-label="Change language"
+          >
+            <FaGlobe />
+            <span className={styles.langCode}>{i18n.language.toUpperCase()}</span>
+          </button>
+          {isLangOpen && (
+            <div className={styles.langDropdown}>
+              {languages.map((lang) => (
+                <button
+                  key={lang.code}
+                  className={`${styles.langOption} ${i18n.language === lang.code ? styles.langActive : ''}`}
+                  onClick={() => changeLanguage(lang.code)}
+                >
+                  {lang.label}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+
         {/* Mobile Toggle */}
         <button
           className={styles.menuToggle}
           onClick={(e) => { e.stopPropagation(); setIsOpen(!isOpen); }}
-          aria-label="Toggle menu"
+          aria-label={t('nav.toggleMenu')}
         >
           {isOpen ? <FaTimes /> : <FaBars />}
         </button>

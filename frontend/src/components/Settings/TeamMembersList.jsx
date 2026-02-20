@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { MdAdd, MdPerson, MdEdit, MdDelete, MdAccountBalance, MdEmail, MdPayment, MdPhone, MdMoneyOff } from 'react-icons/md';
 import TeamMemberForm from './TeamMemberForm';
 import * as SettingsService from '../../services/SettingsServices';
+import { useScrollLock } from '../../hooks/useScrollLock';
 import styles from './TeamMembersList.module.css';
 
 const TeamMembersList = () => {
@@ -12,6 +13,8 @@ const TeamMembersList = () => {
     const [commissionData, setCommissionData] = useState({ amount: '', description: '' });
     const [withdrawalModal, setWithdrawalModal] = useState(null);
     const [withdrawalData, setWithdrawalData] = useState({ amount: '', description: '' });
+
+    useScrollLock(!!commissionModal || !!withdrawalModal);
 
     useEffect(() => {
         fetchMembers();

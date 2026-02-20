@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaPhone, FaEnvelope, FaWhatsapp, FaPaperPlane, FaCheckCircle } from 'react-icons/fa';
+import { useTranslation } from 'react-i18next';
 import styles from './BookCall.module.css';
 
 // Get configuration from environment variables
@@ -10,6 +11,7 @@ const TELEGRAM_CHAT_ID = import.meta.env.VITE_TELEGRAM_CHAT_ID;
 const WHATSAPP_NUMBER = "21692861655";
 
 const BookCall = () => {
+    const { t } = useTranslation();
     const [formData, setFormData] = useState({
         fullName: '',
         email: '',
@@ -80,13 +82,13 @@ ${formData.projectDetails || 'No details provided'}
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsLoading(true);
-        setStatus('Sending your request...');
+        setStatus(t('bookCall.sendingRequest'));
 
         const success = await sendToTelegram();
 
         if (success) {
             setIsSuccess(true);
-            setStatus('✅ Request sent successfully! We\'ll contact you within 24 hours.');
+            setStatus(t('bookCall.successStatus'));
             setFormData({
                 fullName: '',
                 email: '',
@@ -95,7 +97,7 @@ ${formData.projectDetails || 'No details provided'}
                 projectDetails: ''
             });
         } else {
-            setStatus('❌ Failed to send. Please contact us directly via WhatsApp.');
+            setStatus(t('bookCall.errorStatus'));
         }
 
         setIsLoading(false);
@@ -114,19 +116,19 @@ ${formData.projectDetails || 'No details provided'}
                         transition={{ duration: 0.5 }}
                     >
                         <FaCheckCircle className={styles.successIcon} />
-                        <h2>Thank You!</h2>
-                        <p>Your consultation request has been received. Our team will contact you within 24 hours to schedule your free call.</p>
+                        <h2>{t('bookCall.thankYou')}</h2>
+                        <p>{t('bookCall.successMessage')}</p>
                         <div className={styles.contactReminder}>
-                            <p>Need immediate assistance?</p>
+                            <p>{t('bookCall.needImmediate')}</p>
                             <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className={styles.whatsappLink}>
-                                <FaWhatsapp /> Message us on WhatsApp
+                                <FaWhatsapp /> {t('bookCall.messageWhatsApp')}
                             </a>
                         </div>
                         <button
                             onClick={() => setIsSuccess(false)}
                             className={styles.newRequestBtn}
                         >
-                            continue your tour
+                            {t('bookCall.continueTour')}
                         </button>
                     </motion.div>
                 </div>
@@ -145,8 +147,8 @@ ${formData.projectDetails || 'No details provided'}
                     transition={{ duration: 0.6 }}
                     viewport={{ once: true }}
                 >
-                    <h2>Book Your Free Consultation</h2>
-                    <p>Get expert advice tailored to your project. No commitment, just valuable insights.</p>
+                    <h2>{t('bookCall.title')}</h2>
+                    <p>{t('bookCall.subtitle')}</p>
                 </motion.div>
 
                 <div className={styles.content}>
@@ -158,19 +160,19 @@ ${formData.projectDetails || 'No details provided'}
                         transition={{ duration: 0.6, delay: 0.1 }}
                         viewport={{ once: true }}
                     >
-                        <h3>Prefer to chat directly?</h3>
+                        <h3>{t('bookCall.chatDirectly')}</h3>
                         <div className={styles.contactOptions}>
                             <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className={styles.contactBtn}>
                                 <FaWhatsapp />
                                 <div>
-                                    <strong>WhatsApp</strong>
+                                    <strong>{t('bookCall.whatsapp')}</strong>
                                     <span>+216 92 861 655</span>
                                 </div>
                             </a>
                             <a href="mailto:contact@redixdigitalsolutions.com" className={styles.contactBtn}>
                                 <FaEnvelope />
                                 <div>
-                                    <strong>Email</strong>
+                                    <strong>{t('bookCall.email')}</strong>
                                     <span>contact@redixdigitalsolutions.com</span>
                                 </div>
                             </a>
@@ -186,12 +188,12 @@ ${formData.projectDetails || 'No details provided'}
                         transition={{ duration: 0.6, delay: 0.2 }}
                         viewport={{ once: true }}
                     >
-                        <h3>Or fill out this quick form</h3>
+                        <h3>{t('bookCall.quickForm')}</h3>
 
                         <div className={styles.formRow}>
                             <div className={styles.inputGroup}>
                                 <label htmlFor="fullName">
-                                    Full Name <span>*</span>
+                                    {t('bookCall.fullName')} <span>*</span>
                                 </label>
                                 <input
                                     type="text"
@@ -200,13 +202,13 @@ ${formData.projectDetails || 'No details provided'}
                                     value={formData.fullName}
                                     onChange={handleChange}
                                     required
-                                    placeholder="Your full name"
+                                    placeholder={t('bookCall.fullName')}
                                 />
                             </div>
 
                             <div className={styles.inputGroup}>
                                 <label htmlFor="email">
-                                    Email Address <span>*</span>
+                                    {t('bookCall.emailAddress')} <span>*</span>
                                 </label>
                                 <input
                                     type="email"
@@ -223,7 +225,7 @@ ${formData.projectDetails || 'No details provided'}
                         <div className={styles.formRow}>
                             <div className={styles.inputGroup}>
                                 <label htmlFor="phone">
-                                    Phone Number <span>*</span>
+                                    {t('bookCall.phoneNumber')} <span>*</span>
                                 </label>
                                 <input
                                     type="tel"
@@ -238,7 +240,7 @@ ${formData.projectDetails || 'No details provided'}
 
                             <div className={styles.inputGroup}>
                                 <label htmlFor="service">
-                                    Service Interested In <span>*</span>
+                                    {t('bookCall.serviceInterested')} <span>*</span>
                                 </label>
                                 <select
                                     id="service"
@@ -256,14 +258,14 @@ ${formData.projectDetails || 'No details provided'}
 
                         <div className={styles.inputGroup}>
                             <label htmlFor="projectDetails">
-                                Tell us about your project or your needs
+                                {t('bookCall.projectDetails')}
                             </label>
                             <textarea
                                 id="projectDetails"
                                 name="projectDetails"
                                 value={formData.projectDetails}
                                 onChange={handleChange}
-                                placeholder="Describe your project, goals, timeline, budget, or any specific requirements..."
+                                placeholder={t('bookCall.projectPlaceholder')}
                                 rows="4"
                             />
                         </div>
@@ -276,12 +278,12 @@ ${formData.projectDetails || 'No details provided'}
                             {isLoading ? (
                                 <>
                                     <div className={styles.spinner}></div>
-                                    Sending...
+                                    {t('bookCall.sending')}
                                 </>
                             ) : (
                                 <>
                                     <FaPaperPlane />
-                                    Get Free Consultation
+                                    {t('bookCall.getFreeConsultation')}
                                 </>
                             )}
                         </button>

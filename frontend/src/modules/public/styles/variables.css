@@ -198,6 +198,12 @@
   --duration-500: 500ms;
   --duration-700: 700ms;
   --duration-1000: 1000ms;
+
+  /* Interaction animation (150ms–400ms) */
+  --anim-fast: 150ms;
+  --anim-normal: 250ms;
+  --anim-medium: 320ms;
+  --anim-smooth: 400ms;
   
   /* Easing Functions */
   --ease-linear: linear;
@@ -205,6 +211,8 @@
   --ease-out: cubic-bezier(0, 0, 0.2, 1);
   --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
   --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out-smooth: cubic-bezier(0, 0, 0.2, 1);
   
   /* Breakpoints */
   --breakpoint-sm: 640px;

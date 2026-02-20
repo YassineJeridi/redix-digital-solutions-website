@@ -1,15 +1,88 @@
 /* src/styles/animations.css */
 /* Premium Animation Library - Marketing Agency */
+/* All interaction durations: 150ms–400ms for fluid, consistent feel */
 
-/* Keyframe Animations - Smoother Easing */
+/* ─── Global keyframes (150–400ms) ───────────────────────────────────── */
 @keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes overlayIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes overlayOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes modalContentIn {
   from {
     opacity: 0;
+    transform: scale(0.96) translateY(16px);
   }
   to {
     opacity: 1;
+    transform: scale(1) translateY(0);
   }
 }
+
+@keyframes modalContentOut {
+  from {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.96) translateY(16px);
+  }
+}
+
+@keyframes scalePress {
+  to { transform: scale(0.97); }
+}
+
+@keyframes dropdownIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes dropdownOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes cardReveal {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pageFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Keyframe Animations - Smoother Easing */
 
 @keyframes fadeInUp {
   from {
@@ -232,41 +305,61 @@
   }
 }
 
-/* Utility Animation Classes */
+/* Utility Animation Classes (150–400ms) */
 .animate-fade-in {
-  animation: fadeIn 0.6s ease-out;
+  animation: fadeIn var(--anim-smooth) var(--ease-smooth);
 }
 
 .animate-fade-in-up {
-  animation: fadeInUp 0.6s ease-out;
+  animation: fadeInUp var(--anim-smooth) var(--ease-smooth);
 }
 
 .animate-fade-in-down {
-  animation: fadeInDown 0.6s ease-out;
+  animation: fadeInDown var(--anim-smooth) var(--ease-smooth);
 }
 
 .animate-fade-in-left {
-  animation: fadeInLeft 0.6s ease-out;
+  animation: fadeInLeft var(--anim-smooth) var(--ease-smooth);
 }
 
 .animate-fade-in-right {
-  animation: fadeInRight 0.6s ease-out;
+  animation: fadeInRight var(--anim-smooth) var(--ease-smooth);
 }
 
 .animate-slide-in-up {
-  animation: slideInUp 0.8s ease-out;
+  animation: slideInUp var(--anim-smooth) var(--ease-smooth);
 }
 
 .animate-slide-in-down {
-  animation: slideInDown 0.8s ease-out;
+  animation: slideInDown var(--anim-smooth) var(--ease-smooth);
 }
 
 .animate-zoom-in {
-  animation: zoomIn 0.6s ease-out;
+  animation: zoomIn var(--anim-normal) var(--ease-smooth);
 }
 
 .animate-zoom-in-up {
-  animation: zoomInUp 0.8s ease-out;
+  animation: zoomInUp var(--anim-smooth) var(--ease-smooth);
+}
+
+.animate-modal-overlay {
+  animation: overlayIn var(--anim-normal) var(--ease-smooth);
+}
+
+.animate-modal-content {
+  animation: modalContentIn var(--anim-smooth) var(--ease-smooth);
+}
+
+.animate-dropdown {
+  animation: dropdownIn var(--anim-fast) var(--ease-smooth);
+}
+
+.animate-card-reveal {
+  animation: cardReveal var(--anim-medium) var(--ease-smooth);
+}
+
+.animate-page-in {
+  animation: pageFadeIn var(--anim-normal) var(--ease-smooth);
 }
 
 .animate-bounce {
@@ -316,29 +409,35 @@
 .animate-slow { animation-duration: 1.2s; }
 .animate-slower { animation-duration: 2s; }
 
-/* Hover Animations */
+/* Hover & interaction (150–400ms) */
 .hover-float:hover {
-  transform: translateY(-5px);
-  transition: transform 0.3s ease;
+  transform: translateY(-4px);
+  transition: transform var(--anim-normal) var(--ease-smooth);
 }
 
 .hover-scale:hover {
-  transform: scale(1.05);
-  transition: transform 0.3s ease;
+  transform: scale(1.03);
+  transition: transform var(--anim-normal) var(--ease-smooth);
 }
 
 .hover-rotate:hover {
-  transform: rotate(5deg);
-  transition: transform 0.3s ease;
+  transform: rotate(3deg);
+  transition: transform var(--anim-normal) var(--ease-smooth);
 }
 
 .hover-glow:hover {
   box-shadow: 0 0 20px rgba(193, 45, 224, 0.5);
-  transition: box-shadow 0.3s ease;
+  transition: box-shadow var(--anim-normal) var(--ease-smooth);
 }
 
 .hover-pulse:hover {
   animation: pulse 1s ease-in-out;
+}
+
+/* Click feedback – use on buttons/cards */
+.interact-press:active {
+  transform: scale(0.98);
+  transition: transform var(--anim-fast) var(--ease-smooth);
 }
 
 /* Loading Animations */
@@ -384,8 +483,8 @@
 /* Intersection Observer Animations */
 .animate-on-scroll {
   opacity: 0;
-  transform: translateY(50px);
-  transition: all 0.8s ease;
+  transform: translateY(24px);
+  transition: opacity var(--anim-smooth) var(--ease-smooth), transform var(--anim-smooth) var(--ease-smooth);
 }
 
 .animate-on-scroll.animated {

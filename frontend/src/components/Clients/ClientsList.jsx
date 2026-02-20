@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { MdAdd, MdEdit, MdDelete, MdPerson, MdEmail, MdPhone, MdLocationOn } from 'react-icons/md';
+import { MdAdd, MdEdit, MdDelete, MdPerson, MdEmail, MdPhone, MdLocationOn, MdBadge } from 'react-icons/md';
 import ClientForm from './ClientForm';
 import * as ClientsService from '../../services/ClientsServices';
 import styles from './ClientsList.module.css';
@@ -118,6 +118,13 @@ const ClientsList = () => {
                                 <MdPhone className={styles.icon} />
                                 <span>{client.phone}</span>
                             </div>
+
+                            {client.matriculeFiscal && (
+                                <div className={styles.infoItem}>
+                                    <MdBadge className={styles.icon} />
+                                    <span>{client.matriculeFiscal}</span>
+                                </div>
+                            )}
 
                             {client.address && (
                                 <div className={styles.infoItem}>

@@ -1,0 +1,230 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.2s ease;
+}
+
+.modal {
+    background: var(--bg-card);
+    border-radius: 16px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--border-subtle);
+    animation: slideUp 0.3s ease;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 24px;
+    border-bottom: 2px solid var(--border);
+    position: relative;
+}
+
+.iconWarning {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: rgba(239, 68, 68, 0.15);
+    color: #dc2626;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+}
+
+.header h2 {
+    flex: 1;
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.closeBtn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 36px;
+    height: 36px;
+    border: none;
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: var(--text-primary);
+    transition: all 0.2s ease;
+}
+
+.closeBtn:hover {
+    background: var(--border);
+    transform: rotate(90deg);
+}
+
+.content {
+    padding: 24px;
+}
+
+.warning {
+    padding: 16px;
+    background: rgba(245, 158, 11, 0.15);
+    border-left: 4px solid #f59e0b;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    color: #fbbf24;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.warning strong {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.serviceInfo {
+    background: var(--bg-secondary);
+    padding: 16px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+}
+
+.serviceInfo p {
+    margin: 8px 0;
+    font-size: 15px;
+    color: var(--text-primary);
+}
+
+.serviceInfo strong {
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.confirmSection {
+    margin-top: 24px;
+}
+
+.confirmSection label {
+    display: block;
+    margin-bottom: 12px;
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 15px;
+}
+
+.serviceNameDisplay {
+    padding: 12px 16px;
+    background: var(--bg-secondary);
+    border: 2px dashed var(--text-muted);
+    border-radius: 8px;
+    font-family: 'Courier New', monospace;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    font-size: 15px;
+    background: var(--bg-input);
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+}
+
+.input:focus {
+    outline: none;
+    border-color: #c12de0;
+    box-shadow: 0 0 0 3px var(--accent-subtle);
+}
+
+.error {
+    color: #dc2626;
+    font-size: 14px;
+    margin-top: 8px;
+    font-weight: 600;
+}
+
+.footer {
+    display: flex;
+    gap: 12px;
+    padding: 20px 24px;
+    border-top: 2px solid var(--border);
+    justify-content: flex-end;
+}
+
+.cancelBtn,
+.deleteBtn {
+    padding: 12px 28px;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cancelBtn {
+    background: var(--bg-card);
+    color: var(--text-primary);
+    border: 2px solid var(--border);
+}
+
+.cancelBtn:hover {
+    background: var(--bg-secondary);
+}
+
+.deleteBtn {
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    color: var(--text-primary);
+}
+
+.deleteBtn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(220, 38, 38, 0.3);
+}
+
+.deleteBtn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@media (max-width: 768px) {
+    .modal { width: 95%; margin: 20px; }
+    .header { padding: 20px; }
+    .header h2 { font-size: 20px; }
+    .content { padding: 20px; }
+    .footer { flex-direction: column-reverse; }
+    .cancelBtn, .deleteBtn { width: 100%; }
+}

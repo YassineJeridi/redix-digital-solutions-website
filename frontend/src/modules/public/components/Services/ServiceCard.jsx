@@ -2,6 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaArrowRight, FaStar, FaCheck, FaGem } from 'react-icons/fa';
+import { useTranslation } from 'react-i18next';
 import styles from './ServiceCard.module.css';
 
 const ServiceCard = ({ service, onGetQuote }) => {
@@ -11,6 +12,7 @@ const ServiceCard = ({ service, onGetQuote }) => {
     onGetQuote(service);
   };
 
+  const { t } = useTranslation();
   const IconComponent = service.icon;
 
   return (
@@ -22,14 +24,14 @@ const ServiceCard = ({ service, onGetQuote }) => {
       {/* Most Popular Badge */}
       {service.MostPopular && (
         <div className={styles.popularBadge}>
-          <FaStar /> Most Popular
+          <FaStar /> {t('services.mostPopular')}
         </div>
       )}
 
       {/* Common Badge */}
       {service.common && !service.MostPopular && (
         <div className={styles.commonBadge}>
-          <FaGem /> Common
+          <FaGem /> {t('services.common')}
         </div>
       )}
 
@@ -64,7 +66,7 @@ const ServiceCard = ({ service, onGetQuote }) => {
 
       {/* Button */}
       <button className={styles.btn} onClick={handleGetQuote}>
-        Get Quote <FaArrowRight />
+        {t('services.getQuote')} <FaArrowRight />
       </button>
     </motion.div>
   );

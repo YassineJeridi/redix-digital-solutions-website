@@ -23,13 +23,13 @@
     top: 50%;
     transform: translateY(-50%);
     font-size: 20px;
-    color: var(--text-light);
+    color: var(--text-secondary);
 }
 
 .searchInput {
     width: 100%;
     padding: 12px 12px 12px 40px;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--border);
     border-radius: 8px;
     font-size: 14px;
 }
@@ -39,8 +39,8 @@
     align-items: center;
     gap: 8px;
     padding: 12px 24px;
-    background: var(--primary-color);
-    color: white;
+    background: var(--accent);
+    color: var(--text-primary);
     border-radius: 8px;
     font-weight: 500;
 }
@@ -48,7 +48,7 @@
 .emptyState {
     text-align: center;
     padding: 60px 20px;
-    color: var(--text-light);
+    color: var(--text-secondary);
     font-size: 16px;
 }
 
@@ -59,7 +59,7 @@
 }
 
 .projectCard {
-    background: var(--card-bg, white);
+    background: var(--bg-card);
     border-radius: 12px;
     box-shadow: var(--shadow);
     transition: all 0.3s ease;
@@ -81,7 +81,7 @@
 }
 
 .cardHeader:hover {
-    background: var(--light-bg);
+    background: var(--bg-primary);
 }
 
 .headerLeft {
@@ -91,13 +91,13 @@
 .cardHeader h3 {
     font-size: 18px;
     margin-bottom: 6px;
-    color: var(--text-dark);
+    color: var(--text-primary);
     font-weight: 600;
 }
 
 .clientName {
     font-size: 14px;
-    color: var(--text-light);
+    color: var(--text-secondary);
 }
 
 .cardHeaderRight {
@@ -109,7 +109,7 @@
 .budget {
     font-size: 20px;
     font-weight: 700;
-    color: var(--success-color);
+    color: var(--success);
     padding: 8px 16px;
     background: rgba(16, 185, 129, 0.1);
     border-radius: 8px;
@@ -133,7 +133,7 @@
 }
 
 .editBtn {
-    color: var(--primary-color);
+    color: var(--accent);
 }
 
 .editBtn:hover {
@@ -142,7 +142,7 @@
 }
 
 .deleteBtn {
-    color: var(--danger-color);
+    color: var(--danger);
 }
 
 .deleteBtn:hover {
@@ -151,22 +151,22 @@
 }
 
 .expandBtn {
-    background: var(--light-bg);
+    background: var(--bg-primary);
     font-size: 24px;
-    color: var(--primary-color);
+    color: var(--accent);
     padding: 8px;
     border-radius: 8px;
     transition: all 0.3s ease;
 }
 
 .expandBtn:hover {
-    background: var(--primary-color);
-    color: white;
+    background: var(--accent);
+    color: var(--text-primary);
 }
 
 .cardDetails {
     padding: 0 20px 20px 20px;
-    border-top: 2px solid var(--border-color);
+    border-top: 2px solid var(--border);
     animation: slideDown 0.3s ease-out;
 }
 
@@ -177,7 +177,7 @@
 .detailSection h4 {
     font-size: 14px;
     font-weight: 600;
-    color: var(--text-dark);
+    color: var(--text-primary);
     margin-bottom: 12px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -197,7 +197,7 @@
     padding: 16px;
     background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(139, 92, 246, 0.05));
     border-radius: 10px;
-    border-left: 4px solid var(--primary-color);
+    border-left: 4px solid var(--accent);
     transition: all 0.3s ease;
 }
 
@@ -208,14 +208,14 @@
 
 .distributionItem .label {
     font-size: 12px;
-    color: var(--text-light);
+    color: var(--text-secondary);
     font-weight: 500;
 }
 
 .distributionItem .value {
     font-size: 20px;
     font-weight: 700;
-    color: var(--primary-color);
+    color: var(--accent);
 }
 
 /* Services */
@@ -230,9 +230,9 @@
     justify-content: space-between;
     align-items: center;
     padding: 12px 14px;
-    background: var(--light-bg);
+    background: var(--bg-primary);
     border-radius: 8px;
-    border-left: 3px solid var(--primary-color);
+    border-left: 3px solid var(--accent);
     transition: all 0.3s ease;
 }
 
@@ -244,12 +244,12 @@
 .serviceName {
     font-size: 14px;
     font-weight: 600;
-    color: var(--text-dark);
+    color: var(--text-primary);
 }
 
 .serviceDetails {
     font-size: 13px;
-    color: var(--text-light);
+    color: var(--text-secondary);
     font-weight: 500;
 }
 
@@ -265,14 +265,14 @@
     justify-content: space-between;
     align-items: center;
     padding: 14px 16px;
-    background: var(--light-bg);
+    background: var(--bg-primary);
     border-radius: 10px;
-    border: 2px solid var(--border-color);
+    border: 2px solid var(--border);
     transition: all 0.3s ease;
 }
 
 .usageItem:hover {
-    border-color: var(--primary-color);
+    border-color: var(--accent);
     transform: translateY(-2px);
     box-shadow: var(--shadow);
 }
@@ -286,12 +286,12 @@
 .toolName {
     font-size: 14px;
     font-weight: 600;
-    color: var(--text-dark);
+    color: var(--text-primary);
 }
 
 .toolCategory {
     font-size: 12px;
-    color: var(--text-light);
+    color: var(--text-secondary);
 }
 
 .usageStats {
@@ -302,7 +302,7 @@
 
 .percentage {
     font-weight: 700;
-    color: var(--primary-color);
+    color: var(--accent);
     background: rgba(99, 102, 241, 0.1);
     padding: 6px 14px;
     border-radius: 20px;
@@ -311,7 +311,7 @@
 
 .revenue {
     font-weight: 700;
-    color: var(--success-color);
+    color: var(--success);
     background: rgba(16, 185, 129, 0.1);
     padding: 6px 14px;
     border-radius: 20px;

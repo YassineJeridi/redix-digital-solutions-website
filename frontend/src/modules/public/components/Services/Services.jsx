@@ -5,6 +5,7 @@ import {
   FaCode, FaMobile, FaChartLine, FaPencilRuler, FaVideo, FaCloud, FaPalette,
   FaChevronLeft, FaChevronRight
 } from 'react-icons/fa';
+import { useTranslation } from 'react-i18next';
 import { services } from '../../data/services';
 import ServiceCard from './ServiceCard';
 import BookingModal from '../BookingModal/BookingModal';
@@ -18,6 +19,7 @@ const Services = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0); // -1 left, 1 right
   const [visibleCount, setVisibleCount] = useState(3);
+  const { t } = useTranslation();
 
   // Icon mappings
   const iconMap = useMemo(() => ({
@@ -82,8 +84,8 @@ const Services = () => {
   // Slide variants
   const slideVariants = {
     enter: (d) => ({ x: d > 0 ? 280 : -280, opacity: 0, scale: 0.92 }),
-    center: { x: 0, opacity: 1, scale: 1 },
-    exit: (d) => ({ x: d > 0 ? -280 : 280, opacity: 0, scale: 0.92 })
+    center: { x: 0, opacity: 1, scale: 1, pointerEvents: 'auto' },
+    exit: (d) => ({ x: d > 0 ? -280 : 280, opacity: 0, scale: 0.92, pointerEvents: 'none' })
   };
 
   return (
@@ -96,9 +98,9 @@ const Services = () => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <h2 className={styles.title}>Our Services</h2>
+          <h2 className={styles.title}>{t('services.title')}</h2>
           <p className={styles.subtitle}>
-            Transform your business with our cutting-edge digital solutions
+            {t('services.subtitle')}
           </p>
         </motion.div>
 

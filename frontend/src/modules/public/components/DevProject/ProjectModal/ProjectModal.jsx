@@ -1,6 +1,7 @@
 // src/components/DevProject/ProjectModal/ProjectModal.jsx
 import React, { useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useScrollLock } from '../../../../../hooks/useScrollLock';
 import { 
   FaTimes, FaExternalLinkAlt, FaGithub, FaStar, FaPlay, 
   FaImages, FaChevronLeft, FaChevronRight, FaExpand 
@@ -8,6 +9,8 @@ import {
 import styles from './ProjectModal.module.css';
 
 const ProjectModal = ({ project, isOpen, onClose }) => {
+  useScrollLock(isOpen);
+
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
 

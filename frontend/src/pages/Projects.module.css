@@ -6,7 +6,7 @@
     font-size: 32px;
     font-weight: 700;
     margin-bottom: 24px;
-    color: var(--text-dark);
+    color: var(--text-primary);
 }
 
 @keyframes fadeIn {

@@ -9,6 +9,7 @@ const ClientForm = ({ onSubmit, onClose, editData = null }) => {
         ownerName: editData?.ownerName || '',
         email: editData?.email || '',
         phone: editData?.phone || '',
+        matriculeFiscal: editData?.matriculeFiscal || '',
         address: editData?.address || '',
         profileImage: editData?.profileImage || '',
         notes: editData?.notes || ''
@@ -151,6 +152,17 @@ const ClientForm = ({ onSubmit, onClose, editData = null }) => {
                                 onChange={handleChange}
                                 placeholder="+216 XX XXX XXX"
                                 required
+                            />
+                        </div>
+
+                        <div className={styles.formGroup}>
+                            <label>Matricule fiscal</label>
+                            <input
+                                type="text"
+                                name="matriculeFiscal"
+                                value={formData.matriculeFiscal}
+                                onChange={handleChange}
+                                placeholder="e.g. 12345678/A/M/000"
                             />
                         </div>
                     </div>

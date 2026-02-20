@@ -17,6 +17,10 @@ const clientSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    matriculeFiscal: {
+        type: String,
+        default: ''
+    },
     address: {
         type: String
     },

@@ -5,6 +5,8 @@
     right: 0;
     bottom: 0;
     background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -15,14 +17,15 @@
 }
 
 .modal {
-    background: var(--card-bg, white);
+    background: var(--bg-card);
     border-radius: 20px;
     width: 100%;
     max-width: 900px;
     max-height: 90vh;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 20px 60px var(--shadow);
+    border: 1px solid var(--border-subtle);
     animation: slideUp 0.3s ease;
     margin: auto;
 }
@@ -32,33 +35,33 @@
     justify-content: space-between;
     align-items: center;
     padding: 24px 32px;
-    border-bottom: 2px solid var(--border-color);
+    border-bottom: 2px solid var(--border);
 }
 
 .header h2 {
     margin: 0;
     font-size: 28px;
     font-weight: 700;
-    color: var(--text-dark);
+    color: var(--text-primary);
 }
 
 .closeBtn {
     width: 40px;
     height: 40px;
     border: none;
-    background: var(--bg-light);
+    background: var(--bg-secondary);
     border-radius: 10px;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 24px;
-    color: var(--text-dark);
+    color: var(--text-primary);
     transition: all 0.2s ease;
 }
 
 .closeBtn:hover {
-    background: var(--border-color);
+    background: var(--border);
     transform: rotate(90deg);
 }
 
@@ -72,7 +75,7 @@
 .section {
     margin-bottom: 32px;
     padding-bottom: 32px;
-    border-bottom: 2px solid var(--border-color);
+    border-bottom: 2px solid var(--border);
 }
 
 .section:last-of-type {
@@ -82,10 +85,10 @@
 .sectionTitle {
     font-size: 20px;
     font-weight: 700;
-    color: var(--text-dark);
+    color: var(--text-primary);
     margin-bottom: 20px;
     padding-bottom: 12px;
-    border-bottom: 3px solid var(--primary-color);
+    border-bottom: 3px solid var(--accent);
     display: inline-block;
 }
 
@@ -104,7 +107,7 @@
 
 .formGroup label {
     font-weight: 600;
-    color: var(--text-dark);
+    color: var(--text-primary);
     margin-bottom: 8px;
     font-size: 15px;
 }
@@ -113,7 +116,7 @@
 .formGroup select,
 .formGroup textarea {
     padding: 12px 16px;
-    border: 2px solid var(--border-color);
+    border: 2px solid var(--border);
     border-radius: 10px;
     font-size: 15px;
     transition: all 0.3s ease;
@@ -123,7 +126,7 @@
 .formGroup select:focus,
 .formGroup textarea:focus {
     outline: none;
-    border-color: var(--primary-color);
+    border-color: var(--accent);
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
@@ -141,9 +144,9 @@
 }
 
 .errorBox {
-    background: #fee2e2;
+    background: rgba(239, 68, 68, 0.15);
     border-left: 4px solid #dc2626;
-    color: #991b1b;
+    color: #f87171;
     padding: 12px 16px;
     border-radius: 8px;
     margin-bottom: 16px;
@@ -169,13 +172,13 @@
 }
 
 .totalBadge.valid {
-    background: #dcfce7;
-    color: #166534;
+    background: rgba(34, 197, 94, 0.15);
+    color: #4ade80;
 }
 
 .totalBadge.invalid {
-    background: #fee2e2;
-    color: #991b1b;
+    background: rgba(239, 68, 68, 0.15);
+    color: #f87171;
 }
 
 /* Tools Usage */
@@ -190,15 +193,15 @@
     align-items: center;
     gap: 12px;
     padding: 12px;
-    background: var(--bg-light);
+    background: var(--bg-secondary);
     border-radius: 10px;
-    border: 2px solid var(--border-color);
+    border: 2px solid var(--border);
     transition: all 0.2s ease;
 }
 
 .toolItemActive {
     border-color: #c12de0;
-    background: rgba(193, 45, 224, 0.06);
+    background: var(--accent-subtle);
 }
 
 .toolLabel {
@@ -218,13 +221,13 @@
 
 .toolLabel span {
     font-weight: 500;
-    color: var(--text-dark);
+    color: var(--text-primary);
 }
 
 .toolPercentage {
     width: 80px;
     padding: 8px 12px;
-    border: 2px solid var(--border-color);
+    border: 2px solid var(--border);
     border-radius: 8px;
     font-size: 14px;
 }
@@ -247,15 +250,15 @@
 }
 
 .teamMemberCard {
-    background: var(--bg-light);
+    background: var(--bg-secondary);
     border-radius: 12px;
-    border: 2px solid var(--border-color);
+    border: 2px solid var(--border);
     overflow: hidden;
     transition: all 0.2s ease;
 }
 
 .teamMemberCard:hover {
-    border-color: var(--primary-color);
+    border-color: var(--accent);
     box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
 }
 
@@ -272,16 +275,16 @@
     align-items: center;
     gap: 12px;
     padding: 14px;
-    background: var(--bg-light);
+    background: var(--bg-secondary);
     border-radius: 10px;
-    border: 2px solid var(--border-color);
+    border: 2px solid var(--border);
     cursor: pointer;
     transition: all 0.2s ease;
 }
 
 .teamMember:hover {
-    background: var(--card-bg, white);
-    border-color: var(--primary-color);
+    background: var(--bg-card);
+    border-color: var(--accent);
     box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
 }
 
@@ -300,7 +303,7 @@
 
 .memberName {
     font-weight: 600;
-    color: var(--text-dark);
+    color: var(--text-primary);
 }
 
 .memberRole {
@@ -313,8 +316,8 @@
     grid-template-columns: 1fr 1fr;
     gap: 12px;
     padding: 14px;
-    background: var(--card-bg, white);
-    border-top: 1px solid var(--border-color);
+    background: var(--bg-card);
+    border-top: 1px solid var(--border);
 }
 
 .shareInput {
@@ -331,7 +334,7 @@
 
 .shareInput input {
     padding: 8px 12px;
-    border: 2px solid var(--border-color);
+    border: 2px solid var(--border);
     border-radius: 8px;
     font-size: 14px;
 }
@@ -350,20 +353,20 @@
 
 .amountValue {
     padding: 8px 12px;
-    background: var(--bg-light);
+    background: var(--bg-secondary);
     border-radius: 8px;
     font-size: 14px;
     font-weight: 600;
-    color: var(--primary-color);
+    color: var(--accent);
     display: flex;
     align-items: center;
     height: 100%;
 }
 
 .infoBox {
-    background: #dbeafe;
-    border-left: 4px solid var(--primary-color);
-    color: #1e40af;
+    background: rgba(59, 130, 246, 0.15);
+    border-left: 4px solid var(--accent);
+    color: #60a5fa;
     padding: 12px 16px;
     border-radius: 8px;
     margin-bottom: 16px;
@@ -380,9 +383,9 @@
     display: flex;
     gap: 12px;
     padding: 20px 32px;
-    border-top: 2px solid var(--border-color);
+    border-top: 2px solid var(--border);
     justify-content: flex-end;
-    background: var(--bg-light);
+    background: var(--bg-secondary);
     border-radius: 0 0 20px 20px;
 }
 
@@ -401,18 +404,18 @@
 }
 
 .cancelBtn {
-    background: var(--card-bg, white);
-    color: var(--text-dark);
-    border: 2px solid var(--border-color);
+    background: var(--bg-card);
+    color: var(--text-primary);
+    border: 2px solid var(--border);
 }
 
 .cancelBtn:hover {
-    background: var(--bg-light);
+    background: var(--bg-secondary);
 }
 
 .submitBtn {
     background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-    color: white;
+    color: var(--text-primary);
 }
 
 .submitBtn:hover:not(:disabled) {

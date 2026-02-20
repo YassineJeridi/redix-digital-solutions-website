@@ -1,5 +1,5 @@
 .card {
-    background: var(--card-bg, white);
+    background: var(--bg-card);
     border-radius: 12px;
     padding: 20px;
     box-shadow: var(--shadow);
@@ -27,19 +27,19 @@
 
 .header h3 {
     font-size: 14px;
-    color: var(--text-light);
+    color: var(--text-secondary);
     font-weight: 500;
 }
 
 .header svg {
     font-size: 20px;
-    color: var(--primary-color);
+    color: var(--accent);
 }
 
 .value {
     font-size: 24px;
     font-weight: 700;
-    color: var(--text-dark);
+    color: var(--text-primary);
 }
 
 .tooltip {
@@ -47,8 +47,8 @@
     bottom: -60px;
     left: 50%;
     transform: translateX(-50%);
-    background: var(--dark-bg);
-    color: white;
+    background: var(--bg-primary);
+    color: var(--text-primary);
     padding: 8px 12px;
     border-radius: 8px;
     font-size: 12px;

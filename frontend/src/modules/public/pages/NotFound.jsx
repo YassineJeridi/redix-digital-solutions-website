@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { verifyMasterKey } from '../../../services/configService';
+import { useScrollLock } from '../../../hooks/useScrollLock';
 import styles from './NotFound.module.css';
 
 const PORTAL_FLAG = 'canAccessPortal';
@@ -13,6 +14,8 @@ const NotFound = () => {
   const [attempts, setAttempts] = useState(0);
   const inputRef = useRef(null);
   const navigate = useNavigate();
+
+  useScrollLock(showTerminal);
 
   // Focus terminal input when opened
   useEffect(() => {

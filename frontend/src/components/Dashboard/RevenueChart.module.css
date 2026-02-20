@@ -1,5 +1,5 @@
 .chartContainer {
-    background: var(--card-bg, white);
+    background: var(--bg-card);
     border-radius: 12px;
     padding: 24px;
     box-shadow: var(--shadow);
@@ -10,7 +10,7 @@
     font-size: 18px;
     font-weight: 600;
     margin-bottom: 20px;
-    color: var(--text-dark);
+    color: var(--text-primary);
 }
 
 @keyframes fadeIn {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { 
     MdAdd, MdEdit, MdDelete, MdSearch, MdFileDownload, 
     MdFilterList, MdSort, MdChevronLeft, MdChevronRight, MdPayment 
@@ -20,6 +20,8 @@ const ProjectsList = () => {
     const [projectStatus, setProjectStatus] = useState('');
     const [sortBy, setSortBy] = useState('createdAt');
     const [sortOrder, setSortOrder] = useState('desc');
+    // Client filter
+    const [clientFilter, setClientFilter] = useState('');
     
     // UI state
     const [showForm, setShowForm] = useState(false);
@@ -31,7 +33,7 @@ const ProjectsList = () => {
         fetchProjects();
     }, [pagination.page, category, paymentStatus, projectStatus, sortBy, sortOrder]);
 
-    // Debounce search
+    // Debounce search and client filter
     useEffect(() => {
         const timer = setTimeout(() => {
             if (pagination.page === 1) {
@@ -41,7 +43,7 @@ const ProjectsList = () => {
             }
         }, 500);
         return () => clearTimeout(timer);
-    }, [search]);
+    }, [search, clientFilter]);
 
     const fetchProjects = async () => {
         setLoading(true);
@@ -194,6 +196,24 @@ const ProjectsList = () => {
         }
     };
 
+    // Get unique client names for dropdown
+    const clientOptions = useMemo(() => {
+        const names = new Set();
+        projects.forEach(p => {
+            if (p.client && p.client.businessName) names.add(p.client.businessName);
+        });
+        return Array.from(names).sort();
+    }, [projects]);
+
+    // Filter and sort projects by client name in-memory (for UI only)
+    const filteredProjects = useMemo(() => {
+        let filtered = [...projects];
+        if (clientFilter) {
+            filtered = filtered.filter(p => p.client?.businessName === clientFilter);
+        }
+        return filtered;
+    }, [projects, clientFilter]);
+
     return (
         <div className={styles.container}>
             {/* Header with Actions */}
@@ -209,6 +229,17 @@ const ProjectsList = () => {
                     />
                 </div>
                 <div className={styles.headerActions}>
+                    <select
+                        className={styles.clientFilterDropdown}
+                        value={clientFilter}
+                        onChange={e => setClientFilter(e.target.value)}
+                        style={{ padding: '10px', borderRadius: '8px', border: '1px solid var(--border-color)', fontSize: '15px', marginRight: '8px' }}
+                    >
+                        <option value="">All Clients</option>
+                        {clientOptions.map(name => (
+                            <option key={name} value={name}>{name}</option>
+                        ))}
+                    </select>
                     <button className={styles.exportBtn} onClick={handleExportCSV} title="Export CSV">
                         <MdFileDownload /> CSV
                     </button>
@@ -307,12 +338,12 @@ const ProjectsList = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {projects.length === 0 ? (
+                                {filteredProjects.length === 0 ? (
                                     <tr>
                                         <td colSpan="8" className={styles.noData}>No projects found</td>
                                     </tr>
                                 ) : (
-                                    projects.map((project) => (
+                                    filteredProjects.map((project) => (
                                         <tr key={project._id} onClick={() => handleEditClick(project)} className={styles.clickableRow}>
                                             <td className={styles.projectName}>{project.projectName}</td>
                                             <td>{project.client?.businessName || 'N/A'}</td>

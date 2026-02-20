@@ -6,7 +6,7 @@
     font-size: 28px;
     font-weight: 700;
     margin-bottom: 24px;
-    color: var(--text-dark);
+    color: var(--text-primary);
 }
 
 .statusGrid {
@@ -17,7 +17,7 @@
 }
 
 .statusCard {
-    background: var(--card-bg, white);
+    background: var(--bg-card);
     border-radius: 14px;
     box-shadow: var(--shadow);
     padding: 24px;
@@ -65,7 +65,7 @@
 
 .statusInfo h3 {
     font-size: 13px;
-    color: var(--text-light);
+    color: var(--text-secondary);
     text-transform: uppercase;
     font-weight: 600;
     margin-bottom: 4px;
@@ -74,7 +74,7 @@
 .statusInfo p {
     font-size: 18px;
     font-weight: 700;
-    color: var(--text-dark);
+    color: var(--text-primary);
 }
 
 .statusInfo p.small {
@@ -84,14 +84,14 @@
 
 .statusInfo .sub {
     font-size: 12px;
-    color: var(--text-light);
+    color: var(--text-secondary);
     margin-top: 2px;
     display: block;
 }
 
 /* Action section */
 .actionSection {
-    background: var(--card-bg, white);
+    background: var(--bg-card);
     border-radius: 14px;
     box-shadow: var(--shadow);
     padding: 32px;
@@ -106,21 +106,21 @@
 .actionInfo h2 {
     font-size: 20px;
     font-weight: 700;
-    color: var(--text-dark);
+    color: var(--text-primary);
     margin-bottom: 8px;
 }
 
 .actionInfo p {
     font-size: 14px;
-    color: var(--text-light);
+    color: var(--text-secondary);
     max-width: 500px;
     line-height: 1.6;
 }
 
 .triggerBtn {
     padding: 14px 32px;
-    background: linear-gradient(135deg, #c12de0, #7817b6);
-    color: white;
+    background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+    color: var(--text-primary);
     border: none;
     border-radius: 12px;
     font-size: 15px;
@@ -135,7 +135,7 @@
 
 .triggerBtn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(193, 45, 224, 0.35);
+    box-shadow: 0 6px 20px var(--shadow-accent);
 }
 
 .triggerBtn:disabled {
@@ -149,7 +149,7 @@
     width: 18px;
     height: 18px;
     border: 2px solid rgba(255, 255, 255, 0.3);
-    border-top-color: white;
+    border-top-color: var(--text-primary);
     border-radius: 50%;
     animation: spin 0.7s linear infinite;
 }
@@ -170,17 +170,17 @@
 
 .toast.success {
     background: #22c55e;
-    color: white;
+    color: var(--text-primary);
 }
 
 .toast.error {
     background: #ef4444;
-    color: white;
+    color: var(--text-primary);
 }
 
 /* History table */
 .historySection {
-    background: var(--card-bg, white);
+    background: var(--bg-card);
     border-radius: 14px;
     box-shadow: var(--shadow);
     padding: 24px;
@@ -189,10 +189,10 @@
 .historySection h2 {
     font-size: 20px;
     font-weight: 700;
-    color: var(--text-dark);
+    color: var(--text-primary);
     margin-bottom: 20px;
     padding-bottom: 12px;
-    border-bottom: 2px solid var(--border-color);
+    border-bottom: 2px solid var(--border);
 }
 
 .historyTable {
@@ -206,9 +206,9 @@
     font-size: 12px;
     font-weight: 700;
     text-transform: uppercase;
-    color: var(--text-light);
+    color: var(--text-secondary);
     background: var(--table-header-bg, linear-gradient(135deg, #f8fafc, #f1f5f9));
-    border-bottom: 2px solid var(--border-color);
+    border-bottom: 2px solid var(--border);
 }
 
 .historyTable thead th:first-child {
@@ -222,12 +222,12 @@
 .historyTable tbody td {
     padding: 12px 16px;
     font-size: 14px;
-    color: var(--text-dark);
-    border-bottom: 1px solid var(--border-color);
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border);
 }
 
 .historyTable tbody tr:hover {
-    background: var(--hover-bg, rgba(0, 0, 0, 0.02));
+    background: var(--bg-hover, rgba(0, 0, 0, 0.02));
 }
 
 .badge {
@@ -251,7 +251,7 @@
 .emptyState {
     text-align: center;
     padding: 40px;
-    color: var(--text-light);
+    color: var(--text-secondary);
     font-size: 14px;
 }
 
@@ -267,7 +267,7 @@
     align-items: center;
     justify-content: center;
     padding: 60px;
-    color: var(--text-light);
+    color: var(--text-secondary);
     font-size: 16px;
     gap: 12px;
 }
@@ -275,7 +275,7 @@
 .loading .spinner {
     width: 24px;
     height: 24px;
-    border: 3px solid rgba(193, 45, 224, 0.2);
+    border: 3px solid var(--accent-subtle);
     border-top-color: #c12de0;
     border-radius: 50%;
     animation: spin 0.7s linear infinite;
@@ -288,7 +288,7 @@
     gap: 8px;
     margin-top: 8px;
     font-size: 13px;
-    color: var(--text-light);
+    color: var(--text-secondary);
 }
 
 .telegramInfo .telegramIcon {
@@ -313,11 +313,11 @@
 
 /* Dark mode overrides */
 :global([data-theme='dark']) .statusCard:hover {
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 24px var(--shadow);
 }
 
 :global([data-theme='dark']) .historyTable tbody tr:hover {
-    background: rgba(255, 255, 255, 0.04);
+    background: var(--border-subtle);
 }
 
 /* Responsive */

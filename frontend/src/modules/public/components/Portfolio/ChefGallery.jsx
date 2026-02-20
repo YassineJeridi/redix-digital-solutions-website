@@ -1,6 +1,7 @@
 // src/components/Portfolio/ChefGallery.jsx
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useScrollLock } from '../../../../hooks/useScrollLock';
 import { FaPlay, FaTimes, FaUtensils } from 'react-icons/fa';
 import { chefVideos } from '../../data/portfolioData';
 import styles from './PortfolioGallery.module.css';
@@ -8,6 +9,8 @@ import styles from './PortfolioGallery.module.css';
 const ChefGallery = () => {
   const [selectedMedia, setSelectedMedia] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState('All');
+
+  useScrollLock(!!selectedMedia);
 
   const categories = ['All', 'Main Course', 'Appetizer', 'Dessert'];
 

@@ -13,7 +13,7 @@
   justify-content: center;
   z-index: 2000;
   padding: 2rem;
-  animation: fadeIn 0.3s ease;
+  animation: overlayIn var(--anim-normal) var(--ease-smooth);
 }
 
 .modal {
@@ -23,7 +23,7 @@
   backdrop-filter: blur(30px);
   max-height: 90vh;
   overflow: auto;
-  animation: slideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: modalContentIn var(--anim-smooth) var(--ease-smooth);
   box-shadow: 
     0 50px 100px rgba(0, 0, 0, 0.5),
     0 0 0 1px rgba(193, 45, 224, 0.08) inset;
@@ -66,7 +66,7 @@
   border-radius: 50%;
   cursor: pointer;
   font-size: 1rem;
-  transition: all 0.3s ease;
+  transition: transform var(--anim-normal) var(--ease-smooth), background var(--anim-normal) var(--ease-smooth), border-color var(--anim-normal) var(--ease-smooth), color var(--anim-normal) var(--ease-smooth);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -77,6 +77,10 @@
   border-color: rgba(193, 45, 224, 0.35);
   color: white;
   transform: rotate(90deg);
+}
+
+.closeButton:active {
+  transform: rotate(90deg) scale(0.95);
 }
 
 .content {
@@ -101,28 +105,6 @@
 .fullWidth {
   width: 90vw;
   max-width: 1000px;
-}
-
-@keyframes fadeIn {
-  from { 
-    opacity: 0;
-    backdrop-filter: blur(0);
-  }
-  to { 
-    opacity: 1;
-    backdrop-filter: blur(20px);
-  }
-}
-
-@keyframes slideIn {
-  from { 
-    opacity: 0; 
-    transform: scale(0.95) translateY(20px); 
-  }
-  to { 
-    opacity: 1; 
-    transform: scale(1) translateY(0); 
-  }
 }
 
 @media (max-width: 768px) {

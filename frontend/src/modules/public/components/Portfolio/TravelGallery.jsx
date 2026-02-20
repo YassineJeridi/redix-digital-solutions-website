@@ -1,6 +1,7 @@
 // src/components/Portfolio/TravelGallery.jsx
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useScrollLock } from '../../../../hooks/useScrollLock';
 import { FaPlay, FaTimes, FaPlane } from 'react-icons/fa';
 import { travelVideos } from '../../data/portfolioData'; // ← Make sure this is travelVideos
 import styles from './PortfolioGallery.module.css';
@@ -9,13 +10,13 @@ const TravelGallery = () => {
   const [selectedMedia, setSelectedMedia] = useState(null);
   const [filterAgency, setFilterAgency] = useState('All');
 
+  useScrollLock(!!selectedMedia);
+
   const agencies = ['All', 'Sama Tours', 'Yalla Travel'];
   
   const filteredVideos = filterAgency === 'All' 
-    ? travelVideos  // ← Using travelVideos here
+    ? travelVideos
     : travelVideos.filter(v => v.agency === filterAgency);
-
-  console.log('Travel Videos:', travelVideos); // ← Add this to debug
 
   return (
     <div className={styles.gallery}>

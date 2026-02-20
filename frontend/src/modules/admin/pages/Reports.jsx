@@ -182,7 +182,7 @@ const Reports = () => {
                     <>
                         <div className={styles.summaryGrid}>
                             <div className={styles.summaryCard}>
-                                <span className={styles.sumLabel}>Total Projects</span>
+                                <span className={styles.sumLabel}>Total Services</span>
                                 <span className={styles.sumValue}>{summary.totalProjects || 0}</span>
                             </div>
                             <div className={styles.summaryCard}>
@@ -190,7 +190,7 @@ const Reports = () => {
                                 <span className={styles.sumValue}>{(summary.totalRevenue || 0).toLocaleString()} TND</span>
                             </div>
                             <div className={styles.summaryCard}>
-                                <span className={styles.sumLabel}>Average Project</span>
+                                <span className={styles.sumLabel}>Average Service</span>
                                 <span className={styles.sumValue}>{(summary.avgProjectValue || 0).toLocaleString()} TND</span>
                             </div>
                             <div className={styles.summaryCard}>
@@ -248,7 +248,7 @@ const Reports = () => {
                                 </ResponsiveContainer>
                                 <div className={styles.clientTable}>
                                     <table className={styles.table}>
-                                        <thead><tr><th>Client</th><th>Projects</th><th>Revenue</th></tr></thead>
+                                        <thead><tr><th>Client</th><th>Services</th><th>Revenue</th></tr></thead>
                                         <tbody>
                                             {revenueByClient.map((item, i) => (
                                                 <tr key={i}>
@@ -358,7 +358,7 @@ const Reports = () => {
                                 <thead>
                                     <tr>
                                         <th>Member</th>
-                                        <th>Projects</th>
+                                        <th>Services</th>
                                         <th>Total Payout</th>
                                     </tr>
                                 </thead>

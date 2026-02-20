@@ -49,7 +49,6 @@ const VideoCard = memo(({ video, direction }) => {
       videoEl.play().then(() => {
         setIsPlaying(true);
       }).catch(() => {
-        console.log('Autoplay prevented');
         setIsPlaying(false);
       });
     } else {

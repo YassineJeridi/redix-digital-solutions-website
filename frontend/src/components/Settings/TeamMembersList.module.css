@@ -12,7 +12,7 @@
 .header h1 {
     font-size: 28px;
     font-weight: 700;
-    color: var(--text-dark);
+    color: var(--text-primary);
 }
 
 .addBtn {
@@ -20,8 +20,8 @@
     align-items: center;
     gap: 8px;
     padding: 12px 24px;
-    background: var(--primary-color);
-    color: white;
+    background: var(--accent);
+    color: var(--text-primary);
     border-radius: 8px;
     font-weight: 500;
 }
@@ -33,7 +33,7 @@
 }
 
 .memberCard {
-    background: var(--card-bg, white);
+    background: var(--bg-card);
     border-radius: 12px;
     box-shadow: var(--shadow);
     overflow: hidden;
@@ -52,7 +52,7 @@
     align-items: start;
     padding: 24px;
     background: linear-gradient(135deg, rgba(193, 45, 224, 0.05), rgba(120, 23, 182, 0.05));
-    border-bottom: 2px solid var(--border-color);
+    border-bottom: 2px solid var(--border);
 }
 
 .profileSection {
@@ -67,8 +67,8 @@
     height: 60px;
     border-radius: 50%;
     overflow: hidden;
-    background: var(--card-bg, white);
-    border: 3px solid var(--primary-color);
+    background: var(--bg-card);
+    border: 3px solid var(--accent);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -83,7 +83,7 @@
 
 .avatar svg {
     font-size: 32px;
-    color: var(--text-light);
+    color: var(--text-secondary);
 }
 
 .nameSection {
@@ -92,13 +92,13 @@
 
 .nameSection h3 {
     font-size: 18px;
-    color: var(--text-dark);
+    color: var(--text-primary);
     margin-bottom: 4px;
 }
 
 .role {
     font-size: 13px;
-    color: var(--text-light);
+    color: var(--text-secondary);
     margin: 0;
 }
 
@@ -117,7 +117,7 @@
 
 .editBtn,
 .deleteBtn {
-    background: var(--card-bg, white);
+    background: var(--bg-card);
     font-size: 18px;
     padding: 10px;
     border-radius: 8px;
@@ -126,22 +126,22 @@
 }
 
 .editBtn {
-    color: var(--primary-color);
+    color: var(--accent);
 }
 
 .editBtn:hover {
-    background: var(--primary-color);
-    color: white;
+    background: var(--accent);
+    color: var(--text-primary);
     transform: scale(1.1);
 }
 
 .deleteBtn {
-    color: var(--danger-color);
+    color: var(--danger);
 }
 
 .deleteBtn:hover {
-    background: var(--danger-color);
-    color: white;
+    background: var(--danger);
+    color: var(--text-primary);
     transform: scale(1.1);
 }
 
@@ -157,19 +157,19 @@
     align-items: center;
     gap: 12px;
     font-size: 14px;
-    color: var(--text-dark);
+    color: var(--text-primary);
 }
 
 .infoItem .icon {
     font-size: 20px;
-    color: var(--primary-color);
+    color: var(--accent);
 }
 
 .financialSection h4,
 .transactionsSection h4 {
     font-size: 13px;
     font-weight: 600;
-    color: var(--text-dark);
+    color: var(--text-primary);
     text-transform: uppercase;
     letter-spacing: 0.5px;
     margin-bottom: 12px;
@@ -183,7 +183,7 @@
 
 .financialItem {
     padding: 12px;
-    background: var(--light-bg);
+    background: var(--bg-primary);
     border-radius: 8px;
     display: flex;
     flex-direction: column;
@@ -192,14 +192,14 @@
 
 .financialLabel {
     font-size: 11px;
-    color: var(--text-light);
+    color: var(--text-secondary);
     text-transform: uppercase;
 }
 
 .financialValue {
     font-size: 16px;
     font-weight: 700;
-    color: var(--text-dark);
+    color: var(--text-primary);
 }
 
 .balanceCard {
@@ -210,18 +210,18 @@
     padding: 16px;
     background: linear-gradient(135deg, rgba(193, 45, 224, 0.1), rgba(120, 23, 182, 0.1));
     border-radius: 10px;
-    border: 2px solid var(--primary-color);
+    border: 2px solid var(--accent);
 }
 
 .balanceCard svg {
     font-size: 32px;
-    color: var(--primary-color);
+    color: var(--accent);
 }
 
 .balanceLabel {
     display: block;
     font-size: 11px;
-    color: var(--text-light);
+    color: var(--text-secondary);
     text-transform: uppercase;
     margin-bottom: 4px;
 }
@@ -233,19 +233,19 @@
 }
 
 .balanceValue.positive {
-    color: var(--success-color);
+    color: var(--success);
 }
 
 .balanceValue.negative {
-    color: var(--danger-color);
+    color: var(--danger);
 }
 
 .debtInfo {
     padding: 12px;
     background: rgba(239, 68, 68, 0.1);
-    border-left: 3px solid var(--danger-color);
+    border-left: 3px solid var(--danger);
     border-radius: 6px;
-    color: var(--danger-color);
+    color: var(--danger);
     font-size: 13px;
     font-weight: 600;
     margin-top: 8px;
@@ -262,14 +262,14 @@
     justify-content: space-between;
     align-items: center;
     padding: 12px;
-    background: var(--light-bg);
+    background: var(--bg-primary);
     border-radius: 8px;
 }
 
 .transactionType {
     padding: 4px 8px;
     background: rgba(193, 45, 224, 0.1);
-    color: var(--primary-color);
+    color: var(--accent);
     border-radius: 6px;
     font-size: 11px;
     font-weight: 600;
@@ -279,13 +279,13 @@
 
 .transactionDesc {
     font-size: 12px;
-    color: var(--text-light);
+    color: var(--text-secondary);
 }
 
 .transactionAmount {
     font-size: 14px;
     font-weight: 700;
-    color: var(--text-dark);
+    color: var(--text-primary);
 }
 
 .transactionAmount.positive {
@@ -327,18 +327,18 @@
 
 .commissionBtn {
     background: linear-gradient(135deg, #c12de0, #a020c0);
-    color: white;
+    color: var(--text-primary);
 }
 
 .commissionBtn:hover {
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(193, 45, 224, 0.4);
+    box-shadow: 0 4px 12px var(--shadow-accent);
 }
 
 .withdrawBtn {
-    background: var(--bg-light, #f3f4f6);
-    color: var(--text-dark, #374151);
-    border: 2px solid var(--border-color, #e5e7eb);
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 2px solid var(--border);
 }
 
 .withdrawBtn:hover {
@@ -388,7 +388,7 @@
 }
 
 .modal {
-    background: var(--card-bg, white);
+    background: var(--bg-card);
     border-radius: 16px;
     padding: 28px;
     width: 420px;
@@ -400,13 +400,13 @@
 .modal h3 {
     font-size: 18px;
     font-weight: 700;
-    color: var(--text-dark);
+    color: var(--text-primary);
     margin: 0 0 8px 0;
 }
 
 .modalBalance {
     font-size: 14px;
-    color: var(--text-light);
+    color: var(--text-secondary);
     margin: 0 0 20px 0;
 }
 
@@ -422,7 +422,7 @@
     display: block;
     font-size: 13px;
     font-weight: 600;
-    color: var(--text-dark);
+    color: var(--text-primary);
     margin-bottom: 6px;
     text-transform: uppercase;
     letter-spacing: 0.3px;
@@ -431,11 +431,11 @@
 .modalField input {
     width: 100%;
     padding: 10px 14px;
-    border: 2px solid var(--border-color, #e5e7eb);
+    border: 2px solid var(--border);
     border-radius: 10px;
     font-size: 14px;
-    color: var(--text-dark);
-    background: var(--bg-light, #f9fafb);
+    color: var(--text-primary);
+    background: var(--bg-secondary);
     outline: none;
     box-sizing: border-box;
     transition: all 0.2s;
@@ -443,7 +443,7 @@
 
 .modalField input:focus {
     border-color: #c12de0;
-    box-shadow: 0 0 0 3px rgba(193, 45, 224, 0.12);
+    box-shadow: 0 0 0 3px var(--accent-subtle);
 }
 
 .modalActions {
@@ -455,12 +455,12 @@
 .modalCancel {
     flex: 1;
     padding: 12px;
-    background: var(--bg-light, #f3f4f6);
-    border: 2px solid var(--border-color, #e5e7eb);
+    background: var(--bg-secondary);
+    border: 2px solid var(--border);
     border-radius: 10px;
     font-weight: 600;
     font-size: 14px;
-    color: var(--text-dark);
+    color: var(--text-primary);
     cursor: pointer;
 }
 
@@ -468,7 +468,7 @@
     flex: 1;
     padding: 12px;
     background: linear-gradient(135deg, #c12de0, #a020c0);
-    color: white;
+    color: var(--text-primary);
     border: none;
     border-radius: 10px;
     font-weight: 600;
@@ -483,7 +483,7 @@
 
 .modalConfirm:hover {
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(193, 45, 224, 0.4);
+    box-shadow: 0 4px 12px var(--shadow-accent);
 }
 
 @keyframes fadeIn {

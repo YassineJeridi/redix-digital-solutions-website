@@ -5,6 +5,7 @@ import {
   FaCode, FaFilter, FaStar, FaExternalLinkAlt, FaEye, 
   FaGithub, FaPlay, FaImages, FaRocket, FaAward
 } from 'react-icons/fa';
+import { useTranslation } from 'react-i18next';
 import { websites, categories } from '../../data/websites';
 import ProjectModal from './ProjectModal/ProjectModal';
 import styles from './DevProject.module.css';
@@ -34,6 +35,7 @@ const DevProject = () => {
   const [activeFilter, setActiveFilter] = useState('All');
   const [selectedProject, setSelectedProject] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { t } = useTranslation();
 
   // Optimized filtering with useMemo
   const filteredProjects = useMemo(() => {
@@ -62,12 +64,12 @@ const DevProject = () => {
       'Live': { 
         icon: FaPlay, 
         className: styles.statusLive, 
-        text: 'Live Preview' 
+        text: t('devProject.livePreview')
       },
       'Screenshots': { 
         icon: FaImages, 
         className: styles.statusScreenshots, 
-        text: 'View Screenshots' 
+        text: t('devProject.viewScreenshots')
       }
     };
 
@@ -101,17 +103,15 @@ const DevProject = () => {
         >
           <div className={styles.headerBadge}>
             <FaCode />
-            <span>Our Portfolio</span>
+            <span>{t('devProject.badge')}</span>
           </div>
           
           <h1 className={styles.mainTitle}>
-            <span className={styles.gradientText}>Crafting Digital
-             Experiences</span>
+            <span className={styles.gradientText}>{t('devProject.title')}</span>
           </h1>
           
           <p className={styles.headerDescription}>
-            Explore our collection of cutting-edge web applications and digital solutions, 
-            each crafted with precision, creativity, and the latest technologies.
+            {t('devProject.subtitle')}
           </p>
 
           {/* Stats Cards */}
@@ -153,7 +153,7 @@ const DevProject = () => {
                 {project.featured && (
                   <div className={styles.featuredBadge}>
                     <FaStar />
-                    <span>Featured</span>
+                    <span>{t('devProject.featured')}</span>
                   </div>
                 )}
 
@@ -189,7 +189,7 @@ const DevProject = () => {
                         onClick={() => handleProjectView(project)}
                       >
                         <FaEye />
-                        View Project
+                        {t('devProject.viewProject')}
                       </button>
                       
                       <div className={styles.secondaryActions}>
@@ -251,11 +251,11 @@ const DevProject = () => {
                   {/* Performance Metrics */}
                   <div className={styles.metricsBar}>
                     <div className={styles.metric}>
-                      <span className={styles.metricLabel}>Speed</span>
+                      <span className={styles.metricLabel}>{t('devProject.speed')}</span>
                       <span className={styles.metricValue}>{project.metrics.loadTime}</span>
                     </div>
                     <div className={styles.metric}>
-                      <span className={styles.metricLabel}>Score</span>
+                      <span className={styles.metricLabel}>{t('devProject.score')}</span>
                       <span className={styles.metricValue}>{project.metrics.lighthouse}</span>
                     </div>
                     <div className={styles.metricDivider} />

@@ -3,22 +3,22 @@
     justify-content: space-between;
     align-items: center;
     padding: 16px 24px;
-    background: var(--navbar-bg, white);
-    border-bottom: 1px solid var(--border-color);
+    background: var(--navbar-bg);
+    border-bottom: 1px solid var(--border);
     box-shadow: var(--shadow);
 }
 
 .menuBtn {
     background: transparent;
     font-size: 24px;
-    color: var(--text-dark);
+    color: var(--text-primary);
     padding: 8px;
     border-radius: 8px;
     transition: all 0.3s ease;
 }
 
 .menuBtn:hover {
-    background: var(--light-bg);
+    background: var(--bg-primary);
     transform: scale(1.1);
 }
 
@@ -31,7 +31,7 @@
 .iconBtn {
     background: transparent;
     font-size: 24px;
-    color: var(--text-dark);
+    color: var(--text-primary);
     padding: 8px;
     border-radius: 8px;
     position: relative;
@@ -39,7 +39,7 @@
 }
 
 .iconBtn:hover {
-    background: var(--light-bg);
+    background: var(--bg-primary);
     transform: scale(1.1);
 }
 
@@ -49,7 +49,7 @@
     top: 2px;
     right: 2px;
     background: #ef4444;
-    color: white;
+    color: var(--text-primary);
     font-size: 10px;
     font-weight: 700;
     min-width: 18px;
@@ -59,7 +59,7 @@
     align-items: center;
     justify-content: center;
     padding: 0 4px;
-    border: 2px solid var(--navbar-bg, white);
+    border: 2px solid var(--navbar-bg);
     line-height: 1;
 }
 
@@ -79,8 +79,8 @@
     right: 0;
     width: 380px;
     max-height: 480px;
-    background: var(--card-bg);
-    border: 1px solid var(--border-color);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-lg);
     z-index: 1000;
@@ -98,18 +98,18 @@
     justify-content: space-between;
     align-items: center;
     padding: 16px 20px;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border);
 }
 
 .dropdownHeader h3 {
     font-size: 16px;
     font-weight: 600;
-    color: var(--text-dark);
+    color: var(--text-primary);
 }
 
 .markAllBtn {
     background: none;
-    color: var(--primary-color);
+    color: var(--accent);
     font-size: 12px;
     font-weight: 600;
     padding: 4px 8px;
@@ -131,14 +131,14 @@
 }
 
 .notifList::-webkit-scrollbar-thumb {
-    background: var(--border-color);
+    background: var(--border);
     border-radius: 2px;
 }
 
 .emptyNotif {
     padding: 40px 20px;
     text-align: center;
-    color: var(--text-light);
+    color: var(--text-secondary);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -152,17 +152,17 @@
     padding: 14px 20px;
     cursor: pointer;
     transition: background 0.2s;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border);
     position: relative;
 }
 
 .notifItem:hover {
-    background: var(--hover-bg);
+    background: var(--bg-hover);
 }
 
 .notifItem.unread {
     background: rgba(193, 45, 224, 0.04);
-    border-left: 3px solid var(--primary-color);
+    border-left: 3px solid var(--accent);
 }
 
 .notifIcon {
@@ -182,12 +182,12 @@
 .notifTitle {
     font-size: 13px;
     font-weight: 600;
-    color: var(--text-dark);
+    color: var(--text-primary);
 }
 
 .notifMessage {
     font-size: 12px;
-    color: var(--text-light);
+    color: var(--text-secondary);
     line-height: 1.4;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -198,13 +198,13 @@
 
 .notifTime {
     font-size: 11px;
-    color: var(--text-light);
+    color: var(--text-secondary);
     margin-top: 2px;
 }
 
 .notifDeleteBtn {
     background: none;
-    color: var(--text-light);
+    color: var(--text-secondary);
     padding: 4px;
     border-radius: 4px;
     opacity: 0;
@@ -238,8 +238,8 @@
     width: 36px;
     height: 36px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    color: white;
+    background: linear-gradient(135deg, var(--accent), var(--secondary-color));
+    color: var(--text-primary);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -253,8 +253,8 @@
     top: calc(100% + 8px);
     right: 0;
     width: 260px;
-    background: var(--card-bg);
-    border: 1px solid var(--border-color);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-lg);
     z-index: 1000;
@@ -267,15 +267,15 @@
     align-items: center;
     gap: 12px;
     padding: 16px 20px;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border);
 }
 
 .profileAvatarLg {
     width: 44px;
     height: 44px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    color: white;
+    background: linear-gradient(135deg, var(--accent), var(--secondary-color));
+    color: var(--text-primary);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -288,13 +288,13 @@
     display: block;
     font-size: 14px;
     font-weight: 600;
-    color: var(--text-dark);
+    color: var(--text-primary);
 }
 
 .profileEmail {
     display: block;
     font-size: 12px;
-    color: var(--text-light);
+    color: var(--text-secondary);
 }
 
 .profileMenuItems {
@@ -308,7 +308,7 @@
     width: 100%;
     padding: 10px 12px;
     background: none;
-    color: var(--text-dark);
+    color: var(--text-primary);
     font-size: 14px;
     border-radius: 8px;
     transition: background 0.2s;
@@ -316,7 +316,7 @@
 }
 
 .profileMenuItems button:hover {
-    background: var(--hover-bg);
+    background: var(--bg-hover);
     transform: none;
 }
 

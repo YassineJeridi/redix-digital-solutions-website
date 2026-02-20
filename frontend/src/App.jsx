@@ -1,5 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
+
+// ─── Theme ───
+import { ThemeProvider } from './context/ThemeContext';
 
 // ─── Admin module imports ───
 import { AppProvider } from './modules/admin/context/AppContext';
@@ -7,7 +11,7 @@ import { AuthProvider, useAuth } from './modules/admin/context/AuthContext';
 import Layout from './modules/admin/components/Layout/Layout';
 import Dashboard from './modules/admin/pages/Dashboard';
 import Clients from './modules/admin/pages/Clients';
-import Projects from './modules/admin/pages/Projects';
+import Services from './modules/admin/pages/Services';
 import Tools from './modules/admin/pages/Tools';
 import Settings from './modules/admin/pages/Settings';
 import Expenses from './modules/admin/pages/Expenses';
@@ -73,7 +77,7 @@ const AppRoutes = () => {
                             <Routes>
                                 <Route index element={<Dashboard />} />
                                 <Route path="clients" element={<Clients />} />
-                                <Route path="projects" element={<Projects />} />
+                                <Route path="services" element={<Services />} />
                                 <Route path="tasks" element={<KanbanBoard />} />
                                 <Route path="tools" element={<Tools />} />
                                 <Route path="expenses" element={<Expenses />} />
@@ -101,18 +105,32 @@ const AppRoutes = () => {
 
 function App() {
     return (
-        <AuthProvider>
-            <AppProvider>
-                <Router
-                    future={{
-                        v7_startTransition: true,
-                        v7_relativeSplatPath: true,
-                    }}
-                >
-                    <AppRoutes />
-                </Router>
-            </AppProvider>
-        </AuthProvider>
+        <ThemeProvider>
+            <AuthProvider>
+                <AppProvider>
+                    <Router
+                        future={{
+                            v7_startTransition: true,
+                            v7_relativeSplatPath: true,
+                        }}
+                    >
+                        <AppRoutes />
+                    </Router>
+                    <Toaster
+                        position="top-right"
+                        toastOptions={{
+                            style: {
+                                background: 'var(--bg-card)',
+                                color: 'var(--text-primary)',
+                                border: '1px solid var(--border)',
+                                borderRadius: 'var(--radius)',
+                                boxShadow: 'var(--shadow)',
+                            },
+                        }}
+                    />
+                </AppProvider>
+            </AuthProvider>
+        </ThemeProvider>
     );
 }
 

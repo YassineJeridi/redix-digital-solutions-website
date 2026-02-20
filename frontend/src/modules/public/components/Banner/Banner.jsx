@@ -1,6 +1,7 @@
 // src/components/Banner/Banner.jsx
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 const logoImage = '/assets/logos/Redix1.png';
 const worldIcon = '/assets/icons/world.png';
 const securityIcon = '/assets/icons/security.png';
@@ -13,6 +14,7 @@ const Banner = () => {
   const bannerRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const { t } = useTranslation();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -199,19 +201,18 @@ const Banner = () => {
       <div className={styles.container}>
         <div className={styles.content}>
           <h1 className={styles.title}>
-            Transform Your Digital Presence with
-            <span className={styles.highlight}> Redix Digital Solutions</span>
+            {t('banner.title')}
+            <span className={styles.highlight}>{t('banner.highlight')}</span>
           </h1>
           <p className={styles.subtitle}>
-            We're a Tunisia-based digital solutions agency specializing in
-            cutting-edge web development, mobile apps, and digital marketing.
+            {t('banner.subtitle')}
           </p>
           <div className={styles.ctaButtons}>
             <button className={styles.primaryBtn} onClick={scrollToContact}>
-              Get Started
+              {t('banner.getStarted')}
             </button>
             <button className={styles.secondaryBtn} onClick={scrollToServices}>
-              View Our Work
+              {t('banner.viewWork')}
             </button>
           </div>
         </div>

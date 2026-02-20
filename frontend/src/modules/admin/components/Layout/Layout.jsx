@@ -8,7 +8,7 @@ const Layout = ({ children }) => {
 
     return (
         <div className={styles.layout}>
-            <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+            <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} onToggleCollapse={() => setSidebarOpen(!sidebarOpen)} />
             <div className={`${styles.main} ${!sidebarOpen ? styles.expanded : ''}`}>
                 <Navbar toggleSidebar={() => setSidebarOpen(!sidebarOpen)} />
                 <div className={styles.content}>{children}</div>

@@ -98,7 +98,7 @@ const Dashboard = () => {
             {/* Stats Row */}
             <div className={styles.statsRow}>
                 <div className={styles.statChip}>
-                    <MdWork /> <strong>{metrics.totalProjects || 0}</strong> Projects
+                    <MdWork /> <strong>{metrics.totalProjects || 0}</strong> Services
                 </div>
                 <div className={styles.statChip}>
                     <MdCheckCircle style={{ color: '#10b981' }} /> <strong>{metrics.completedProjects || 0}</strong> Completed
@@ -187,15 +187,15 @@ const Dashboard = () => {
             {/* Recent Projects Table */}
             <div className={styles.tableCard}>
                 <div className={styles.tableHeader}>
-                    <h3>Recent Projects</h3>
-                    <button className={styles.viewAllBtn} onClick={() => navigate('/dashboard/projects')}>View All</button>
+                    <h3>Recent Services</h3>
+                    <button className={styles.viewAllBtn} onClick={() => navigate('/dashboard/services')}>View All</button>
                 </div>
                 {metrics.recentProjects && metrics.recentProjects.length > 0 ? (
                     <div className={styles.tableWrapper}>
                         <table className={styles.table}>
                             <thead>
                                 <tr>
-                                    <th>Project</th>
+                                    <th>Service</th>
                                     <th>Client</th>
                                     <th>Service</th>
                                     <th>Price</th>
@@ -226,7 +226,7 @@ const Dashboard = () => {
                         </table>
                     </div>
                 ) : (
-                    <div className={styles.emptyState}><p>No projects yet. Create your first project to see data here.</p></div>
+                    <div className={styles.emptyState}><p>No services yet. Create your first service to see data here.</p></div>
                 )}
             </div>
         </div>

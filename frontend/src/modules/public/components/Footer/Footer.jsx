@@ -16,6 +16,7 @@ import {
   FaChartLine,
   FaPalette
 } from 'react-icons/fa';
+import { useTranslation } from 'react-i18next';
 const logoImage = '/assets/logos/Redix1.png';
 import styles from './Footer.module.css';
 
@@ -24,6 +25,7 @@ const Footer = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.2 });
+  const { t } = useTranslation();
 
   // Your actual social media links
   const socialLinks = [
@@ -58,10 +60,10 @@ const Footer = () => {
   ];
 
   const services = [
-    { name: 'Web Development', icon: FaCode },
-    { name: 'Mobile Apps', icon: FaMobile },
-    { name: 'Digital Marketing', icon: FaChartLine },
-    { name: 'UI/UX Design', icon: FaPalette }
+    { name: t('footer.webDev'), icon: FaCode },
+    { name: t('footer.mobileApps'), icon: FaMobile },
+    { name: t('footer.digitalMarketing'), icon: FaChartLine },
+    { name: t('footer.uiux'), icon: FaPalette }
   ];
 
   const handleNewsletterSubmit = async (e) => {
@@ -226,8 +228,7 @@ const Footer = () => {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.5 }}
             >
-              Transforming businesses through innovative digital solutions. 
-              Based in Tunisia, serving clients worldwide with cutting-edge technology.
+              {t('footer.companyDesc')}
             </motion.p>
 
             {/* Animated Social Media Icons */}
@@ -274,7 +275,7 @@ const Footer = () => {
               className={styles.sectionTitle}
               whileHover={{ scale: 1.05, x: 5 }}
             >
-              Our Services
+              {t('footer.ourServices')}
             </motion.h4>
             <ul className={styles.servicesList}>
               {services.map((service, index) => {
@@ -305,7 +306,7 @@ const Footer = () => {
               className={styles.sectionTitle}
               whileHover={{ scale: 1.05, x: 5 }}
             >
-              Get In Touch
+              {t('footer.getInTouch')}
             </motion.h4>
             <div className={styles.contactList}>
               <motion.div 
@@ -313,21 +314,21 @@ const Footer = () => {
                 whileHover={{ x: 5, scale: 1.02 }}
               >
                 <FaMapMarkerAlt className={styles.contactIcon} />
-                <span>Smart Technopark Manouba, Tunisia</span>
+                <span>{t('footer.address')}</span>
               </motion.div>
               <motion.div 
                 className={styles.contactItem}
                 whileHover={{ x: 5, scale: 1.02 }}
               >
                 <FaPhone className={styles.contactIcon} />
-                <span>(+216) 21-999-898</span>
+                <span>{t('footer.phone')}</span>
               </motion.div>
               <motion.div 
                 className={styles.contactItem}
                 whileHover={{ x: 5, scale: 1.02 }}
               >
                 <FaEnvelope className={styles.contactIcon} />
-                <span>contact@redixsolutions.pro</span>
+                <span>{t('footer.emailAddress')}</span>
               </motion.div>
             </div>
           </motion.div>
@@ -341,7 +342,7 @@ const Footer = () => {
               className={styles.sectionTitle}
               whileHover={{ scale: 1.05, x: 5 }}
             >
-              Stay Updated
+              {t('footer.stayUpdated')}
             </motion.h4>
             <motion.p 
               className={styles.newsletterText}
@@ -349,7 +350,7 @@ const Footer = () => {
               animate={isInView ? { opacity: 1 } : {}}
               transition={{ duration: 0.6, delay: 1.2 }}
             >
-              Subscribe to our newsletter for the latest updates and digital insights
+              {t('footer.newsletterDesc')}
             </motion.p>
             <motion.form 
               className={styles.newsletterForm}
@@ -360,7 +361,7 @@ const Footer = () => {
             >
               <motion.input
                 type="email"
-                placeholder="Enter your email"
+                placeholder={t('footer.enterEmail')}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className={styles.newsletterInput}
@@ -399,7 +400,7 @@ const Footer = () => {
             className={styles.copyright}
             whileHover={{ scale: 1.02 }}
           >
-            © 2024 Redix Digital Solutions. All rights reserved. Made with ❤️ in Tunisia
+            {t('footer.copyright')}
           </motion.p>
           
           <motion.button

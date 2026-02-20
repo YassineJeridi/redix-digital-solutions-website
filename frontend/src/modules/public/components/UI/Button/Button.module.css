@@ -8,9 +8,13 @@
   font-weight: 600;
   text-decoration: none;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: transform var(--anim-normal) var(--ease-smooth), background var(--anim-normal) var(--ease-smooth), color var(--anim-normal) var(--ease-smooth), border-color var(--anim-normal) var(--ease-smooth), box-shadow var(--anim-normal) var(--ease-smooth);
   position: relative;
   overflow: hidden;
+}
+
+.button:active:not(:disabled) {
+  transform: scale(0.98);
 }
 
 .button:disabled {
@@ -28,6 +32,10 @@
 .primary:hover:not(:disabled) {
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(193, 45, 224, 0.3);
+}
+
+.primary:active:not(:disabled) {
+  transform: translateY(0) scale(0.98);
 }
 
 .secondary {

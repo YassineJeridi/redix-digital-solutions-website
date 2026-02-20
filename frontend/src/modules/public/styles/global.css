@@ -149,11 +149,15 @@ p {
 a {
   color: var(--primary-light);
   text-decoration: none;
-  transition: var(--transition);
+  transition: color var(--anim-normal) var(--ease-smooth), opacity var(--anim-normal) var(--ease-smooth), transform var(--anim-normal) var(--ease-smooth);
 }
 
 a:hover {
   color: var(--light-text);
+}
+
+a:active {
+  opacity: 0.9;
 }
 
 /* Lists */
@@ -187,7 +191,7 @@ input, textarea, select {
   border-radius: var(--border-radius);
   background: rgba(255, 255, 255, 0.05);
   color: var(--light-text);
-  transition: var(--transition);
+  transition: border-color var(--anim-normal) var(--ease-smooth), box-shadow var(--anim-normal) var(--ease-smooth), background var(--anim-normal) var(--ease-smooth);
 }
 
 input:focus, textarea:focus, select:focus {
@@ -203,10 +207,13 @@ input::placeholder, textarea::placeholder {
 button {
   cursor: pointer;
   border: none;
-
   border-radius: var(--border-radius);
   font-weight: 600;
-  transition: var(--transition);
+  transition: transform var(--anim-normal) var(--ease-smooth), background-color var(--anim-normal) var(--ease-smooth), color var(--anim-normal) var(--ease-smooth), border-color var(--anim-normal) var(--ease-smooth), box-shadow var(--anim-normal) var(--ease-smooth), opacity var(--anim-normal) var(--ease-smooth);
+}
+
+button:active:not(:disabled) {
+  transform: scale(0.98);
 }
 
 /* Scrollbar Styling - Premium */
@@ -374,13 +381,17 @@ html {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   box-shadow: var(--shadow-card);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform var(--anim-smooth) var(--ease-smooth), border-color var(--anim-smooth) var(--ease-smooth), box-shadow var(--anim-smooth) var(--ease-smooth);
 }
 
 .glass-card:hover {
   border-color: var(--glass-border-hover);
   box-shadow: var(--shadow-primary), var(--shadow-card);
   transform: translateY(-4px);
+}
+
+.glass-card:active {
+  transform: translateY(-2px) scale(0.99);
 }
 
 /* Gradient Text - Premium */
@@ -404,9 +415,13 @@ html {
   border-radius: var(--border-radius-full);
   border: none;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform var(--anim-normal) var(--ease-smooth), box-shadow var(--anim-normal) var(--ease-smooth), background var(--anim-normal) var(--ease-smooth), border-color var(--anim-normal) var(--ease-smooth);
   position: relative;
   overflow: hidden;
+}
+
+.btn-premium:active:not(:disabled) {
+  transform: translateY(0) scale(0.98);
 }
 
 .btn-primary-premium {

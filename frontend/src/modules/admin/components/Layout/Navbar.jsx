@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MdMenu, MdNotifications, MdDarkMode, MdLightMode, MdPerson, MdLogout, MdClose } from 'react-icons/md';
 import { useAuth } from '../../context/AuthContext';
+import { useTheme } from '../../../../context/ThemeContext';
 import * as NotificationServices from '../../services/NotificationServices';
 import styles from './Navbar.module.css';
 
@@ -13,8 +14,8 @@ const ICON_MAP = {
 
 const Navbar = ({ toggleSidebar }) => {
     const { user, logout } = useAuth();
+    const { isDark, toggleTheme } = useTheme();
     const navigate = useNavigate();
-    const [darkMode, setDarkMode] = useState(() => localStorage.getItem('theme') === 'dark');
 
     // Notifications
     const [showNotifications, setShowNotifications] = useState(false);
@@ -25,11 +26,6 @@ const Navbar = ({ toggleSidebar }) => {
     // Profile dropdown
     const [showProfileMenu, setShowProfileMenu] = useState(false);
     const profileRef = useRef(null);
-
-    useEffect(() => {
-        document.documentElement.setAttribute('data-theme', darkMode ? 'dark' : 'light');
-        localStorage.setItem('theme', darkMode ? 'dark' : 'light');
-    }, [darkMode]);
 
     // Fetch notifications on mount + poll every 30 s
     useEffect(() => {
@@ -94,7 +90,7 @@ const Navbar = ({ toggleSidebar }) => {
 
         // Navigate based on whether there's a relatedId
         if (notif.relatedId) {
-            navigate('/dashboard/projects');
+            navigate('/dashboard/services');
         }
         setShowNotifications(false);
     };
@@ -122,8 +118,8 @@ const Navbar = ({ toggleSidebar }) => {
                 <MdMenu />
             </button>
             <div className={styles.right}>
-                <button className={styles.iconBtn} onClick={() => setDarkMode(!darkMode)} title={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}>
-                    {darkMode ? <MdLightMode /> : <MdDarkMode />}
+                <button className={styles.iconBtn} onClick={toggleTheme} title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}>
+                    {isDark ? <MdLightMode /> : <MdDarkMode />}
                 </button>
 
                 {/* Notifications */}

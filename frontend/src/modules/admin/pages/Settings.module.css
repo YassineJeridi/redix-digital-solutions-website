@@ -6,7 +6,7 @@
     font-size: 28px;
     font-weight: 700;
     margin-bottom: 24px;
-    color: var(--text-dark);
+    color: var(--text-primary);
 }
 
 .settingsGrid {
@@ -16,7 +16,7 @@
 }
 
 .card {
-    background: var(--card-bg, white);
+    background: var(--bg-card);
     border-radius: 14px;
     box-shadow: var(--shadow);
     padding: 24px;
@@ -25,10 +25,10 @@
 .cardTitle {
     font-size: 18px;
     font-weight: 700;
-    color: var(--text-dark);
+    color: var(--text-primary);
     margin-bottom: 20px;
     padding-bottom: 12px;
-    border-bottom: 2px solid var(--border-color);
+    border-bottom: 2px solid var(--border);
 }
 
 .form {
@@ -46,14 +46,14 @@
 .field label {
     font-size: 13px;
     font-weight: 600;
-    color: var(--text-light);
+    color: var(--text-secondary);
     text-transform: uppercase;
 }
 
 .field input,
 .field select {
     padding: 10px 14px;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--border);
     border-radius: 10px;
     font-size: 14px;
     outline: none;
@@ -62,14 +62,14 @@
 
 .field input:focus,
 .field select:focus {
-    border-color: var(--primary-color);
+    border-color: var(--accent);
     box-shadow: 0 0 0 3px rgba(193, 45, 224, 0.08);
 }
 
 .saveBtn {
     padding: 12px 24px;
-    background: linear-gradient(135deg, #c12de0, #7817b6);
-    color: white;
+    background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+    color: var(--text-primary);
     border: none;
     border-radius: 10px;
     font-size: 14px;
@@ -93,12 +93,12 @@
 .appName {
     font-size: 20px;
     font-weight: 700;
-    color: var(--text-dark);
+    color: var(--text-primary);
 }
 
 .version {
     font-size: 13px;
-    color: var(--primary-color);
+    color: var(--accent);
     font-weight: 600;
     background: rgba(193, 45, 224, 0.08);
     padding: 4px 12px;
@@ -109,7 +109,7 @@
 
 .desc {
     font-size: 14px;
-    color: var(--text-light);
+    color: var(--text-secondary);
     line-height: 1.6;
 }
 
@@ -122,10 +122,10 @@
 
 .link {
     padding: 8px 14px;
-    background: var(--light-bg);
+    background: var(--bg-primary);
     border-radius: 8px;
     font-size: 13px;
-    color: var(--text-dark);
+    color: var(--text-primary);
     font-weight: 500;
 }
 

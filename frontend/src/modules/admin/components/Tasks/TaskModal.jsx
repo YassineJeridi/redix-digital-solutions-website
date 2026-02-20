@@ -4,6 +4,7 @@ import {
     MdFlag, MdCalendarToday, MdBusinessCenter,
     MdViewColumn, MdDescription, MdComment
 } from 'react-icons/md';
+import { useScrollLock } from '../../../../hooks/useScrollLock';
 import styles from './TaskModal.module.css';
 
 const TaskModal = ({
@@ -18,6 +19,8 @@ const TaskModal = ({
     onClose,
     defaultStatus = 'Todo'
 }) => {
+    useScrollLock(isOpen);
+
     const [formData, setFormData] = useState({
         title: '',
         description: '',

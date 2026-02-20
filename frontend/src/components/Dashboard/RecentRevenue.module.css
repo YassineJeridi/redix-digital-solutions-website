@@ -1,5 +1,5 @@
 .container {
-    background: var(--card-bg, white);
+    background: var(--bg-card);
     border-radius: 12px;
     padding: 24px;
     box-shadow: var(--shadow);
@@ -10,7 +10,7 @@
     font-size: 18px;
     font-weight: 600;
     margin-bottom: 20px;
-    color: var(--text-dark);
+    color: var(--text-primary);
 }
 
 .tableWrapper {
@@ -23,7 +23,7 @@
 }
 
 .table thead {
-    background: var(--light-bg);
+    background: var(--bg-primary);
 }
 
 .table th {
@@ -31,12 +31,12 @@
     text-align: left;
     font-size: 14px;
     font-weight: 600;
-    color: var(--text-light);
+    color: var(--text-secondary);
 }
 
 .table td {
     padding: 12px;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border);
     font-size: 14px;
 }
 
@@ -45,7 +45,7 @@
 }
 
 .row:hover {
-    background: var(--light-bg);
+    background: var(--bg-primary);
 }
 
 .badge {
@@ -57,22 +57,22 @@
 
 .badge.marketing {
     background: rgba(193, 45, 224, 0.1);
-    color: var(--primary-color);
+    color: var(--accent);
 }
 
 .badge.production {
     background: rgba(16, 185, 129, 0.1);
-    color: var(--success-color);
+    color: var(--success);
 }
 
 .badge.development {
     background: rgba(245, 158, 11, 0.1);
-    color: var(--warning-color);
+    color: var(--warning);
 }
 
 .revenue {
     font-weight: 600;
-    color: var(--success-color);
+    color: var(--success);
 }
 
 @keyframes fadeIn {

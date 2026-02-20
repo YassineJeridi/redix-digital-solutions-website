@@ -1,6 +1,7 @@
 // src/components/EventHighlights/EventHighlights.jsx
 import { useState, useEffect, useRef } from 'react';
 import { motion, useInView, AnimatePresence, useScroll, useTransform } from 'framer-motion';
+import { useScrollLock } from '../../../../hooks/useScrollLock';
 import { 
   FaPlay, 
   FaTimes, 
@@ -29,6 +30,8 @@ const EventHighlights = () => {
   const scrollContainerRef = useRef(null);
   const videoRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.2 });
+
+  useScrollLock(!!selectedVideo);
 
   // Scroll animation
   const { scrollYProgress } = useScroll({
@@ -136,13 +139,11 @@ const EventHighlights = () => {
   const openModal = (video, index) => {
     setSelectedVideo({ ...video, index });
     setCurrentVideoIndex(index);
-    document.body.style.overflow = 'hidden';
   };
 
   const closeModal = () => {
     setSelectedVideo(null);
     setIsVideoPlaying(false);
-    document.body.style.overflow = 'unset';
     if (videoRef.current) {
       videoRef.current.pause();
     }

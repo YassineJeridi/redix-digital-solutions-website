@@ -364,12 +364,14 @@
     align-items: center;
     justify-content: center;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease, pointer-events 0s;
     backdrop-filter: blur(5px);
+    pointer-events: none;
 }
 
 .projectCard:hover .imageOverlay {
     opacity: 1;
+    pointer-events: auto;
 }
 
 .overlayContent {

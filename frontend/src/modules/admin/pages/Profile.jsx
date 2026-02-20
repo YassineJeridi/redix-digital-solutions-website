@@ -413,7 +413,7 @@ const Profile = () => {
                                     <span className={styles.teamStatValue}>{(member.totalReceived || 0).toLocaleString()} TND</span>
                                 </div>
                                 <div className={styles.teamStatItem}>
-                                    <span className={styles.teamStatLabel}>Projects</span>
+                                    <span className={styles.teamStatLabel}>Services</span>
                                     <span className={styles.teamStatValue}>
                                         {(member.transactions || []).filter(t => t.type === 'earning').length}
                                     </span>

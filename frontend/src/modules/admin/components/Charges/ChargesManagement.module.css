@@ -22,7 +22,7 @@
     align-items: center;
     gap: 16px;
     padding: 20px;
-    background: var(--card-bg, white);
+    background: var(--bg-card);
     border-radius: 12px;
     box-shadow: var(--shadow);
     flex: 1;
@@ -37,14 +37,14 @@
     align-items: center;
     justify-content: center;
     font-size: 24px;
-    background: linear-gradient(135deg, var(--primary-color), var(--success-color));
-    color: white;
+    background: linear-gradient(135deg, var(--accent), var(--success));
+    color: var(--text-primary);
 }
 
 .caisseLabel {
     display: block;
     font-size: 12px;
-    color: var(--text-light);
+    color: var(--text-secondary);
     font-weight: 500;
     text-transform: uppercase;
     margin-bottom: 4px;
@@ -54,14 +54,14 @@
     display: block;
     font-size: 24px;
     font-weight: 700;
-    color: var(--success-color);
+    color: var(--success);
 }
 
 .expenseAmount {
     display: block;
     font-size: 24px;
     font-weight: 700;
-    color: var(--danger-color);
+    color: var(--danger);
 }
 
 .addBtn {
@@ -69,8 +69,8 @@
     align-items: center;
     gap: 8px;
     padding: 12px 24px;
-    background: var(--primary-color);
-    color: white;
+    background: var(--accent);
+    color: var(--text-primary);
     border-radius: 8px;
     font-weight: 500;
     white-space: nowrap;
@@ -79,7 +79,7 @@
 .emptyState {
     text-align: center;
     padding: 60px 20px;
-    color: var(--text-light);
+    color: var(--text-secondary);
     font-size: 16px;
 }
 
@@ -90,7 +90,7 @@
 }
 
 .chargeCard {
-    background: var(--card-bg, white);
+    background: var(--bg-card);
     border-radius: 12px;
     box-shadow: var(--shadow);
     overflow: hidden;
@@ -102,6 +102,11 @@
 .chargeCard:hover {
     box-shadow: var(--shadow-lg);
     transform: translateY(-5px);
+}
+
+.chargeCard:active {
+    transform: translateY(-2px) scale(0.99);
+    transition-duration: 80ms;
 }
 
 .categoryStripe {
@@ -123,7 +128,7 @@
 .chargeHeader h3 {
     font-size: 18px;
     margin-bottom: 6px;
-    color: var(--text-dark);
+    color: var(--text-primary);
 }
 
 .category {
@@ -148,7 +153,7 @@
 }
 
 .editBtn {
-    color: var(--primary-color);
+    color: var(--accent);
 }
 
 .editBtn:hover {
@@ -156,7 +161,7 @@
 }
 
 .deleteBtn {
-    color: var(--danger-color);
+    color: var(--danger);
 }
 
 .deleteBtn:hover {
@@ -171,10 +176,10 @@
 
 .description {
     font-size: 14px;
-    color: var(--text-light);
+    color: var(--text-secondary);
     line-height: 1.5;
     padding: 12px;
-    background: var(--light-bg);
+    background: var(--bg-primary);
     border-radius: 8px;
     margin: 0;
 }
@@ -193,7 +198,7 @@
 
 .infoLabel {
     font-size: 11px;
-    color: var(--text-light);
+    color: var(--text-secondary);
     font-weight: 500;
     text-transform: uppercase;
 }
@@ -201,19 +206,19 @@
 .amount {
     font-size: 20px;
     font-weight: 700;
-    color: var(--danger-color);
+    color: var(--danger);
 }
 
 .frequency {
     font-size: 14px;
     font-weight: 600;
-    color: var(--text-dark);
+    color: var(--text-primary);
     text-transform: capitalize;
 }
 
 .date {
     font-size: 14px;
-    color: var(--text-dark);
+    color: var(--text-primary);
 }
 
 .status {
@@ -227,17 +232,17 @@
 
 .status.pending {
     background: rgba(245, 158, 11, 0.1);
-    color: var(--warning-color);
+    color: var(--warning);
 }
 
 .status.paid {
     background: rgba(16, 185, 129, 0.1);
-    color: var(--success-color);
+    color: var(--success);
 }
 
 .status.cancelled {
     background: rgba(107, 114, 128, 0.1);
-    color: var(--text-light);
+    color: var(--text-secondary);
 }
 
 @keyframes fadeIn {

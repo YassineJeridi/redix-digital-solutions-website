@@ -2,18 +2,18 @@
     flex: 0 0 340px;
     min-width: 340px;
     max-width: 340px;
-    background: var(--table-header-bg);
+    background: var(--bg-secondary);
     border-radius: 14px;
     display: flex;
     flex-direction: column;
     max-height: calc(100vh - 140px);
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--border);
     transition: box-shadow 0.2s, border-color 0.2s;
 }
 
 .columnOver {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 2px rgba(193, 45, 224, 0.15);
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px var(--accent-subtle);
 }
 
 /* Header */
@@ -37,7 +37,7 @@
 .headerTitle {
     font-size: 15px;
     font-weight: 700;
-    color: var(--text-dark);
+    color: var(--text-primary);
 }
 
 .count {
@@ -57,16 +57,16 @@
     align-items: center;
     justify-content: center;
     background: transparent;
-    color: var(--text-light);
-    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
     cursor: pointer;
     transition: all 0.2s;
 }
 
 .addBtn:hover {
-    background: var(--primary-color);
-    color: white;
-    border-color: var(--primary-color);
+    background: var(--accent);
+    color: var(--text-primary);
+    border-color: var(--accent);
     transform: none;
 }
 
@@ -84,7 +84,7 @@
     align-items: center;
     justify-content: center;
     background: transparent;
-    color: var(--text-light);
+    color: var(--text-secondary);
     border: none;
     cursor: pointer;
     opacity: 0;
@@ -129,7 +129,7 @@
 }
 
 .taskList::-webkit-scrollbar-thumb {
-    background: var(--border-color);
+    background: var(--border);
     border-radius: 10px;
 }
 
@@ -141,7 +141,7 @@
     justify-content: center;
     padding: 32px 16px;
     gap: 12px;
-    color: var(--text-light);
+    color: var(--text-secondary);
     font-size: 13px;
 }
 
@@ -154,14 +154,14 @@
     font-size: 13px;
     font-weight: 600;
     background: rgba(193, 45, 224, 0.08);
-    color: var(--primary-color);
-    border: 1px dashed rgba(193, 45, 224, 0.3);
+    color: var(--accent);
+    border: 1px dashed var(--shadow-accent);
     cursor: pointer;
     transition: all 0.2s;
 }
 
 .emptyAddBtn:hover {
-    background: rgba(193, 45, 224, 0.15);
+    background: var(--accent-subtle);
     border-style: solid;
     transform: none;
 }

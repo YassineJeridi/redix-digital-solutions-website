@@ -1,8 +1,9 @@
 // src/components/VideoShowcase/VideoShowcase.jsx
-// Interactive Video Slider — Single active video with directional navigation
+// Interactive Video Slider — Inline playback (no modal)
 import { useState, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaPlay, FaTimes, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { FaPlay, FaPause, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { useTranslation } from 'react-i18next';
 import { videoProjects } from '../../data/videoShowcase';
 import styles from './VideoShowcase.module.css';
 
@@ -10,21 +11,40 @@ const VideoShowcase = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
   const [playing, setPlaying] = useState(false);
-  const modalVideoRef = useRef(null);
+  const inlineVideoRef = useRef(null);
+  const { t } = useTranslation();
 
   const total = videoProjects.length;
   const current = videoProjects[currentIndex];
 
+  const stopVideo = useCallback(() => {
+    if (inlineVideoRef.current) {
+      inlineVideoRef.current.pause();
+      inlineVideoRef.current.currentTime = 0;
+    }
+    setPlaying(false);
+  }, []);
+
   const go = useCallback((dir) => {
+    stopVideo();
     setDirection(dir);
     setCurrentIndex((prev) => (prev + dir + total) % total);
-  }, [total]);
+  }, [total, stopVideo]);
 
-  const openPlayer = () => setPlaying(true);
+  const togglePlay = () => {
+    if (playing) {
+      if (inlineVideoRef.current) inlineVideoRef.current.pause();
+      setPlaying(false);
+    } else {
+      setPlaying(true);
+    }
+  };
 
-  const closePlayer = () => {
-    if (modalVideoRef.current) modalVideoRef.current.pause();
-    setPlaying(false);
+  const handleVideoReady = (el) => {
+    if (el) {
+      inlineVideoRef.current = el;
+      el.play().catch(() => {});
+    }
   };
 
   // Slide animation variants
@@ -62,11 +82,11 @@ const VideoShowcase = () => {
           transition={{ duration: 0.5 }}
         >
           <span className={styles.badge}>
-            <FaPlay /> Portfolio
+            <FaPlay /> {t('videoShowcase.badge')}
           </span>
-          <h2 className={styles.title}>Our Creative Work</h2>
+          <h2 className={styles.title}>{t('videoShowcase.title')}</h2>
           <p className={styles.subtitle}>
-            Stunning video content that captivates audiences and elevates brands
+            {t('videoShowcase.subtitle')}
           </p>
         </motion.div>
 
@@ -76,14 +96,14 @@ const VideoShowcase = () => {
           <button
             className={`${styles.navArrow} ${styles.navLeft}`}
             onClick={() => go(-1)}
-            aria-label="Previous video"
+            aria-label={t('videoShowcase.prevVideo')}
           >
             <FaChevronLeft />
           </button>
 
-          {/* Main Video Card */}
+          {/* Main Video Card — Inline Playback */}
           <div className={`${styles.stage} ${isReel ? styles.stageReel : styles.stageLandscape}`}>
-            <AnimatePresence initial={false} custom={direction} mode="wait">
+            <AnimatePresence initial={false} custom={direction} mode="wait" onExitComplete={stopVideo}>
               <motion.div
                 key={current.id}
                 className={`${styles.videoCard} ${isReel ? styles.reelCard : styles.landscapeCard}`}
@@ -92,29 +112,53 @@ const VideoShowcase = () => {
                 initial="enter"
                 animate="center"
                 exit="exit"
-                onClick={openPlayer}
               >
-                {/* Thumbnail */}
-                <img
-                  src={current.thumbnailUrl}
-                  alt={current.title}
-                  className={styles.thumb}
-                  draggable={false}
-                />
+                {playing ? (
+                  <>
+                    {/* Inline Video */}
+                    <video
+                      ref={handleVideoReady}
+                      src={current.videoUrl}
+                      controls
+                      autoPlay
+                      playsInline
+                      className={styles.inlineVideo}
+                      onEnded={() => setPlaying(false)}
+                    />
+                    {/* Play/Pause Toggle Overlay */}
+                    <button
+                      className={styles.inlineToggle}
+                      onClick={togglePlay}
+                      aria-label={t('videoShowcase.pauseVideo')}
+                    >
+                      <FaPause />
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    {/* Thumbnail */}
+                    <img
+                      src={current.thumbnailUrl}
+                      alt={current.title}
+                      className={styles.thumb}
+                      draggable={false}
+                    />
 
-                {/* Play overlay */}
-                <div className={styles.playOverlay}>
-                  <div className={styles.playCircle}>
-                    <FaPlay />
-                  </div>
-                </div>
+                    {/* Play overlay — click to play inline */}
+                    <div className={styles.playOverlay} onClick={togglePlay}>
+                      <div className={styles.playCircle}>
+                        <FaPlay />
+                      </div>
+                    </div>
 
-                {/* Info bar */}
-                <div className={styles.cardInfo}>
-                  <span className={styles.category}>{current.category}</span>
-                  <h3 className={styles.cardTitle}>{current.title}</h3>
-                  <p className={styles.cardClient}>{current.client} &middot; {current.duration}</p>
-                </div>
+                    {/* Info bar */}
+                    <div className={styles.cardInfo}>
+                      <span className={styles.category}>{current.category}</span>
+                      <h3 className={styles.cardTitle}>{current.title}</h3>
+                      <p className={styles.cardClient}>{current.client} &middot; {current.duration}</p>
+                    </div>
+                  </>
+                )}
               </motion.div>
             </AnimatePresence>
           </div>
@@ -123,7 +167,7 @@ const VideoShowcase = () => {
           <button
             className={`${styles.navArrow} ${styles.navRight}`}
             onClick={() => go(1)}
-            aria-label="Next video"
+            aria-label={t('videoShowcase.nextVideo')}
           >
             <FaChevronRight />
           </button>
@@ -135,7 +179,11 @@ const VideoShowcase = () => {
             <button
               key={v.id}
               className={`${styles.dot} ${i === currentIndex ? styles.dotActive : ''}`}
-              onClick={() => { setDirection(i > currentIndex ? 1 : -1); setCurrentIndex(i); }}
+              onClick={() => {
+                stopVideo();
+                setDirection(i > currentIndex ? 1 : -1);
+                setCurrentIndex(i);
+              }}
               aria-label={`Go to ${v.title}`}
             />
           ))}
@@ -148,49 +196,6 @@ const VideoShowcase = () => {
           <span className={styles.counterTotal}>{String(total).padStart(2, '0')}</span>
         </div>
       </div>
-
-      {/* Fullscreen Video Modal */}
-      <AnimatePresence>
-        {playing && (
-          <motion.div
-            className={styles.modal}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={closePlayer}
-          >
-            <motion.div
-              className={styles.modalContent}
-              initial={{ scale: 0.88, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.88, opacity: 0 }}
-              transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
-              onClick={(e) => e.stopPropagation()}
-            >
-              <button className={styles.closeBtn} onClick={closePlayer}>
-                <FaTimes />
-              </button>
-
-              <div className={`${styles.modalVideoWrap} ${isReel ? styles.modalReel : ''}`}>
-                <video
-                  ref={modalVideoRef}
-                  src={current.videoUrl}
-                  controls
-                  autoPlay
-                  playsInline
-                  className={styles.modalVideo}
-                />
-              </div>
-
-              <div className={styles.modalInfo}>
-                <span className={styles.modalCategory}>{current.category}</span>
-                <h3 className={styles.modalTitle}>{current.title}</h3>
-                <p className={styles.modalDesc}>{current.description}</p>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </section>
   );
 };

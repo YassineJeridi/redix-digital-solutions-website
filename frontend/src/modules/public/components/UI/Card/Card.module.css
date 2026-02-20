@@ -9,13 +9,17 @@
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   box-shadow: var(--card-shadow);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform var(--anim-smooth) var(--ease-smooth), border-color var(--anim-smooth) var(--ease-smooth), box-shadow var(--anim-smooth) var(--ease-smooth);
 }
 
 .hoverable:hover {
-  transform: translateY(-6px);
+  transform: translateY(-4px);
   border-color: var(--glass-border-hover);
   box-shadow: var(--card-shadow-hover);
+}
+
+.hoverable:active {
+  transform: translateY(-2px) scale(0.99);
 }
 
 .clickable {

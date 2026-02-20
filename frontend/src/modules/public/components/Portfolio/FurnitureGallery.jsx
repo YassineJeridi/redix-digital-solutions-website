@@ -1,6 +1,7 @@
 // src/components/Portfolio/FurnitureGallery.jsx
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useScrollLock } from '../../../../hooks/useScrollLock';
 import { FaPlay, FaImage, FaTimes, FaCouch, FaEye, FaHeart, FaExpand } from 'react-icons/fa';
 import { furniturePhotos, furnitureVideos } from '../../data/portfolioData';
 import styles from './PortfolioGallery.module.css';
@@ -8,6 +9,8 @@ import styles from './PortfolioGallery.module.css';
 const FurnitureGallery = () => {
   const [activeTab, setActiveTab] = useState('videos');
   const [selectedMedia, setSelectedMedia] = useState(null);
+
+  useScrollLock(!!selectedMedia);
 
   const containerVariants = {
     hidden: { opacity: 0 },

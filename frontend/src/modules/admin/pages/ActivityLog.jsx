@@ -93,7 +93,7 @@ const ActivityLog = () => {
 
     const getEntityColor = (type) => {
         switch (type) {
-            case 'Project': return '#8b5cf6';
+            case 'Service': return '#8b5cf6';
             case 'Client': return '#06b6d4';
             case 'Tool': return '#f59e0b';
             case 'TeamMember': return '#10b981';
@@ -181,7 +181,7 @@ const ActivityLog = () => {
                     <MdFilterList />
                     <select value={filters.entityType} onChange={(e) => { setFilters({ ...filters, entityType: e.target.value }); setPage(1); }}>
                         <option value="">All Types</option>
-                        <option value="Project">Project</option>
+                        <option value="Project">Service</option>
                         <option value="Client">Client</option>
                         <option value="Tool">Tool</option>
                         <option value="TeamMember">Team Member</option>

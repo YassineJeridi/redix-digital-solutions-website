@@ -7,8 +7,8 @@
     top: 0;
     height: 100vh;
     width: 260px;
-    background: #1a1a2e;
-    color: white;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
     padding: 0;
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 100;
@@ -16,7 +16,7 @@
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
-    border-right: 1px solid rgba(255, 255, 255, 0.06);
+    border-right: 1px solid var(--border-subtle);
 }
 
 /* Custom scrollbar */
@@ -27,7 +27,7 @@
     background: transparent;
 }
 .sidebar::-webkit-scrollbar-thumb {
-    background: rgba(193, 45, 224, 0.3);
+    background: var(--shadow-accent);
     border-radius: 4px;
 }
 
@@ -43,7 +43,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 20px 20px 16px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 1px solid var(--border-subtle);
     flex-shrink: 0;
 }
 
@@ -57,14 +57,14 @@
     width: 36px;
     height: 36px;
     border-radius: 10px;
-    background: linear-gradient(135deg, #c12de0, #7817b6);
+    background: linear-gradient(135deg, var(--accent), var(--accent-dark));
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 18px;
     font-weight: 800;
     flex-shrink: 0;
-    box-shadow: 0 4px 12px rgba(193, 45, 224, 0.35);
+    box-shadow: 0 4px 12px var(--shadow-accent);
 }
 
 .logo h2 {
@@ -86,8 +86,8 @@
     transition: all 0.2s;
 }
 .closeBtn:hover {
-    color: white;
-    background: rgba(255, 255, 255, 0.08);
+    color: var(--text-primary);
+    background: var(--border-subtle);
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -140,12 +140,12 @@
 }
 
 .navItem:hover {
-    background: rgba(255, 255, 255, 0.06);
+    background: var(--border-subtle);
     color: rgba(255, 255, 255, 0.9);
 }
 
 .navItem.active {
-    background: rgba(193, 45, 224, 0.15);
+    background: var(--accent-subtle);
     color: #fff;
 }
 
@@ -186,7 +186,7 @@
    ═══════════════════════════════════════════════════════ */
 .sidebarFooter {
     padding: 12px;
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    border-top: 1px solid var(--border-subtle);
     margin-top: auto;
     flex-shrink: 0;
 }
@@ -198,14 +198,14 @@
     padding: 8px 10px;
     margin-bottom: 6px;
     border-radius: 10px;
-    background: rgba(255, 255, 255, 0.04);
+    background: var(--border-subtle);
 }
 
 .userAvatar {
     width: 34px;
     height: 34px;
     border-radius: 9px;
-    background: linear-gradient(135deg, #c12de0, #7817b6);
+    background: linear-gradient(135deg, var(--accent), var(--accent-dark));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -240,8 +240,8 @@
     gap: 10px;
     width: 100%;
     padding: 9px 14px;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: var(--border-subtle);
+    border: 1px solid var(--border-subtle);
     border-radius: 10px;
     color: rgba(255, 255, 255, 0.5);
     font-size: 13px;
@@ -268,7 +268,7 @@
    ═══════════════════════════════════════════════════════ */
 :global([data-theme='dark']) .sidebar {
     background: #111119;
-    border-right-color: rgba(255, 255, 255, 0.04);
+    border-right-color: var(--border-subtle);
 }
 
 /* ═══════════════════════════════════════════════════════
